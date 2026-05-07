@@ -4,21 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "d84f46f0bd7b0d8e",
+        "id": "a1bbd147d5fc4fdb",
         "type": "tabs",
         "children": [
           {
-            "id": "fcf2d194038926af",
+            "id": "2cc7f84201efc677",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md",
-                "mode": "source",
-                "source": false
+                "file": "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260508000750.png"
               },
-              "icon": "lucide-file",
-              "title": "02-LangChain使用之Model IO"
+              "icon": "lucide-image",
+              "title": "Pasted image 20260508000750"
             }
           }
         ]
@@ -78,7 +76,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 505.5
   },
   "right": {
     "id": "a6eaa6e96e4aee1d",
@@ -95,7 +93,7 @@
               "type": "backlink",
               "state": {
                 "file": "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md",
-                "collapseAll": false,
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -155,20 +153,21 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md",
+                "file": "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260508000750.png",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "02-LangChain使用之Model IO 的大纲"
+              "title": "Pasted image 20260508000750 的大纲"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 359.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -181,30 +180,36 @@
       "bases:新建数据库": false
     }
   },
-  "active": "fcf2d194038926af",
+  "active": "e73589ceab2c5269",
   "lastOpenFiles": [
-    "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md.tmp.20284.1778148001437",
-    "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md.tmp.20284.1778147995738",
-    "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md.tmp.20284.1778147987675",
-    "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md.tmp.20284.1778147981391",
-    "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md.tmp.20284.1778147973171",
-    "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md.tmp.20284.1778147962120",
-    "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md.tmp.20284.1778147953700",
-    "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md.tmp.20284.1778147943759",
-    "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md.tmp.20284.1778147938756",
-    "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md.tmp.20284.1778147928634",
-    "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md.tmp.20284.1778147912444",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507155753.png",
-    "Pasted image 20260507173942.png",
+    "AI尚硅谷/大模型应用实战/LangChain/06-LangChain使用之Agents.md",
+    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260508000813.png",
+    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260508000803.png",
+    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260508000750.png",
+    "AI尚硅谷/大模型应用实战/LangChain/07-LangChain使用之Retrieval.docx",
     "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md",
+    "AI尚硅谷/大模型应用实战/LangChain/~$-LangChain使用之Agents.docx",
+    "AI尚硅谷/大模型应用实战/LangChain/未命名.md",
+    "AI尚硅谷/大模型应用实战/LangChain/05-LangChain使用之Tools.md",
+    "AI尚硅谷/大模型应用实战/LangChain/06-LangChain使用之Agents.docx",
+    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507231135.png",
+    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507231342.png",
+    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507231320.png",
+    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507231306.png",
+    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507231144.png",
+    "AI尚硅谷/大模型应用实战/LangChain/~$-LangChain使用之Tools.docx",
+    "AI尚硅谷/大模型应用实战/LangChain/04-LangChain使用之Memory.md",
+    "AI尚硅谷/大模型应用实战/LangChain/05-LangChain使用之Tools.docx",
+    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507225332.png",
+    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507225807.png",
+    "AI尚硅谷/大模型应用实战/LangChain/~$-LangChain使用之Memory.docx",
+    "AI尚硅谷/大模型应用实战/LangChain/03-LangChain使用之Chains.md",
+    "AI尚硅谷/大模型应用实战/LangChain/04-LangChain使用之Memory.docx",
     "README.md",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507165841.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507165236.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507165232.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507165149.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507164958.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507164931.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507164859.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507164842.png"
+    "AI尚硅谷/大模型应用实战/LangChain/03-LangChain使用之Chains.docx",
+    "images/Pasted.md",
+    "AI尚硅谷/大模型应用实战/LangChain/test.md",
+    "images",
+    "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md.tmp.20284.1778148001437"
   ]
 }
