@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "a1bbd147d5fc4fdb",
+        "id": "daf04db4a008548d",
         "type": "tabs",
         "children": [
           {
-            "id": "2cc7f84201efc677",
+            "id": "ae4f173be3e1d3e0",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260508000750.png"
+                "file": "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/尚硅谷-Java+大模型应用-硅谷小智（医疗版）.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20260508000750"
+              "icon": "lucide-file",
+              "title": "尚硅谷-Java+大模型应用-硅谷小智（医疗版）"
             }
           }
         ]
@@ -153,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260508000750.png",
+                "file": "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/尚硅谷-Java+大模型应用-硅谷小智（医疗版）.md",
                 "followCursor": false,
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Pasted image 20260508000750 的大纲"
+              "title": "尚硅谷-Java+大模型应用-硅谷小智（医疗版） 的大纲"
             }
           }
         ],
@@ -180,36 +182,43 @@
       "bases:新建数据库": false
     }
   },
-  "active": "e73589ceab2c5269",
+  "active": "ead645e3c2199418",
   "lastOpenFiles": [
-    "AI尚硅谷/大模型应用实战/LangChain/06-LangChain使用之Agents.md",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260508000813.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260508000803.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260508000750.png",
-    "AI尚硅谷/大模型应用实战/LangChain/07-LangChain使用之Retrieval.docx",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/~$谷-Java+大模型应用-硅谷小智（医疗版）.docx",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/未命名.md",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/尚硅谷-Java+大模型应用-硅谷小智（医疗版）.md",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/未命名.canvas",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/尚硅谷-Java+大模型应用-硅谷小智（医疗版）.docx",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/images/1-阿里云百炼免费体验.png",
+    "AI尚硅谷/大模型应用实战/LangChain/01-LangChain使用概述.md",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/images/v2-db52b20a89a5dc3bde66da11691a7438_1440w.jpg",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/images/v2-b88f750dc797da4f9cc45da0fdd482dc_1440w.jpg",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/images/v2-55c2f61aceb86313711d50a5e6e9f8fd_1440w.jpg",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/images/rag-retrieval-f525d2937abc08fed5cec36a7f08a4c3.png",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/images/image-20250411235025737.png",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/images/image-20250411234653550.png",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/images/image-20250411231816423.png",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/images/image-20250411223705047.png",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/images/image-20250411220815183.png",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/images",
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）",
+    "AI尚硅谷/大模型应用实战/LangChain/07-LangChain使用之Retrieval.md",
     "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md",
-    "AI尚硅谷/大模型应用实战/LangChain/~$-LangChain使用之Agents.docx",
+    "AI尚硅谷/大模型应用实战/LangChain/第01章：LangChain使用概述.md.crdownload",
+    "AI尚硅谷/大模型应用实战/LangChain/03-LangChain使用之Chains.md",
+    "AI尚硅谷/大模型应用实战/LangChain/04-LangChain使用之Memory.md",
+    "README.md",
     "AI尚硅谷/大模型应用实战/LangChain/未命名.md",
+    "AI尚硅谷/大模型应用实战/LangChain/07-LangChain使用之Retrieval.docx.md",
+    "AI尚硅谷/大模型应用实战/LangChain/06-LangChain使用之Agents.md",
+    "AI尚硅谷/大模型应用实战/LangChain/07-LangChain使用之Retrieval.docx",
+    "AI尚硅谷/大模型应用实战/LangChain/~$-LangChain使用之Agents.docx",
     "AI尚硅谷/大模型应用实战/LangChain/05-LangChain使用之Tools.md",
     "AI尚硅谷/大模型应用实战/LangChain/06-LangChain使用之Agents.docx",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507231135.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507231342.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507231320.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507231306.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507231144.png",
     "AI尚硅谷/大模型应用实战/LangChain/~$-LangChain使用之Tools.docx",
-    "AI尚硅谷/大模型应用实战/LangChain/04-LangChain使用之Memory.md",
     "AI尚硅谷/大模型应用实战/LangChain/05-LangChain使用之Tools.docx",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507225332.png",
-    "AI尚硅谷/大模型应用实战/LangChain/images/Pasted image 20260507225807.png",
     "AI尚硅谷/大模型应用实战/LangChain/~$-LangChain使用之Memory.docx",
-    "AI尚硅谷/大模型应用实战/LangChain/03-LangChain使用之Chains.md",
-    "AI尚硅谷/大模型应用实战/LangChain/04-LangChain使用之Memory.docx",
-    "README.md",
-    "AI尚硅谷/大模型应用实战/LangChain/03-LangChain使用之Chains.docx",
     "images/Pasted.md",
-    "AI尚硅谷/大模型应用实战/LangChain/test.md",
-    "images",
-    "AI尚硅谷/大模型应用实战/LangChain/02-LangChain使用之Model IO.md.tmp.20284.1778148001437"
+    "AI尚硅谷/大模型应用实战/LangChain/test.md"
   ]
 }

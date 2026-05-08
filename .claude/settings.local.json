@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python *)",
+      "Bash(ls -la /d)",
+      "Bash(mkdir -p /d/ssh)",
+      "Bash(cp -f __TRACKED_VAR__/.ssh/id_rsa /d/ssh/id_rsa)",
+      "Bash(cp -f __TRACKED_VAR__/.ssh/id_rsa.pub /d/ssh/id_rsa.pub)",
+      "Bash(cp -f __TRACKED_VAR__/.ssh/known_hosts /d/ssh/known_hosts)",
+      "Bash(git push *)",
+      "Bash(git config *)",
+      "Bash(ssh -T git@github.com)",
+      "Bash(ssh -T git@github.com -o IdentitiesOnly=yes -i /d/ssh/id_rsa -o UserKnownHostsFile=/d/ssh/known_hosts -o StrictHostKeyChecking=accept-new)",
+      "WebFetch(domain:my.feishu.cn)",
+      "Bash(PYTHONIOENCODING=utf-8 python *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
