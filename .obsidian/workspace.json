@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/尚硅谷-Java+大模型应用-硅谷小智（医疗版）.md",
+                "file": "AI尚硅谷/大模型应用实战/LangChain/01-LangChain使用概述.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "尚硅谷-Java+大模型应用-硅谷小智（医疗版）"
+              "title": "01-LangChain使用概述"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 505.5
+    "width": 292.5
   },
   "right": {
     "id": "a6eaa6e96e4aee1d",
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/尚硅谷-Java+大模型应用-硅谷小智（医疗版）.md",
+                "file": "AI尚硅谷/大模型应用实战/LangChain/01-LangChain使用概述.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "尚硅谷-Java+大模型应用-硅谷小智（医疗版） 的大纲"
+              "title": "01-LangChain使用概述 的大纲"
             }
           }
         ],
@@ -169,7 +169,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 359.5
+    "width": 257.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -182,11 +182,11 @@
       "bases:新建数据库": false
     }
   },
-  "active": "ead645e3c2199418",
+  "active": "ae4f173be3e1d3e0",
   "lastOpenFiles": [
+    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/尚硅谷-Java+大模型应用-硅谷小智（医疗版）.md",
     "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/~$谷-Java+大模型应用-硅谷小智（医疗版）.docx",
     "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/未命名.md",
-    "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/尚硅谷-Java+大模型应用-硅谷小智（医疗版）.md",
     "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/未命名.canvas",
     "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/尚硅谷-Java+大模型应用-硅谷小智（医疗版）.docx",
     "AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/images/1-阿里云百炼免费体验.png",
@@ -217,7 +217,6 @@
     "AI尚硅谷/大模型应用实战/LangChain/06-LangChain使用之Agents.docx",
     "AI尚硅谷/大模型应用实战/LangChain/~$-LangChain使用之Tools.docx",
     "AI尚硅谷/大模型应用实战/LangChain/05-LangChain使用之Tools.docx",
-    "AI尚硅谷/大模型应用实战/LangChain/~$-LangChain使用之Memory.docx",
     "images/Pasted.md",
     "AI尚硅谷/大模型应用实战/LangChain/test.md"
   ]
