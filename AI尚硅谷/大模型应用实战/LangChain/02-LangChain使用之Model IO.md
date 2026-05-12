@@ -27,8 +27,8 @@ LangChain 作为一个"工具"，不提供任何 LLMs，而是依赖于第三方
 #### 角度1：按照模型功能的不同
 
 - **非对话模型（LLMs、Text Model）**
-- **对话模型（Chat Models）**（推荐）
-- **嵌入模型（Embedding Models）**（暂不考虑）
+- **对话模型（Chat Models）**（`推荐`）
+- **嵌入模型（Embedding Models）**（`暂不考虑`）
 
 #### 角度2：模型调用时，几个重要参数的书写位置的不同
 
@@ -100,7 +100,8 @@ ChatModels，也叫聊天模型、对话模型，底层使用 LLMs。
 主要特点如下：
 
 - **输入**：接收消息列表 `List[BaseMessage]` 或 PromptValue，每条消息需指定角色（如 SystemMessage、HumanMessage、AIMessage）
-- **输出**：总是返回带角色的消息对象（BaseMessage 子类），通常是 AIMessage
+- **输出**：总是返回带角色的消息对象（BaseMessage 子类），通常是 `AIMessage`
+
 ![](<images/Pasted image 20260507163050.png>)
 - 原生支持多轮对话。通过消息列表维护上下文（例如：`[SystemMessage, HumanMessage, AIMessage, ...]`），模型可基于完整对话历史生成回复。
 - **适用场景**：对话系统（如客服机器人、长期交互的 AI 助手）
@@ -686,11 +687,13 @@ print(response.json())
 - 榜单已被应试教育污染，还算值得相信的榜单：[LMSYS Chatbot Arena Leaderboard](https://lmarena.ai/leaderboard)
 - 榜单体现的是整体能力，放到一份具体事情上，排名低的可能反倒更好
 - 榜单体现不出成本差异
-- 本课程主要以 OpenAI 为例展开后续的课程。因为：
-  1. OpenAI 最流行，即便是国内也是最多
-  2. OpenAI 最先进。别的模型有的能力，OpenAI 一定都有。OpenAI 有的，别的模型不一定有。
-  3. 其他模型都在追赶和模仿 OpenAI（gpt-4o-mini）
-- 学会 OpenAI，其他模型触类旁通。反之，不行。
+
+**本课程主要以 OpenAI 为例展开后续的课程**。因为：
+1. OpenAI 最流行，即便是国内也是最多
+2. OpenAI 最先进。别的模型有的能力，OpenAI 一定都有。OpenAI 有的，别的模型不一定有。
+3. 其他模型都在追赶和模仿 OpenAI（gpt-4o-mini）
+
+>学会 OpenAI，其他模型触类旁通。反之，不一定。
 
 #### 2.5.2 小结：获取大模型的标准方式
 
@@ -766,6 +769,21 @@ print(messages)
 ```python
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 
+messages = [
+    SystemMessage(content=["你是一个数学家,会回答数学问题", "每次你都能给出详细的答案"]),
+    HumanMessage(content="1 + 2 * 3 = ?"),
+    AIMessage(content="1 + 2 * 3 的结果是7"),
+]
+
+print(messages)
+```
+
+**举例3：**
+```python
+# 1.导入相关包
+from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+
+# 2.直接创建不同类型消息
 messages = [
     SystemMessage(content=["你是一个数学家,会回答数学问题", "每次你都能给出详细的答案"]),
     HumanMessage(content="1 + 2 * 3 = ?"),
