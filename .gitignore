@@ -2,3 +2,10 @@
 *.docx
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
+
+# Claude Code 本地配置（含权限/SSH等敏感信息，不上传）
+.claude/settings.local.json
+# Claude Code 临时产物（一次性脚本、草稿、中间文件）
+.claude/*.py
+.claude/agents_draft.md
+.claude/agents_docx_extracted.txt
