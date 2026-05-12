@@ -406,7 +406,7 @@ print(response.choices[0])
 开发参考文档[https://cloud.baidu.com/doc/qianfan-docs/s/Mm8r1mejk](https://cloud.baidu.com/doc/qianfan-docs/s/Mm8r1mejk)
 获取 API Key 和 App ID
 创建API Key：[https://console.bce.baidu.com/qianfan/ais/console/apiKey](https://console.bce.baidu.com/qianfan/ais/console/apiKey)
-创建App ID：[https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/applicatio](https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application/v2) [n/v2](https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application/v2)
+创建App ID：[https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application/v2](https://console.bce.baidu.com/qianfan/ais/console/applicationConsole/application/v2) 
 **代码举例：**
 ```python
 from openai import OpenAI
