@@ -9,3 +9,5 @@
 .claude/*.py
 .claude/agents_draft.md
 .claude/agents_docx_extracted.txt
+# 项目说明文件需纳入版本管理
+!.claude/claude.md
