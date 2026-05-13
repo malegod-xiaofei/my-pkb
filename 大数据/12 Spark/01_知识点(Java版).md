@@ -48,6 +48,8 @@ RDD类比工厂生产。
 </dependencies>
 
 - 如果不希望运行时打印大量日志，可以在resources文件夹中添加log4j2.properties文件，并添加日志配置信息
+```
+
 # Set everything to be logged to the console
 
 rootLogger.level = ERROR
@@ -137,7 +139,7 @@ appender.console.filter.1.type = RegexFilter
 appender.console.filter.1.regex = .*Thrift error occurred during processing of message.*
 
 appender.console.filter.1.onMatch = deny appender.console.filter.1.onMismatch = neutral
-
+```
 ### 2.1.2 创建IDEA快捷键
 
 - 点击File->Settings…->Editor->Live Templates->output->Live Template
@@ -186,7 +188,7 @@ sc.stop();
 ![图片28.png](images/图片28.png)
 
 如果出现这个问题，是因为windows上面的hadoop权限不够。
-
+```
 Exception in thread "main" java.lang.UnsatisfiedLinkError: org.apache.hadoop.io.nativeio.NativeIO$Windows.access0(Ljava/lang/String;I)Z
 
 at org.apache.hadoop.io.nativeio.NativeIO$Windows.access0(Native Method)
@@ -204,7 +206,7 @@ at org.apache.hadoop.fs.FileSystem.listStatus(FileSystem.java:1868)
 at org.apache.hadoop.fs.FileSystem.listStatus(FileSystem.java:1910)
 
 at org.apache.hadoop.fs.FileSystem$4.<init>(FileSystem.java:2072)
-
+```
 解决方法是把安装在windows上面的hadoop的bin文件夹中的hadoop.dll复制到C:\Windows\System32文件夹中。
 
 ![图片29.png](images/图片29.png)
@@ -214,6 +216,7 @@ at org.apache.hadoop.fs.FileSystem$4.<init>(FileSystem.java:2072)
 ### 2.1.4 从集合中创建
 
 - 从集合中创建RDD：parallelize
+```java
 package com.atguigu.createrdd;
 
 import org.apache.spark.SparkConf;
@@ -257,7 +260,7 @@ sc.stop();
 }
 
 }
-
+```
 ### 2.1.5 从外部存储系统的数据集创建
 
 由外部存储系统的数据集创建RDD包括：本地的文件系统，还有所有Hadoop支持的数据集，比如HDFS、HBase等。
@@ -266,6 +269,7 @@ sc.stop();
 在新建的SparkCore项目名称上右键=》新建input文件夹=》在input文件夹上右键=》分别新建1.txt和2.txt。每个文件里面准备一些word单词。
 
 - 创建RDD
+```java
 package com.atguigu.createrdd;
 
 import org.apache.spark.SparkConf;
@@ -307,7 +311,7 @@ sc.stop();
 }
 
 }
-
+```
 ### 2.1.6 从其他RDD创建
 
 主要是通过一个RDD运算完后，再产生新的RDD。
@@ -320,6 +324,7 @@ sc.stop();
 
 - 创建一个包名：com.atguigu.partition
 - 代码验证
+```java
 package com.atguigu.partition;
 
 import org.apache.spark.SparkConf;
@@ -369,10 +374,11 @@ sc.stop();
 }
 
 }
-
+```
 ### 2.2.2 从文件创建RDD
 
 - 分区测试
+```java
 package com.atguigu.partition;
 
 import org.apache.spark.SparkConf;
@@ -430,7 +436,7 @@ sc.stop();
 }
 
 }
-
+```
 - 分区源码
 注意：getSplits文件返回的是切片规划，真正读取是在compute方法中创建LineRecordReader读取的，有两个关键变量： start = split.getStart()   end = start + split.getLength
 
@@ -451,6 +457,7 @@ sc.stop();
 参数f是一个函数可以写作匿名子类，它可以接收一个参数。当某个RDD执行map方法时，会遍历该RDD中的每一个数据项，并依次应用f函数，从而产生一个新的RDD。即，这个新RDD中的每一个元素都是原来RDD中每一个元素依次应用f函数而得到的。
 
 - 具体实现
+```java
 package com.atguigu.value;
 
 import org.apache.spark.SparkConf;
@@ -516,7 +523,7 @@ sc.stop();
 }
 
 }
-
+```
 #### 2.3.1.2 flatMap()扁平化
 
 - 功能说明
@@ -528,6 +535,7 @@ sc.stop();
 ![图片31.png](images/图片31.png)
 
 - 具体实现：
+```java
 package com.atguigu.value;
 
 import org.apache.commons.collections.ListUtils;
@@ -615,12 +623,13 @@ sc.stop();
 }
 
 }
-
+```
 #### 2.3.1.3 groupBy()分组
 
 - 功能说明：分组，按照传入函数的返回值进行分组。将相同的key对应的值放入一个迭代器。
 - 需求说明：创建一个RDD，按照元素模以2的值进行分组。
 - 具体实现
+```java
 package com.atguigu.value;
 
 import org.apache.spark.SparkConf;
@@ -692,7 +701,7 @@ sc.stop();
 }
 
 }
-
+```
 - groupBy会存在shuffle过程
 - shuffle：将不同的分区数据进行打乱重组的过程
 - shuffle一定会落盘。可以在local模式下执行程序，通过4040看效果。
@@ -705,6 +714,7 @@ sc.stop();
 ![图片32.png](images/图片32.png)
 
 - 代码实现
+```java
 package com.atguigu.value;
 
 import org.apache.spark.SparkConf;
@@ -754,11 +764,12 @@ sc.stop();
 }
 
 }
-
+```
 #### 2.3.1.5 distinct()去重
 
 - 功能说明：对内部的元素去重，并将去重后的元素放到新的RDD中。
 - 代码实现
+```java
 package com.atguigu.value;
 
 import org.apache.spark.SparkConf;
@@ -798,7 +809,7 @@ sc.stop();
 }
 
 }
-
+```
 注意：distinct会存在shuffle过程。
 
 #### 2.3.1.6 sortBy()排序
@@ -810,6 +821,7 @@ sc.stop();
 ![图片33.png](images/图片33.png)
 
 - 代码实现：
+```java
 package com.atguigu.value;
 
 import org.apache.spark.SparkConf;
@@ -861,7 +873,7 @@ sc.stop();
 }
 
 }
-
+```
 ### 2.3.2 Key-Value类型
 
 - 创建包名：com.atguigu.keyvalue

@@ -265,9 +265,11 @@ appender.console.filter.1.onMatch = deny appender.console.filter.1.onMismatch = 
 ```
 
 - 启动生产者生产数据
+```bash
 [atguigu@hadoop102 ~]$ kafka-console-producer.sh --broker-list hadoop102:9092 --topic topicA
 
 hello spark
+```
 
 - 在Idea控制台输出如下内容
 -------------------------------------------
@@ -449,9 +451,11 @@ javaStreamingContext.awaitTermination();
 ```
 
 - 测试
+```bash
 [atguigu@hadoop102 ~]$ kafka-console-producer.sh --broker-list hadoop102:9092 --topic topicA
 
 hello spark
+```
 
 - 如果有多批数据进入窗口，最终也会通过window操作变成统一的RDD处理。
 ![图片11.png](images/图片11.png)
@@ -584,9 +588,11 @@ javaStreamingContext.awaitTermination();
 ```
 
 - 测试
+```bash
 [atguigu@hadoop102 ~]$ kafka-console-producer.sh --broker-list hadoop102:9092 --topic topicA
 
 hello spark
+```
 
 # 4 DStream输出
 
@@ -944,11 +950,15 @@ e.printStackTrace();
 
 - 测试
   - 发送数据
+```bash
 [atguigu@hadoop102 ~]$ kafka-console-producer.sh --broker-list hadoop102:9092 --topic topicA
 
 hello spark
+```
 
   - 启动Hadoop集群
+```bash
 [atguigu@hadoop102 hadoop-3.1.3]$ sbin/start-dfs.sh
 
 [atguigu@hadoop102 hadoop-3.1.3]$ hadoop fs -mkdir /stopSpark
+```
