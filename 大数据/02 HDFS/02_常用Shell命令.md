@@ -7,7 +7,7 @@ hadoop fs 具体命令    OR    hdfs dfs 具体命令
 两个是完全相同的。
 
 ## 1.2 命令大全
-```
+```json
 
 [atguigu@hadoop102hadoop-3.1.3]$ bin/hadoop fs
 

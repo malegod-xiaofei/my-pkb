@@ -7,7 +7,7 @@
   - 在Plugins中下载Lombok插件
   - 添加pom文件
 
-```
+```xml
 <!--配置 JavaBean-->
 <dependency>
     <groupId>org.projectlombok</groupId>

@@ -172,7 +172,7 @@ OS name: "linux", version: "3.10.0-862.el7.x86_64", arch: "amd64", family: "unix
 
 ![图片107.png](images/图片107.png)
 
-### 2.3.2 修改并编译Hive源码
+## 2.3.2 修改并编译Hive源码
 
 - 在IDEA中新建项目拉取Hive源码
 Hive源码的远程仓库地址：

@@ -101,7 +101,7 @@ this.bookName = bookName;
 
 '}';
 
-```
+```text
     }
 }
 ```
@@ -146,7 +146,7 @@ book.setBookName("《数据结构》");
 
 ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Config.class);
 
-```
+```text
     }
 }
 ```
@@ -164,14 +164,14 @@ ApplicationContext applicationContext = new AnnotationConfigApplicationContext(C
 
 ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Config.class);
 
-```
+```java
         System.out.println("初始化容器成功！");
         System.out.println("获取bean");
 ```
 
 Book book = (Book) applicationContext.getBean("book");
 
-```
+```java
         System.out.println("从容器中取出book：");
         System.out.println(book);
     }

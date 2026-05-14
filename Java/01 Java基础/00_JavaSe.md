@@ -145,13 +145,13 @@ public class Singleton2 {
 
 private static Singleton2 instance = null;
 
-```
+```java
     // 2.私有化构造方法
 ```
 
 private Singleton2() {
 
-```
+```text
     }
     // 3.静态方法 , 创建实例
 ```
@@ -166,17 +166,13 @@ private Singleton2() {
 
 ```java
     private static class SingletonFactory {
-```
 
 private static Singleton2 instance = new Singleton2();
 
-```
     }
-```
-
+    
 public static Singleton2 getInstance() {
-
-```
+    
         return SingletonFactory.instance;
     }
 }

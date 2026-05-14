@@ -1,6 +1,6 @@
 - 查看正在运行的spark进程
 
-```
+```bash
 ps aux | grep spark
 ps aux | grep flask
 kill -9
@@ -9,25 +9,25 @@ lsb_release -a
 
 - 上传upload.sh文件到远程服务器上去
 
-```
+```text
 scp /Users/sunny/Desktop/BOSS.tar.gz root@101.200.121.42:/web/
 ```
 
 - Linux根据占用的端口号来关闭相应的进程的shell脚本写法
 
-```
+```text
 kill -9 $(lsof -i:22 | awk '{print $2}' | tail -n 2)
 ```
 
 - 查询正在活着的进程 ：
 
-```
+```bash
 ps aux | less
 ```
 
 - 打成tar包
 
-```
+```sql
 tar -czvf sensitiveDetect-20260122.tar.gz qidTrade-1.0-SNAPSHOT-jar-with-dependencies.jar
 tar -czvf evaluation_monitor.20260310.tar.gz query-trade-eval-monitor-1.0-SNAPSHOT-jar-with-dependencies.jar
 tar -czvf my_explainable20241230.tar.gz explainable_analysis-1.0-SNAPSHOT-jar-with-dependencies.jar
@@ -45,12 +45,12 @@ tar -czvf new-query-trade-20251208.tar.gz query-trade-1.0-spark2-SNAPSHOT-jar-wi
 
 - 解压一个文件
 
-```
+```text
 # 使用 tar 解压 ：
 tar -zxvf java.tar.gz
-# gz 文件的解压gzip命令 ： 
+# gz 文件的解压gzip命令 ：
 gzip -d java.gz
-# 也可以使用zcat命令，然后将标准输出保存文件 ： 
+# 也可以使用zcat命令，然后将标准输出保存文件 ：
 zcat java.gz > java.java
 # 解压 zip 文件
 unzip xxx.zip
@@ -68,13 +68,13 @@ strings /lib64/libc.so.6 | grep GLIBC_
 - 搜索文件：find
 - 赋予脚本执行权限
 
-```
+```bash
 chmod +x
 ```
 
 - 后台执行并将日志输出到指定文件中
 
-```
+```bash
 nohup > /home/work/zhaoyingfei/log/output.log 2>&1 &
 nohup > sh run_low.sh > /home/work/zhaoyingfei/mr/0902-0908/log.txt 2>&1
 # 监控日志文件后十行 n 监控行数 F 持续监控
@@ -120,33 +120,33 @@ Linux使用指令
 - linux目录管理
 - 查看虚拟机是Ubuntu还是Centos
 
-```
+```text
 lsb_release -a
 ```
 
 - Centos安装git
 
-```
+```bash
 yum -y install git
 git --version
 ```
 
 - 退出当前虚拟机并连接另一台虚拟机
 
-```
+```text
 exit
 dx-lt-yd-hebei-shijiazhuang-10-10-103-10-87
 ```
 
 - 创建家目录
 
-```
+```bash
 sudo -i # 创建超级用户的shell
 ```
 
 - 查看文件前几行
 
-```
+```text
 cat /root/fucheng.wang/pudge-sanmahostregion/01.csv |head -n 100
 ```
 

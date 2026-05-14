@@ -2,7 +2,7 @@ Jar包执行脚本
 
 #!/bin/sh
 
-```
+```text
 # args
 ```
 
@@ -119,7 +119,7 @@ Main执行总流程:
 
 #!/bin/sh
 
-```
+```properties
 # var define
 ```
 
@@ -145,7 +145,7 @@ tb_user=${10}
 
 tb_content=${11}
 
-```
+```text
 # 1. product data
 ```
 
@@ -155,7 +155,7 @@ sh ../deal/product_data.sh $in_data $in_char $out_path/$user_file $out_path/$con
 
 echo '++++++end product data++++++'
 
-```
+```text
 # 2. put local to hdfs
 ```
 
@@ -167,7 +167,7 @@ sh ../deal/put_file_2_hdfs.sh $out_path/$content_file $hdfs_data_dir
 
 echo '++++++end put local 2 hdfs++++++'
 
-```
+```sql
 # 3. create table
 ```
 
@@ -179,7 +179,7 @@ sh ../create/create_user.sh $db $tb_user $sep
 
 echo '++++++end create table++++++'
 
-```
+```text
 # 4. load data
 ```
 

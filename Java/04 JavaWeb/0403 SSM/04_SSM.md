@@ -4,7 +4,7 @@ SpringMVC
 
 SpringBoot
 
-```
+```text
 @Controller和@RestController的区别？
 ```
 

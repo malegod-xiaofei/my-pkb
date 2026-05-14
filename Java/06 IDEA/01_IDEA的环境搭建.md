@@ -24,7 +24,7 @@
   - 修改settings.xml下<localRepository>D:\Configure\.m2\respository</localRepository>为本地仓库路径
   - 配置阿里云镜像
 
-```
+```text
 <mirror>
     <id>alimaven</id>
     <name>aliyun maven</name>
@@ -134,7 +134,7 @@
 
 - 配置文档头注释信息
 
-```
+```sql
 /**
  * @author Malegod_xiaofei
  * @create ${YEAR}-${MONTH}-${DAY}-${TIME}

@@ -50,7 +50,7 @@ RDD类比工厂生产。
 ```
 
 - 如果不希望运行时打印大量日志，可以在resources文件夹中添加log4j2.properties文件，并添加日志配置信息
-```
+```sql
 
 # Set everything to be logged to the console
 
@@ -192,7 +192,7 @@ sc.stop();
 ![图片28.png](images/图片28.png)
 
 如果出现这个问题，是因为windows上面的hadoop权限不够。
-```
+```text
 Exception in thread "main" java.lang.UnsatisfiedLinkError: org.apache.hadoop.io.nativeio.NativeIO$Windows.access0(Ljava/lang/String;I)Z
 
 at org.apache.hadoop.io.nativeio.NativeIO$Windows.access0(Native Method)

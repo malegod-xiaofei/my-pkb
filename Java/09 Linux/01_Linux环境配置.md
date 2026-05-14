@@ -29,7 +29,7 @@
     - wget命令是一个从网络上下载文件的自由工具，它支持http协议，https协议和ftp协议。因此我们可以通过wget命令来下载JDK。
     - wget的格式：wget 要下载的url。下载的目录为当前执行wget命令的目录。
 
-```
+```bash
 wget https://repo.huaweicloud.com/java/jdk/8u201-b09/jdk-8u201-linux-x64.tar.gz
 tar -zxvf jdk-8u201-linux-x64.tar.gz
 mv jdk1.8.0_201 /usr/local/jdk1.8/
@@ -37,7 +37,7 @@ mv jdk1.8.0_201 /usr/local/jdk1.8/
 
 - 配置环境变量
 
-```
+```bash
 vim /etc/profile
 按下insert键，然后移动到最后一行，添加如下语句
 export JAVA_HOME=/opt/jdk1.8/jdk1.8.0_201
@@ -47,7 +47,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 - 追加完成后更新配置
 
-```
+```bash
 source /etc/profile
 ```
 
@@ -59,7 +59,7 @@ java -version
 
 - Linux下安装Spark运行环境
 
-```
+```bash
 wget https://mirrors.huaweicloud.com/apache/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz
 tar -zxvf spark-2.2.0-bin-hadoop2.7.tgz
 mv spark-2.2.0-bin-hadoop2.7 spark
@@ -70,7 +70,7 @@ spark-shell
 
 - Linux下安装Hadoop运行环境
 
-```
+```bash
 wget https://archive.apache.org/dist/hadoop/common/hadoop-3.1.3/hadoop-3.1.3.tar.gz
 tar -zxvf hadoop-3.1.3.tar.gz
 vim /etc/profile
@@ -88,29 +88,29 @@ source ~/.zshrc
 - 配置阿里云镜像源
   - 1、备份
 
-```
+```bash
 sudo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
 ```
 
   - 2、CentOS 7
 
-```
+```bash
 sudo wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 ```
 
 注意：修改Centos-7.repo文件将所有$releasever替换为7
 
-```
+```bash
 sudo vim /etc/yum.repos.d/CentOS-Base.repo
 :%s/$releasever/7/g
 ```
 
-```
+```bash
 sudo wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
 ```
 
   - 3、之后运行yum makecache生成缓存
 
-```
+```bash
 sudo yum makecache
 ```

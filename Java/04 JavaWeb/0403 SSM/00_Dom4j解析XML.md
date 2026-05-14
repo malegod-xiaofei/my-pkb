@@ -28,7 +28,7 @@ pom.xml
 
 第一步 : // 创建SAXReader
 
-```
+```text
               // SAXReader reader = new SAXReader();
 ```
 
@@ -44,7 +44,7 @@ Element root = document.getRootElement();
 
 String resultLast = "";
 
-```
+```java
               // System.out.println(root.elementText("content"));
               // System.out.println(root.elementText("time"));
               // System.out.println(root.elementText("repostsCount"));
@@ -60,7 +60,7 @@ resultLast = resultLast + root.elementText("repostsCount") + "\t";
 
 resultLast = resultLast + root.elementText("commentsCount");
 
-```
+```text
               return resultLast;
 ```
 

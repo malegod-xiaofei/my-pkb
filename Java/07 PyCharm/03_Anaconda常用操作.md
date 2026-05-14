@@ -3,7 +3,7 @@
 - cmd中输入 activate 即可进入 Anaconda 设定的虚拟环境中
 - 创建环境
 
-```
+```sql
 # 创建环境
 conda create -n py2 python=2.7 -c anaconda
 conda create -n aiapp python=3.6 -c anaconda
@@ -27,7 +27,7 @@ conda install -n py372 --file C:\Users\赵迎飞\Desktop\pytorch_env.txt
 
 - 然后进入指定的 pytorch 环境
 
-```
+```sql
 conda activate base
 conda activate work
 conda activate py2
@@ -45,7 +45,7 @@ pip install torch torchvision pandas -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 - 安装第三方包
 
-```
+```bash
 安装 Jupyter
 pip install notebook==6.5.7 -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install jupyterthemes -i https://pypi.tuna.tsinghua.edu.cn/simple
@@ -175,7 +175,7 @@ Nvidia：Alt＋R等于性能图层
 
 - 初始化 Anaconda
 
-```
+```bash
 source /home/work/anaconda3/bin/activate
 ```
 
@@ -193,7 +193,7 @@ conda activate py2.7
 
 - 使用 Anaconda 环境运行 python 程序
 
-```
+```sql
 ldd --version
 conda create --name py35 python=3.5 -c anaconda
 conda activate py35

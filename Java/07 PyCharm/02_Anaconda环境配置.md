@@ -2,7 +2,7 @@
 
 - 前往Anaconda官网：
 
-```
+```properties
 https://repo.anaconda.com/ 历史版本：https://repo.anaconda.com/archive/
 ```
 
@@ -25,7 +25,7 @@ https://repo.anaconda.com/ 历史版本：https://repo.anaconda.com/archive/
   - 第一项Add Anaconda… 这个是说将安装路径填入到系统环境变量中，我曾经选上，发现后期总是出现什么“无法定位到动态链接库”问题！！！（这里是自动添加系统环境变量，如果不选！！自己手动添加就好）
     - 手动配置conda环境变量,path下
 
-```
+```properties
 D:\Software\Anaconda3
 D:\Software\Anaconda3\Scripts
 D:\Software\Anaconda3\Library\bin
@@ -59,13 +59,13 @@ bash Anaconda3-2025.06-0-Linux-x86_64.sh
 
 - 然后不停回车，出现yes和no的时候输入yes，修改安装路径
 
-```
+```text
 /home/work/zhaoyingfei/tools/anaconda3
 ```
 
 - 使用nanob编辑器去修改bashrc这个文件
 
-```
+```bash
 pwd
 /home/work/zhaoyingfei/tools/anaconda3/bin
 nano ~/.bashrc
@@ -75,7 +75,7 @@ export PATH="/home/work/zhaoyingfei/tools/anaconda3/bin:$PATH"
 
 - Ctrl+x;y;回车；操作完使环境生效
 
-```
+```sql
 source ~/.bashrc
 ```
 
@@ -121,7 +121,7 @@ conda config --remove-key custom_channels
 
   - 或者拷贝到 C:\Users\你的用户名\.condarc
 
-```
+```bash
 show_channel_urls: true
 ssl_verify: true
 channels:
@@ -142,14 +142,14 @@ custom_channels:
 - 配置pip镜像
   - 打开 cmd 执行
 
-```
+```bash
 mkdir %APPDATA%\pip
 notepad %APPDATA%\pip\pip.ini
 ```
 
   - 在弹出的文件中输入
 
-```
+```bash
 [global]
 index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 extra-index-url = https://mirrors.aliyun.com/pypi/simple

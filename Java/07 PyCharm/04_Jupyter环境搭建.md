@@ -8,7 +8,7 @@ pip install notebook -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 - 修改默认浏览器和启动 jupyter 默认打开 google 浏览器
 
-```
+```bash
 jupyter notebook --generate-config
 ```
 
@@ -30,13 +30,13 @@ c.NotebookApp.open_browser = True
 
   - 配置工作目录
 
-```
+```properties
 c.NotebookApp.notebook_dir = 'D:/Code/PyCharm-Project/AiApp'
 ```
 
   - 配置输出字节数，防止输出太大崩溃
 
-```
+```properties
 ## (bytes/sec) Maximum rate at which messages can be sent on iopub before they
 #  are limited.
 c.NotebookApp.iopub_data_rate_limit = 10000000
@@ -44,14 +44,14 @@ c.NotebookApp.iopub_data_rate_limit = 10000000
 
   - 大小写模糊匹配
 
-```
+```properties
 c.IPCompleter.use_jedi = True
 c.IPCompleter.case_sensitive = False  # 允许大小写模糊匹配
 ```
 
   - 保存并重启 jupyter
 
-```
+```bash
 jupyter notebook
 ```
 
@@ -68,7 +68,7 @@ conda activate pytorch
 
 - 启动 jupyter
 
-```
+```bash
 jupyter notebook
 ```
 
@@ -76,7 +76,7 @@ jupyter notebook
 
 如果遇到
 
-```
+```text
 IOPub data rate exceeded.
     The notebook server will temporarily stop sending output
     to the client in order to avoid crashing it.
@@ -88,14 +88,14 @@ IOPub data rate exceeded.
 
 创建配置文件
 
-```
+```bash
 jupyter notebook --generate-config
 vi ~/.jupyter/jupyter_notebook_config.py
 ```
 
 取消注释,多增加
 
-```
+```properties
 ## (bytes/sec) Maximum rate at which messages can be sent on iopub before they
 #  are limited.
 c.NotebookApp.iopub_data_rate_limit = 10000000
