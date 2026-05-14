@@ -13,7 +13,7 @@
 
 - AI 大模型：学习路线、通识课、应用实战、核心技术、RAG 与智能体
 - Java：Java 基础、集合、多线程、设计模式、MySQL、JavaWeb、SSM、SpringBoot、开发工具与 Linux/Git
-- 大数据：Hadoop、HDFS、MapReduce、Yarn、Zookeeper、Hive、Kafka、Spark、Flink、ClickHouse、Doris 等
+- 大数据生态：Hadoop、HDFS、MapReduce、Yarn、Zookeeper、Hive、Kafka、Spark、Flink、ClickHouse、Doris 等
 
 ## 内容概览
 
@@ -21,7 +21,7 @@
 |---|---:|---|
 | AI尚硅谷/ | 72 | AI 大模型学习路线、通识基础、应用实战、核心技术、RAG 与智能体 |
 | Java/ | 57 | Java 基础、数据结构、设计模式、MySQL、JavaWeb、IDEA、Git、Linux 等 |
-| 大数据/ | 88 | Hadoop 生态、Hive、Kafka、Spark、Flink、OLAP 引擎和监控组件 |
+| 大数据生态/ | 88 | Hadoop 生态、Hive、Kafka、Spark、Flink、OLAP 引擎和监控组件 |
 
 ## 目录结构
 
@@ -56,7 +56,7 @@ my-pkb/
 │   ├── 07 PyCharm/                     # PyCharm、Anaconda、Jupyter
 │   ├── 08 Git/                         # Git 基础、IDEA 集成、合并 push、提交日志
 │   └── 09 Linux/                       # Linux 环境、shell 命令、快捷键、脚本编程
-├── 大数据/
+├── 大数据生态/
 │   ├── 01 Hadoop/                      # Hadoop、环境搭建、集群、调优、迁移、源码、面试题
 │   ├── 02 HDFS/                        # HDFS 知识点、命令、面试题
 │   ├── 03 MapReduce/                   # MapReduce 知识点、常用内容、面试题
@@ -139,7 +139,7 @@ my-pkb/
 - 08 Git/：Git 基础、IDEA 集成、常用知识、合并 push、提交日志
 - 09 Linux/：Linux 环境、知识点、shell 命令、快捷键、脚本编程
 
-### 大数据
+### 大数据生态
 
 - 01 Hadoop/：Hadoop、Windows/虚拟机环境、集群搭建、知识点、命令、调优、迁移、源码、面试题
 - 02 HDFS/：知识点、常用 Shell 命令、HDFS、面试题
@@ -173,7 +173,7 @@ my-pkb/
 ## 使用方式
 
 - 使用 Obsidian 打开仓库根目录 my-pkb
-- 按一级目录选择学习方向：AI尚硅谷/、Java/、大数据/
+- 按一级目录选择学习方向：AI尚硅谷/、Java/、大数据生态/
 - 按课程、技术栈或章节编号浏览笔记
 - 配合 Git 管理知识库的持续迭代
 
