@@ -12,7 +12,7 @@
 核心方向包括：
 
 - AI 大模型：学习路线、通识课、应用实战、核心技术、RAG 与智能体
-- Java：Java 基础、集合、多线程、设计模式、MySQL、JavaWeb、SSM、SpringBoot、开发工具与 Linux/Git
+- Java生态：Java 基础、集合、多线程、设计模式、MySQL、JavaWeb、SSM、SpringBoot、开发工具与 Linux/Git
 - 大数据生态：Hadoop、HDFS、MapReduce、Yarn、Zookeeper、Hive、Kafka、Spark、Flink、ClickHouse、Doris 等
 
 ## 内容概览
@@ -20,7 +20,7 @@
 | 一级目录 | Markdown 数量 | 说明 |
 |---|---:|---|
 | AI尚硅谷/ | 72 | AI 大模型学习路线、通识基础、应用实战、核心技术、RAG 与智能体 |
-| Java/ | 57 | Java 基础、数据结构、设计模式、MySQL、JavaWeb、IDEA、Git、Linux 等 |
+| Java生态/ | 57 | Java 基础、数据结构、设计模式、MySQL、JavaWeb、IDEA、Git、Linux 等 |
 | 大数据生态/ | 88 | Hadoop 生态、Hive、Kafka、Spark、Flink、OLAP 引擎和监控组件 |
 
 ## 目录结构
@@ -45,7 +45,7 @@ my-pkb/
 │   └── RAG与智能体/
 │       ├── RAG/                       # RAG 入门、向量化、向量数据库、系统搭建与优化
 │       └── Dify/                      # Dify 搭建、案例与功能
-├── Java/
+├── Java生态/
 │   ├── 00 数据结构/                    # 知识点、排序算法
 │   ├── 01 Java基础/                    # JavaSE、基础知识、集合、Java 8、多线程、时间处理、PDF
 │   ├── 02 设计模式/                    # 动态代理、单例、装饰者、建造者
@@ -126,7 +126,7 @@ my-pkb/
 - RAG/：01-RAG入门.md ~ 06-Weaviate向量数据库.md
 - Dify/：01-Dify特点和搭建.md、02-Dify案例.md、03-Dify功能.md
 
-### Java
+### Java生态
 
 - 00 数据结构/：数据结构知识点、排序算法
 - 01 Java基础/：JavaSE、基础知识、集合、Java 8 新特性、多线程、时间处理、PDF
@@ -173,7 +173,7 @@ my-pkb/
 ## 使用方式
 
 - 使用 Obsidian 打开仓库根目录 my-pkb
-- 按一级目录选择学习方向：AI尚硅谷/、Java/、大数据生态/
+- 按一级目录选择学习方向：AI尚硅谷/、Java生态/、大数据生态/
 - 按课程、技术栈或章节编号浏览笔记
 - 配合 Git 管理知识库的持续迭代
 
