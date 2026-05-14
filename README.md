@@ -1,247 +1,192 @@
+
 # My PKB（个人知识库）
 
-这是一个基于 [Obsidian](https://obsidian.md/) 搭建的个人知识库仓库，用于沉淀学习笔记、课程整理、技术实践与阶段性总结。
+这是一个基于 Obsidian 搭建的个人知识库仓库，用于沉淀 AI 大模型、Java 后端、大数据生态等方向的学习笔记、课程整理、工具实践与面试复习资料。
+
+说明：本 README 基于仓库目录与文章文件名整理，不包含笔记正文摘要。
 
 ## 仓库定位
 
-当前仓库主要用于保存 AI / 大模型方向的学习资料与笔记，内容以尚硅谷相关课程整理为主，并持续扩展配套图片与实践记录。
+当前仓库主要用于保存个人技术学习资料，内容以尚硅谷课程笔记、开发工具使用记录、技术栈知识点、常用操作、源码解析、实战案例与面试题为主。
 
-## 当前内容
+核心方向包括：
 
-### AI尚硅谷 / 大模型应用实战
+- AI 大模型：学习路线、通识课、应用实战、核心技术、RAG 与智能体
+- Java：Java 基础、集合、多线程、设计模式、MySQL、JavaWeb、SSM、SpringBoot、开发工具与 Linux/Git
+- 大数据：Hadoop、HDFS、MapReduce、Yarn、Zookeeper、Hive、Kafka、Spark、Flink、ClickHouse、Doris 等
 
-#### 1. LangChain
+## 内容概览
 
-已整理的笔记包括：
-
-- `01-LangChain使用概述.md`
-- `02-LangChain使用之Model IO.md`
-- `03-LangChain使用之Chains.md`
-- `04-LangChain使用之Memory.md`
-- `05-LangChain使用之Tools.md`
-- `06-LangChain使用之Agents.md`
-- `07-LangChain使用之Retrieval.md`
-
-配套图片资源目录：`AI尚硅谷/大模型应用实战/LangChain/images/`
-
-#### 2. Conda使用指南
-
-- `尚硅谷-conda使用指南.md`
-- 配套图片资源目录：`AI尚硅谷/大模型应用实战/Conda使用指南/images/`
-
-#### 3. 硅谷小智（医疗版）
-
-- `尚硅谷-Java+大模型应用-硅谷小智（医疗版）.md`
-- 配套图片资源目录：`AI尚硅谷/大模型应用实战/硅谷小智（医疗版）/images/`
-
-#### 4. Claude Code
-
-- `AI工具飞速上手之Claude Code.md`
-- 配套图片资源目录：`AI尚硅谷/大模型应用实战/ClaudeCode/images/`
-
-#### 5. MCP
-
-两套来源的笔记并存：
-
-尚硅谷课程系列（01~05）：
-
-| 文件 | 内容简介 |
-|------|---------|
-| `01-MCP实战指南.md` | MCP 协议介绍与实战概览 |
-| `02-Cursor中使用MCP.md` | Cursor 编辑器接入 MCP |
-| `03-Cline中使用MCP.md` | Cline 插件接入 MCP |
-| `04-手动开发MCP项目(CS架构).md` | 从零手动开发 MCP 项目（CS 架构） |
-| `05-Cherry Studio中使用MCP案例.md` | Cherry Studio 中 MCP 使用案例 |
-
-Claude Code 官方文档系列（c-01~c-07）：
-
-| 文件 | 内容简介 |
-|------|---------|
-| `c-01-MCP入门.md` | MCP 基础概念与架构 |
-| `c-02-MCP服务器.md` | MCP Server 开发与配置 |
-| `c-03-MCP客户端.md` | MCP Client 开发与使用 |
-| `c-04-MCP进阶使用.md` | MCP 进阶特性与最佳实践 |
-| `c-05-Cursor接入MCP.md` | Cursor 接入 MCP 详细指南 |
-| `c-06-阿里云百炼平台接入MCP.md` | 阿里云百炼平台接入 MCP |
-| `c-07-Open-WebUI接入MCP.md` | Open-WebUI 接入 MCP |
-
-配套图片资源目录：`AI尚硅谷/大模型应用实战/MCP/images/`
-
-#### 6. Ollama
-
-- `Ollama使用.md`
-
----
-
-### AI尚硅谷 / 大模型核心技术
-
-三门核心技术课程的笔记均已按章节拆分为独立 md 文件，便于在 Obsidian 中分章节阅读与检索。
-
-#### 1. 机器学习（尚硅谷AI大模型之机器学习/）
-
-数学基础（3 章）：
-
-| 文件 | 内容简介 |
-|------|---------|
-| `数学基础 1 高等数学.md` | 导数、偏导数、梯度 |
-| `数学基础 2 线性代数.md` | 标量/向量/矩阵/张量、矩阵求导 |
-| `数学基础 3 概率论.md` | 概率分布、贝叶斯定理、似然函数 |
-
-机器学习（8 章）：
-
-| 文件 | 内容简介 |
-|------|---------|
-| `机器学习 1 机器学习概述.md` | 定义、分类、基本流程 |
-| `机器学习 2 机器学习基本理论.md` | 特征工程、过拟合/欠拟合、正则化、评估指标 |
-| `机器学习 3 KNN算法.md` | KNN 原理、距离度量、交叉验证与网格搜索 |
-| `机器学习 4 线性回归.md` | 一元/多元线性回归、正规方程、梯度下降 |
-| `机器学习 5 逻辑回归.md` | 逻辑回归原理、多分类、sklearn 实战 |
-| `机器学习 6 感知机.md` | 感知机模型与学习算法 |
-| `机器学习 7 其他监督学习算法（了解）.md` | 决策树、随机森林、SVM、朴素贝叶斯等 |
-| `机器学习 8 无监督学习.md` | K-Means 聚类、层次聚类、DBSCAN、PCA 降维 |
-
-配套图片：
-- `机器学习算法图/`（74 张，机器学习课件插图）
-- `images/`（10 张，数学基础课件插图）
-
-#### 2. 深度学习（尚硅谷AI大模型之深度学习/）
-
-共 9 章：
-
-| 文件 | 内容简介 |
-|------|---------|
-| `1 深度学习概述.md` | 深度学习发展与应用 |
-| `2 神经网络基础.md` | 感知机、多层网络、激活函数、前向传播 |
-| `3 神经网络的学习.md` | 损失函数、梯度下降、数值微分 |
-| `4 反向传播算法.md` | 计算图、链式法则、各层反向传播推导 |
-| `5 学习的技巧.md` | 权重初始化、Batch Normalization、Dropout、超参数调优 |
-| `6 PyTorch简介.md` | 张量操作、自动微分、基础 API |
-| `7 用PyTorch进行深度学习.md` | 模型搭建、损失函数、优化器、训练流程 |
-| `8 卷积神经网络.md` | 卷积层、池化层、经典 CNN 架构、图像分类实战 |
-| `9 循环神经网络.md` | RNN、LSTM、GRU 原理及序列任务实战 |
-
-配套图片：`images/`（117 张）
-
-#### 3. NLP（尚硅谷AI大模型之NLP教程/）
-
-共 9 章：
-
-| 文件 | 内容简介 |
-|------|---------|
-| `1 NLP导论.md` | NLP 定义、发展历程、典型任务 |
-| `2 环境准备.md` | Python 环境、依赖安装 |
-| `3 文本表示.md` | 分词、词表、词袋模型、TF-IDF、Word2Vec、GloVe |
-| `4 传统序列模型.md` | RNN/LSTM/GRU 在 NLP 中的应用，含情感分析、命名实体识别等实战项目 |
-| `5 Seq2Seq模型.md` | 编码器-解码器架构、机器翻译实战 |
-| `6 Attention机制.md` | 注意力机制原理、加性/点积注意力、机器翻译实战 |
-| `7 Transformer模型.md` | 多头注意力、位置编码、完整 Transformer 架构与机器翻译实战 |
-| `8 预训练模型.md` | BERT、GPT 原理与微调实战 |
-| `9 附录.md` | 补充参考资料 |
-
-配套图片：`images/`（177 张）
-
----
-
-### AI尚硅谷 / RAG与智能体
-
-#### 1. RAG
-
-| 文件 | 内容简介 |
-|------|---------|
-| `01-RAG入门.md` | RAG 基础概念、架构与应用场景 |
-| `02-文本向量化.md` | 文本嵌入原理与向量化方法 |
-| `03-向量数据库存储与检索.md` | 向量数据库选型、存储与检索实践 |
-| `04-从零到一手动搭建RAG系统.md` | 完整 RAG 系统实战搭建 |
-| `05-RAG优化.md` | RAG 检索增强与质量优化策略 |
-| `06-Weaviate向量数据库.md` | Weaviate 向量数据库使用指南 |
-
-配套图片资源目录：`AI尚硅谷/RAG与智能体/RAG/images/`
-
-#### 2. Dify
-
-| 文件 | 内容简介 |
-|------|---------|
-| `01-Dify特点和搭建.md` | Dify 平台介绍与本地部署 |
-| `02-Dify案例.md` | Dify 典型应用案例 |
-| `03-Dify功能.md` | Dify 核心功能详解 |
+| 一级目录 | Markdown 数量 | 说明 |
+|---|---:|---|
+| AI尚硅谷/ | 72 | AI 大模型学习路线、通识基础、应用实战、核心技术、RAG 与智能体 |
+| Java/ | 57 | Java 基础、数据结构、设计模式、MySQL、JavaWeb、IDEA、Git、Linux 等 |
+| 大数据/ | 88 | Hadoop 生态、Hive、Kafka、Spark、Flink、OLAP 引擎和监控组件 |
 
 ## 目录结构
 
-```text
+~~~text
 my-pkb/
-├── README.md
-└── AI尚硅谷/
-    ├── 大模型应用实战/
-    │   ├── LangChain/
-    │   │   ├── 01-LangChain使用概述.md
-    │   │   ├── ...（共 7 篇笔记）
-    │   │   └── images/
-    │   ├── Conda使用指南/
-    │   │   ├── 尚硅谷-conda使用指南.md
-    │   │   └── images/
-    │   ├── 硅谷小智（医疗版）/
-    │   │   ├── 尚硅谷-Java+大模型应用-硅谷小智（医疗版）.md
-    │   │   └── images/
-    │   ├── ClaudeCode/
-    │   │   ├── AI工具飞速上手之Claude Code.md
-    │   │   └── images/
-    │   ├── MCP/
-    │   │   ├── 01-MCP实战指南.md
-    │   │   ├── ...（课程系列共 5 篇）
-    │   │   ├── c-01-MCP入门.md
-    │   │   ├── ...（官方文档系列共 7 篇）
-    │   │   └── images/
-    │   └── Ollama/
-    │       └── Ollama使用.md
-    ├── 大模型核心技术/
-    │   ├── 尚硅谷AI大模型之机器学习/
-    │   │   ├── 尚硅谷大模型技术之数学基础.md   # 原始完整文件（保留）
-    │   │   ├── 数学基础 1 高等数学.md
-    │   │   ├── 数学基础 2 线性代数.md
-    │   │   ├── 数学基础 3 概率论.md
-    │   │   ├── 尚硅谷大模型技术之机器学习.md   # 原始完整文件（保留）
-    │   │   ├── 机器学习 1 机器学习概述.md
-    │   │   ├── ...（共 8 章）
-    │   │   ├── 机器学习算法图/                 # 74 张机器学习插图
-    │   │   └── images/                        # 10 张数学基础插图
-    │   ├── 尚硅谷AI大模型之深度学习/
-    │   │   ├── 尚硅谷大模型技术之深度学习.md   # 原始完整文件（保留）
-    │   │   ├── 1 深度学习概述.md
-    │   │   ├── ...（共 9 章）
-    │   │   └── images/                        # 117 张深度学习插图
-    │   └── 尚硅谷AI大模型之NLP教程/
-    │       ├── 尚硅谷大模型技术之NLP.md        # 原始完整文件（保留）
-    │       ├── 1 NLP导论.md
-    │       ├── ...（共 9 章）
-    │       └── images/                        # 177 张 NLP 插图
-    └── RAG与智能体/
-        ├── RAG/
-        │   ├── 01-RAG入门.md
-        │   ├── ...（共 6 篇笔记）
-        │   └── images/
-        └── Dify/
-            ├── 01-Dify特点和搭建.md
-            ├── 02-Dify案例.md
-            └── 03-Dify功能.md
-```
+├── AI尚硅谷/
+│   ├── AI大模型学习路线图/             # AI 大模型学习路线与应用路线
+│   ├── 大模型通识课/
+│   │   └── Python基础/                # Python 基础、HanLP、面试题等
+│   ├── 大模型应用实战/
+│   │   ├── LangChain/                 # LangChain Model IO、Chains、Memory、Tools、Agents、Retrieval
+│   │   ├── conda使用指南/              # conda 使用指南
+│   │   ├── 硅谷小智（医疗版）/          # Java + 大模型医疗项目笔记
+│   │   ├── ClaudeCode/                # Claude Code 使用笔记
+│   │   ├── MCP/                       # MCP 课程实战与官方文档整理
+│   │   └── Ollama/                    # Ollama 本地模型使用
+│   ├── 大模型核心技术/
+│   │   ├── 尚硅谷AI大模型之机器学习/    # 数学基础、机器学习章节笔记与原始整合文件
+│   │   ├── 尚硅谷AI大模型之深度学习/    # 深度学习章节笔记与原始整合文件
+│   │   └── 尚硅谷AI大模型之NLP教程/     # NLP 章节笔记与原始整合文件
+│   └── RAG与智能体/
+│       ├── RAG/                       # RAG 入门、向量化、向量数据库、系统搭建与优化
+│       └── Dify/                      # Dify 搭建、案例与功能
+├── Java/
+│   ├── 00 数据结构/                    # 知识点、排序算法
+│   ├── 01 Java基础/                    # JavaSE、基础知识、集合、Java 8、多线程、时间处理、PDF
+│   ├── 02 设计模式/                    # 动态代理、单例、装饰者、建造者
+│   ├── 03 MySQL/                       # 环境搭建、基础知识、优化方法、实战知识
+│   ├── 04 JavaWeb/                     # 前端、JavaWeb、SSM、SpringBoot
+│   ├── 05 正则表达式/                  # 常用字符、基础知识、入门教程
+│   ├── 06 IDEA/                        # IDEA 配置、插件、Database、快捷键、Maven、Debug、Chrome
+│   ├── 07 PyCharm/                     # PyCharm、Anaconda、Jupyter
+│   ├── 08 Git/                         # Git 基础、IDEA 集成、合并 push、提交日志
+│   └── 09 Linux/                       # Linux 环境、shell 命令、快捷键、脚本编程
+├── 大数据/
+│   ├── 01 Hadoop/                      # Hadoop、环境搭建、集群、调优、迁移、源码、面试题
+│   ├── 02 HDFS/                        # HDFS 知识点、命令、面试题
+│   ├── 03 MapReduce/                   # MapReduce 知识点、常用内容、面试题
+│   ├── 04 Yarn/                        # Yarn 知识点、命令、面试题
+│   ├── 05 Zookeeper/                   # 知识点、源码、面试题
+│   ├── 06 Hadoop_高可用/               # Hadoop 高可用知识点
+│   ├── 07 Hive/                        # Hive 基础/进阶/高级、SQL 题库、函数、源码、部署、面试题
+│   ├── 08 Flume/                       # Flume 知识点、面试题
+│   ├── 09 Kafka/                       # Kafka 基础/进阶、流程图解、常用操作、面试题
+│   ├── 10 Hbase/                       # HBase 知识点与常用操作
+│   ├── 11 Scala/                       # Scala 基础/进阶、环境搭建、常用知识、面试题
+│   ├── 12 Spark/                       # Spark 入门、Java/Scala 知识点、算子、内核、优化、面试题
+│   ├── 13 SparkSql/                    # SparkSQL Java/Scala 知识点、常用知识、面试题
+│   ├── 14 SparkStreaming/              # SparkStreaming Java/Scala 知识点、面试题
+│   ├── 15 Flink/                       # Flink 分章知识点、FlinkSQL、环境、实时数仓、面试题
+│   ├── 16 AZKaBan/                     # Azkaban 知识点、常用知识
+│   ├── 17 Prometheus/                  # Prometheus、Grafana、睿象云监控
+│   ├── 18 StarRocks/                   # StarRocks 知识点
+│   ├── 19 ClickHouse/                  # ClickHouse 入门、高级、监控及备份
+│   └── 20 Doris/                       # Doris 知识点与实战
+├── .claude/
+│   └── CLAUDE.md                       # Claude Code 项目说明
+└── README.md
+~~~
+
+## 详细目录
+
+### AI尚硅谷
+
+#### AI 大模型学习路线图
+
+- AI大模型学习路线图.md
+- 大模型应用路线图.md
+
+#### 大模型通识课 / Python 基础
+
+- 01_知识点.md
+- 02_基础操作.md
+- 03_HanLP词性标注.md
+- 99_面试题.md
+- Python-在不同对象中使用 in 操作符的查找效率_python中,in()效率-CSDN博客.md
+
+#### 大模型应用实战
+
+- LangChain/：01-LangChain使用概述.md ~ 07-LangChain使用之Retrieval.md
+- conda使用指南/：尚硅谷-conda使用指南.md
+- 硅谷小智（医疗版）/：尚硅谷-Java+大模型应用-硅谷小智（医疗版）.md
+- ClaudeCode/：AI工具飞速上手之Claude Code.md
+- MCP/：01-MCP实战指南.md ~ 05-Cherry Studio中使用MCP案例.md，以及 c-01-MCP入门.md ~ c-07-Open-WebUI接入MCP.md
+- Ollama/：Ollama使用.md
+
+#### 大模型核心技术
+
+- 尚硅谷AI大模型之机器学习/
+  - 原始整合文件：尚硅谷大模型技术之数学基础.md、尚硅谷大模型技术之机器学习.md
+  - 拆分章节：数学基础 1 高等数学.md ~ 数学基础 3 概率论.md
+  - 拆分章节：机器学习 1 机器学习概述.md ~ 机器学习 8 无监督学习.md
+- 尚硅谷AI大模型之深度学习/
+  - 原始整合文件：尚硅谷大模型技术之深度学习.md
+  - 拆分章节：1 深度学习概述.md ~ 9 循环神经网络.md
+- 尚硅谷AI大模型之NLP教程/
+  - 原始整合文件：尚硅谷大模型技术之NLP.md
+  - 拆分章节：1 NLP导论.md ~ 9 附录.md
+
+#### RAG 与智能体
+
+- RAG/：01-RAG入门.md ~ 06-Weaviate向量数据库.md
+- Dify/：01-Dify特点和搭建.md、02-Dify案例.md、03-Dify功能.md
+
+### Java
+
+- 00 数据结构/：数据结构知识点、排序算法
+- 01 Java基础/：JavaSE、基础知识、集合、Java 8 新特性、多线程、时间处理、PDF
+- 02 设计模式/：动态代理、单例、装饰者、建造者
+- 03 MySQL/：环境搭建、基础知识、优化方法、实战知识
+- 04 JavaWeb/：前端、JavaWeb、SSM、SpringBoot
+- 05 正则表达式/：常用字符、基础知识、入门教程
+- 06 IDEA/：IDEA 配置、环境搭建、插件、Database、快捷键、Maven、Debug、Chrome
+- 07 PyCharm/：PyCharm 环境、Anaconda、Jupyter
+- 08 Git/：Git 基础、IDEA 集成、常用知识、合并 push、提交日志
+- 09 Linux/：Linux 环境、知识点、shell 命令、快捷键、脚本编程
+
+### 大数据
+
+- 01 Hadoop/：Hadoop、Windows/虚拟机环境、集群搭建、知识点、命令、调优、迁移、源码、面试题
+- 02 HDFS/：知识点、常用 Shell 命令、HDFS、面试题
+- 03 MapReduce/：知识点、常用内容、面试题
+- 04 Yarn/：Yarn、知识点、常用 Shell 命令、面试题
+- 05 Zookeeper/：知识点、源码解析、面试题
+- 06 Hadoop_高可用/：高可用知识点
+- 07 Hive/：Hive、分章知识点、SQL 题库、函数、SQL 面试题、源码、Hive on Spark、内外表
+- 08 Flume/：知识点、面试题
+- 09 Kafka/：基础/进阶知识点、流程图解、常用操作、面试题
+- 10 Hbase/：知识点、常用操作
+- 11 Scala/：基础/进阶知识点、环境搭建、常用知识、面试题
+- 12 Spark/：Spark 入门、Java/Scala 知识点、常用算子、内核、优化、流程图解、面试题
+- 13 SparkSql/：Java/Scala 知识点、常用知识、面试题
+- 14 SparkStreaming/：Java/Scala 知识点、面试题
+- 15 Flink/：分章知识点、FlinkSQL、环境搭建、常用知识、Flink + DataHub、实时数仓、面试题
+- 16 AZKaBan/：知识点、常用知识
+- 17 Prometheus/：Prometheus、Grafana、睿象云监控
+- 18 StarRocks/：知识点
+- 19 ClickHouse/：入门、高级、监控及备份
+- 20 Doris/：知识点、实战
+
+## 笔记规范
+
+- 笔记格式为 Markdown，在 Obsidian 中编辑与阅读
+- 文件名以中文主题名、数字序号或“前缀 + 序号 + 章节名”为主
+- 图片资源放在对应主题目录的 images/ 子目录中；机器学习算法图保留在 机器学习算法图/
+- 课件原文件 .docx 不纳入版本管理
+- Markdown 正文中涉及 HTML 特殊标记时，建议使用反引号包裹，避免 Obsidian 渲染异常
 
 ## 使用方式
 
-- 使用 [Obsidian](https://obsidian.md/) 打开仓库根目录 `my-pkb`
-- 按课程或主题路径浏览和维护个人笔记
-- 各大课程笔记已按章节拆分为独立 md 文件，可直接在 Obsidian 文件树中按章节导航
-- 图片资源建议与对应 Markdown 放在同级子目录中统一管理
+- 使用 Obsidian 打开仓库根目录 my-pkb
+- 按一级目录选择学习方向：AI尚硅谷/、Java/、大数据/
+- 按课程、技术栈或章节编号浏览笔记
 - 配合 Git 管理知识库的持续迭代
 
 ## Git 同步说明
 
-仓库已忽略以下文件，以减少无意义变更：
+仓库已忽略以下类型文件，以减少无意义变更：
 
-- `.obsidian/workspace.json`、`.obsidian/workspace-mobile.json`（Obsidian 本地工作区状态）
-- `*.docx`（课件原文件体积大，无需版本管理）
-- `.claude/settings.local.json`、`.claude/*.py`（本地配置和临时脚本）
+- .obsidian/workspace.json、.obsidian/workspace-mobile.json：Obsidian 本地工作区状态
+- *.docx：课件原文件体积大，无需版本管理
+- .claude/settings.local.json：本地权限配置
+- .claude/*.py、.claude/agents_*.md、.claude/agents_*.txt、.claude/structure_*.txt：临时脚本与中间产物
 
 ## 说明
 
 - 本仓库是个人学习型知识库，内容会持续补充与调整
-- README 用于概览当前主干内容，后续可随着目录扩展继续更新
+- README 用于概览当前主干内容，不替代具体笔记正文
