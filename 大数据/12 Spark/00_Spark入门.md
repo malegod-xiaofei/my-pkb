@@ -228,6 +228,9 @@ spark.eventLog.enabled             true
 spark.eventLog.dir                 hdfs://hadoop102:8020/directory
 
 - 修改spark-env.sh文件，添加如下配置：
+```bash
+
+
 [atguigu@hadoop102 conf]$ vim spark-env.sh
 
 export SPARK_HISTORY_OPTS="
@@ -243,7 +246,7 @@ export SPARK_HISTORY_OPTS="
 # 参数2含义：指定历史服务器日志存储路径（读）
 
 # 参数3含义：指定保存Application历史记录的个数，如果超过这个值，旧的应用程序信息将被删除，这个是内存中的应用数，而不是页面上显示的应用数。
-
+```
 ### 2.3.3 配置查看历史日志
 
 为了能从Yarn上关联到Spark历史服务器，需要配置spark历史服务器关联路径。

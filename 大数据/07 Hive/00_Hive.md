@@ -29,11 +29,11 @@
   - c01 语文 90 1
   - c02 数学 80 1
   - c03 外语 88 1
-3.Hive saql
+# 3.Hive saql
 
-3.1 DDL
+## 3.1 DDL
 
-3.1.1 create --创建分区表，分桶表，创建一个带复杂数据类型的表
+### 3.1.1 create --创建分区表，分桶表，创建一个带复杂数据类型的表
 
 查看表创建的详细信息: 表结构、表数据文件路径等
 
@@ -132,13 +132,13 @@ insert into student_struct values (1, named_struct('name','zs','sex','F','age',c
 select id, info.name, info.sex, info.age from student_struct;
 ```
 
-3.1.2 drop--一笔带过
+### 3.1.2 drop--一笔带过
 
 ```java
 drop table table_name
 ```
 
-3.1.3 alter -—新增分区表的分区
+### 3.1.3 alter -—新增分区表的分区
 
 ```java
 alter table ...
@@ -156,9 +156,9 @@ alter table student_part drop partition(month_date='202009');
 // 查看分区情况 show partitions student_part;
 ```
 
-3.2 DML
+## 3.2 DML
 
-3.2.1 insert -- insert into --它会触发计算, 指定分区表进行导入数据
+### 3.2.1 insert -- insert into --它会触发计算, 指定分区表进行导入数据
 
 load data .... --不会触发计算, 指定分区表进行导入数据
 
@@ -202,7 +202,7 @@ remove -- truncate table table_name -―删除表数据
 // 没有delete, update
 ```
 
-3.3 DQL
+## 3.3 DQL
 
 如何向分区表插入数据(开启动态分区)？
 
@@ -210,9 +210,9 @@ remove -- truncate table table_name -―删除表数据
 
 如何查看分区数据 如何查看分桶数据
 
-3.4自带的系统函数
+## 3.4自带的系统函数
 
-3.4.1自定义系统函数
+### 3.4.1自定义系统函数
 
 - 新建Maven
 - 导入Hive依赖包

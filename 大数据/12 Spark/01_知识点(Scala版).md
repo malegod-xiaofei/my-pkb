@@ -388,6 +388,7 @@ bin/spark-submit \
 
 在提交应用中，一般会同时一些提交参数
 
+```bash
 bin/spark-submit \
 
 --class <main-class>
@@ -399,6 +400,7 @@ bin/spark-submit \
 <application-jar> \
 
 [application-arguments]
+```
 
 ### 3.2.6 配置历史服务
 
@@ -873,6 +875,7 @@ sparkContext.stop()
 
 默认情况下，Spark 可以将一个作业切分多个任务后，发送给 Executor 节点并行计算，而能够并行计算的任务数量我们称之为并行度。这个数量可以在构建RDD 时指定。记住，这里的并行执行的任务数量，并不是指的切分任务的数量，不要混淆了。
 
+```scala
 val sparkConf =
 
 new SparkConf().setMaster("local[*]").setAppName("spark")
@@ -898,8 +901,10 @@ sparkContext.textFile(
 fileRDD.collect().foreach(println)
 
 sparkContext.stop()
+```
 
 - 读取内存数据时，数据可以按照并行度的设定进行数据的分区操作，数据分区规则的 Spark 核心源码如下：
+```scala
 def positions(length: Long, numSlices: Int): Iterator[(Int, Int)] = {
 
 (0 until numSlices).iterator.map { i =>
@@ -913,8 +918,10 @@ val end = (((i + 1) * length) / numSlices).toInt
 }
 
 }
+```
 
 - 读取文件数据时，数据是按照 Hadoop 文件读取的规则进行切片分区，而切片规则和数据读取的规则有些差异，具体 Spark 核心源码如下
+```scala
 public InputSplit[] getSplits (JobConf job,int numSplits)
 
 throws IOException {
@@ -964,6 +971,7 @@ return Math.max(minSize, Math.min(goalSize, blockSize));
 }
 
 }
+```
 
 #### 5.1.4.3 RDD 转换算子
 
@@ -979,6 +987,7 @@ def map[U: ClassTag](f: T => U): RDD[U]
   - 函数说明
 将处理的数据逐条进行映射转换，这里的转换可以是类型的转换，也可以是值的转换。
 
+```scala
 val dataRDD: RDD[Int] = sparkContext.makeRDD(List(1, 2, 3, 4))
 
 val dataRDD1: RDD[Int] = dataRDD.map(
@@ -1000,10 +1009,12 @@ num => {
 }
 
 )
+```
 
   - 小功能：从服务器日志数据 apache.log 中获取用户请求URL 资源路径
 - mapPartitions
   - 函数签名
+```scala
 def mapPartitions[U: ClassTag](
 
 f: Iterator[T] => Iterator[U],
@@ -1022,6 +1033,7 @@ datas.filter(_ == 2)
 }
 
 )
+```
 
   - 小功能：获取每个数据分区的最大值
 思考一个问题：map 和 mapPartitions 的区别？
@@ -1039,15 +1051,18 @@ Map 算子因为类似于串行操作，所以性能比较低，而是 mapPartit
 
 - mapPartitionsWithIndex
   - 函数签名
+```scala
 def mapPartitionsWithIndex[U: ClassTag](
 
 f: (Int, Iterator[T]) => Iterator[U],
 
 preservesPartitioning: Boolean = false): RDD[U]
+```
 
   - 函数说明
 将待处理的数据以分区为单位发送到计算节点进行处理，这里的处理是指可以进行任意的处理，哪怕是过滤数据，在处理时同时可以获取当前分区索引。
 
+```scala
 val dataRDD1 = dataRDD.mapPartitionsWithIndex(
 
 (index, datas) => {
@@ -1057,15 +1072,19 @@ datas.map(index, _)
 }
 
 )
+```
 
   - 小功能：获取第二个数据分区的数据
 - flatMap
   - 函数签名
+```scala
 def flatMap[U: ClassTag](f: T => TraversableOnce[U]): RDD[U]
+```
 
   - 函数说明
 将处理的数据进行扁平化后再进行映射处理，所以算子也称之为扁平映射
 
+```scala
 val dataRDD = sparkContext.makeRDD(List(
 
 List(1, 2), List(3, 4)
@@ -1077,15 +1096,19 @@ val dataRDD1 = dataRDD.flatMap(
 list => list
 
 )
+```
 
   - 小功能：将 List(List(1,2),3,List(4,5))进行扁平化操作
 - glom
   - 函数签名
+```scala
 def glom(): RDD[Array[T]]
+```
 
   - 函数说明
 将同一个分区的数据直接转换为相同类型的内存数组进行处理，分区不变
 
+```scala
 val dataRDD = sparkContext.makeRDD(List(
 
 1, 2, 3, 4
@@ -1093,16 +1116,20 @@ val dataRDD = sparkContext.makeRDD(List(
 ), 1)
 
 val dataRDD1: RDD[Array[Int]] = dataRDD.glom()
+```
 
   - 小功能：计算所有分区最大值求和（分区内取最大值，分区间最大值求和）
 - groupBy
   - 函数签名
+```scala
 def groupBy[K](f: T => K)(implicit kt: ClassTag[K]): RDD[(K, Iterable[T])]
+```
 
   - 函数说明
 将数据根据指定的规则进行分组, 分区默认不变，但是数据会被打乱重新组合，我们将这样的操作称之为shuffle。极限情况下，数据可能被分在同一个分区中
 
 一个组的数据在一个分区中，但是并不是说一个分区中只有一个组
+```scala
 
 val dataRDD = sparkContext.makeRDD(List(1, 2, 3, 4), 1)
 
@@ -1111,19 +1138,23 @@ val dataRDD1 = dataRDD.groupBy(
 _ % 2
 
 )
+```
 
   - 小功能：将 List("Hello", "hive", "hbase", "Hadoop")根据单词首写字母进行分组。
   - 小功能：从服务器日志数据 apache.log 中获取每个时间段访问量。
   - 小功能：WordCount。
 - filter
   - 函数签名
+```scala
 def filter(f: T => Boolean): RDD[T]
+```
 
   - 函数说明
 将数据根据指定的规则进行筛选过滤，符合规则的数据保留，不符合规则的数据丢弃。
 
 当数据进行筛选过滤后，分区不变，但是分区内的数据可能不均衡，生产环境下，可能会出现数据倾斜。
 
+```scala
 val dataRDD = sparkContext.makeRDD(List(
 
 1, 2, 3, 4
@@ -1131,10 +1162,12 @@ val dataRDD = sparkContext.makeRDD(List(
 ), 1)
 
 val dataRDD1 = dataRDD.filter(_ % 2 == 0)
+```
 
   - 小功能：从服务器日志数据 apache.log 中获取 2015 年 5 月 17 日的请求路径
 - sample
   - 函数签名
+```scala
 def sample(
 
 withReplacement: Boolean,
@@ -1142,15 +1175,18 @@ withReplacement: Boolean,
 fraction: Double,
 
 seed: Long = Utils.random.nextLong): RDD[T]
+```
 
   - 函数说明
 根据指定的规则从数据集中抽取数据
 
+```scala
 val dataRDD = sparkContext.makeRDD(List(
 
 1, 2, 3, 4
 
 ), 1)
+```
 
 // 抽取数据不放回（伯努利算法）
 
@@ -1180,13 +1216,16 @@ val dataRDD2 = dataRDD.sample(true, 2)
 
 - distinct
   - 函数签名
+```scala
 def distinct()(implicit ord: Ordering[T] = null): RDD[T]
 
 def distinct(numPartitions: Int)(implicit ord: Ordering[T] = null): RDD[T]
+```
 
   - 函数说明
 将数据集中重复的数据去重
 
+```scala
 val dataRDD = sparkContext.makeRDD(List(
 
 1, 2, 3, 4, 1, 2
@@ -1196,11 +1235,13 @@ val dataRDD = sparkContext.makeRDD(List(
 val dataRDD1 = dataRDD.distinct()
 
 val dataRDD2 = dataRDD.distinct(2)
+```
 
 思考一个问题：如果不用该算子，你有什么办法实现数据去重？
 
 - coalesce
   - 函数签名
+```scala
 def coalesce(numPartitions: Int, shuffle: Boolean = false,
 
 partitionCoalescer: Option[PartitionCoalescer] = Option.empty)
@@ -1208,12 +1249,14 @@ partitionCoalescer: Option[PartitionCoalescer] = Option.empty)
 (implicit ord: Ordering[T] = null)
 
 : RDD[T]
+```
 
   - 函数说明
 根据数据量缩减分区，用于大数据集过滤后，提高小数据集的执行效率
 
 当 spark 程序中，存在过多的小任务的时候，可以通过 coalesce 方法，收缩合并分区，减少分区的个数，减小任务调度成本
 
+```scala
 val dataRDD = sparkContext.makeRDD(List(
 
 1, 2, 3, 4, 1, 2
@@ -1221,6 +1264,7 @@ val dataRDD = sparkContext.makeRDD(List(
 ), 6)
 
 val dataRDD1 = dataRDD.coalesce(2)
+```
 
 思考一个问题：我想要扩大分区，怎么办？
 
@@ -1231,6 +1275,7 @@ def repartition(numPartitions: Int)(implicit ord: Ordering[T] = null): RDD[T]
   - 函数说明
 该操作内部其实执行的是 coalesce 操作，参数 shuffle 的默认值为 true。无论是将分区数多的RDD 转换为分区数少的RDD，还是将分区数少的 RDD 转换为分区数多的RDD，repartition 操作都可以完成，因为无论如何都会经 shuffle 过程。
 
+```scala
 val dataRDD = sparkContext.makeRDD(List(
 
 1, 2, 3, 4, 1, 2
@@ -1238,11 +1283,13 @@ val dataRDD = sparkContext.makeRDD(List(
 ), 2)
 
 val dataRDD1 = dataRDD.repartition(4)
+```
 
 思考一个问题：coalesce 和 repartition 区别？
 
 - sortBy
   - 函数签名
+```scala
 def sortBy[K](
 
 f: (T) => K,
@@ -1252,10 +1299,12 @@ ascending: Boolean =  true,
 numPartitions: Int = this.partitions.length)
 
 (implicit ord: Ordering[K], ctag: ClassTag[K]): RDD[T]
+```
 
   - 函数说明
 该操作用于排序数据。在排序之前，可以将数据通过 f 函数进行处理，之后按照 f 函数处理的结果进行排序，默认为升序排列。排序后新产生的 RDD 的分区数与原RDD 的分区数一致。中间存在 shuffle 的过程
 
+```scala
 val dataRDD = sparkContext.makeRDD(List(
 
 1, 2, 3, 4, 1, 2
@@ -1263,6 +1312,7 @@ val dataRDD = sparkContext.makeRDD(List(
 ), 2)
 
 val dataRDD1 = dataRDD.sortBy(num => num, false, 4)
+```
 
 - 双 Value 类型
 - intersection
@@ -1565,16 +1615,20 @@ val rdd: RDD[(String, (Int, Option[Int]))] = dataRDD1.leftOuterJoin(dataRDD2)
 
 - cogroup
   - 函数签名
+```scala
 def cogroup[W](other: RDD[(K, W)]): RDD[(K, (Iterable[V], Iterable[W]))]
+```
 
   - 函数说明
-在类型为(K,V)和(K,W)的RDD 上调用，返回一个(K,(Iterable<V>,Iterable<W>))类型的 RDD
+在类型为(K,V)和(K,W)的RDD 上调用，返回一个(K,(Iterable<`V`>,Iterable<`W`>))类型的 RDD
 
+```scala
 val dataRDD1 = sparkContext.makeRDD(List(("a", 1), ("a", 2), ("c", 3)))
 
 val dataRDD2 = sparkContext.makeRDD(List(("a", 1), ("c", 2), ("c", 3)))
 
 val value: RDD[(String, (Iterable[Int], Iterable[Int]))] = dataRDD1.cogroup(dataRDD2)
+```
 
 #### 5.1.4.4 案例实操
 
