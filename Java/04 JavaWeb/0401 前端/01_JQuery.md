@@ -1,0 +1,24 @@
+# 1 1.JQuery选择器
+
+- 基本选择器 ：
+  - ID选择器#id      --  $("#test")
+  - 类选择器.class     -- $(".test")
+  - 元素（标签）选择器 element     -- $("p")
+  - *  匹配所有类型        -- $("*")
+  - selector1（并集选择器）        -- $("p,span,p.myclass")
+- 层次选择器
+  - 后代选择器        --$("p span")
+  - 子选择器        --$("parent>child")
+  - 同辈选择器        --$("prev+next")
+  - 同辈选择器        -- $("prev ~ siblings")
+- 过滤选择器
+  - 基本过滤器  1.first        --$("p:first")
+  - 内容过滤器   1.contains（text）        --$("p:contains('我')")
+  - 可见性过滤选择器
+  - 属性过滤选择器
+  - 表单属性过滤选择器
+- 表单选择器
+  - 1、：text
+  - 2、：password
+  - 3、：button
+  - 4、：checkbox

@@ -1,0 +1,39 @@
+- Hadoop
+  - Hadoop HDFS 、 MapReduce Hadoop HDFS、MR、 Yarn、Kafka、Flume、HBase、Azkaban .... .spark
+- Ambari
+  - Hadoop集群–N台普通服务器相互通信，搭建成一个集群
+  - 下载hadoop源码
+  - linux环境准备好，JDK
+  - 各个机器节点分发hadoop包，依次配置
+    - Ambari、 CDH、Apache 1．搭建平台 2．监控管理
+  - xshell通过反向代理,，登录星云3
+  - Chrome + Switchyomega反向代理访问星云3的Ambari平台
+- HDFS
+  - 高可用措施
+    - 副本冗余、跨机架存放、核心文件备份、回收站
+    - HDFS SHELL
+      - hdfs dfs -ls l
+      - hadoop fs -ls /
+  - HDFS Java API
+    - 步骤 :
+      - .新建工程Maven引 入HDFS JAR
+      - HDFS JAR写代码，操作HDFS
+      - 打包上传到Linux
+      - 运行这个JAR
+- 免密登录 ssh
+  - yarn jar jar-name class-name
+- 经典问题分析
+  - URI ----configuration --- <fs.defaultFS, ....> hdfs : // cluster0.hadoop :8020/input.txt file : ///input.txt
+  - Configuration字节码加载的时候，运行static{ }
+  - 在静态代码块中会加载
+  - hadoop-site.nl、core-site.xml、core-default.xml将配置文件的信息加载到configuration对象容器中
+  - 加载完，FileSystem.get ()通过conf中的配置信息，来获取相应的文件系统对象
+  - URL= URI +PATH
+- MapReduce
+  - MR介绍
+  - MapReduce运行原理
+    - 默认分区规则 - HashPartition
+    - ( key.hashCode & Integer.Max_Value)% reduce_nums
+    - reduce_nums--> partition nums
+  - MapReduce经典案例- wordCount
+  - Configuration讲解

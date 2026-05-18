@@ -1,0 +1,8 @@
+- 1、环境配置
+  - 01_Idea的环境搭建
+  - 下边有一个GitHub账号，可以添加一个GitHub账号，以后提交的话用github提交
+- 2、git add 之后如何撤销
+  - git status
+  - git reset abc.txt
+- 3、git显示本地分支
+  - git branch –column

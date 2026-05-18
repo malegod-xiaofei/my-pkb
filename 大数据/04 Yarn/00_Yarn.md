@@ -1,0 +1,7 @@
+- MRvl运行流程
+- MRv1的弊端
+- Yarn是什么
+- Yarn的设计架构
+- Yarn的运行流程
+- 资源i调度策略
+- yarn shell

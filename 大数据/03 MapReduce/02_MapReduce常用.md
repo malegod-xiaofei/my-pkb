@@ -1,0 +1,29 @@
+- HDFS数据格式
+- MR深入理解
+  - 影响Map个数的因素?
+    - 文件数量
+    - 文件大小
+    - blocksize
+    - 计算是否可切分
+  - Partition分区默认规则?如何自定义分区
+    - HashPartition - (key.hashCode() & Integer.MAX_VALUE) % reduce_nums
+    - 自定义分区 :
+      - 准备数据
+        - s01 jack M 1000.01
+        - s02 marry F 1200.0
+      - 自定义分区类
+      - Driver中配置自定义分区
+  - 如何自定义分组规则?
+  - 如何自定义KEY的排序规则?
+  - 案例:二次排序时
+- 外部参数传递 - Configuration、DistributedCache
+- 如何进行灵活的参数指定?
+  - 去掉Driver中的setGrouping....
+  - MyselfIntwritable
+    - 添加自定义的分组类添加static{ } -- Intwritable
+    - //得到集群配置参数 Configuration conf = new Configuration () ;
+    - //参数解析器 GenericoptionsParser optionParser = new GenericoptionsParser (conf,args);string[] remainingArgs = optionParser.getRemainingArgs ( ) ; if ( (remainingArgs .length < 3)){ system.err .println ("Usage: yarn jar jar_path main_class_path -D参数列表〈in><out>"); system.exit ( 2); f //集群参数配置
+    - job.setXXXX()
+    - conf.set (k, v)
+    - yarn jar jar_name class_name -Dk1=v1 -Dk2=v2 /input /output
+    - Driver --- GenericoptionsParser ----D
