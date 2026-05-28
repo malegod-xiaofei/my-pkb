@@ -4,35 +4,26 @@ git rebase -i a6b6aa60833c97d1e86557ba6be781fe38e6a7f1
 ```
 
 - git合并已经提交的push
-#查看提交日志
 
 ```bash
+#查看提交日志
 git log
-```
+
 
 #xxxxx代表要修改的记录之前的位置对应的id，尽量往下面显示的选（往下面的越早提交），也可以根据时间选
-
-```bash
 git rebase -i xxxxx
-```
 
 #将要去掉的那条记录把pick换成f
-
 pick-->f
 
 #wq保存之后再查看一次提交记录，应该已经不见了
-
-```bash
 git log
-```
 
 #要将修改强制提交到服务器同步,例如dev分支
-
-```bash
 git push origin dev -f
-```
 
 #如果上面是master可能会报错，因为默认master是受保护的，需要去gitlab里面先去取消受保护的分支
+```
 
 - 修改已经push的最近一次commit的信息
 

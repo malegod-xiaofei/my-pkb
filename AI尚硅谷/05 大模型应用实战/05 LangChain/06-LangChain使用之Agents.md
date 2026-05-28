@@ -268,17 +268,11 @@ agent_executor.invoke({"input":"xxxxx"})
 
 案例1:单工具使用
 
-> 需求：今天北京的天气怎么样?
-
-使用Tavily搜索工具
-
-|  | Tavily的搜索API是一个专门为人工智能Agent(或LLM)构建的搜索引擎,可以快速提供实时、 |
-| --- | --- |
-
-准确和真实的结果。
-
-|  | LangChain 中有一个内置工具,可以轻松使用 Tavily 搜索引擎作为工具。<br>TAVILY_API_KEY申请：https://tavily.com/,注册账号并登录,创建 API 密钥。 |
-| --- | --- |
+- 需求：今天北京的天气怎么样?
+- 使用Tavily搜索工具
+	- Tavily的搜索API是一个专门为人工智能Agent(或LLM)构建的搜索引擎,可以快速提供实时、准确和真实的结果。
+	- LangChain 中有一个内置工具,可以轻松使用 Tavily 搜索引擎作为工具。
+	- TAVILY_API_KEY申请：https://tavily.com/,注册账号并登录,创建 API 密钥。
 
 #### 方式 1：ReAct模式
 
@@ -292,71 +286,52 @@ import os
 import dotenv
 from langchain_openai import ChatOpenAI
 from langchain_community.tools.tavily_search import TavilySearchResults
-```
 
-```python
 # 1. 设置 API 密钥
-10 os.environ["TAVILY_API_KEY"] = "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"
+os.environ["TAVILY_API_KEY"] = "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"
+
 # 2. 初始化搜索工具
 search = TavilySearchResults(max_results=3)
-```
 
-|  | # 3. 创建Tool的实例 (本步骤可以考虑省略,直接使用[search]替换[search_tool]。但建议加上search_tool = Tool(<br>name="Search",<br>func=search.run,<br>description="用于搜索互联网上的信息"<br>) |
-| --- | --- |
+# 3. 创建Tool的实例 (本步骤可以考虑省略,直接使用[search]替换[search_tool]。但建议加上
+search_tool = Tool(
+	name="Search",
+	func=search.run,
+	description="用于搜索互联网上的信息"
+)
 
-```python
 # 4. 初始化 LLM
-```
-
-23. dotenv.load_dotenv()
-
-```python
+dotenv.load_dotenv()
 os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY1")
 os.environ['OPENAI_BASE_URL'] = os.getenv("OPENAI_BASE_URL")
 llm = ChatOpenAI(
-28 model="gpt-4o-mini",
-```
+	model="gpt-4o-mini",
+	temperature=0,
+)
 
-29. temperature=0,
-
-30. )
-
-```python
 # 5. 创建 AgentExecutor
 agent_executor = initialize_agent(
-tools=[search_tool],
-```
+	tools=[search_tool],
+	llm=llm,
+	agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+	verbose=True
+)
 
-35. llm=llm,
-
-36. agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
-
-37. verbose=True
-
-38. )
-
-```python
 # 5. 测试查询
-41 query = "今天北京的天气怎么样?"
-42 result = agent_executor.invoke(query)
+query = "今天北京的天气怎么样?"
+result = agent_executor.invoke(query)
 print(f"查询结果: {result}")
 ```
 
-1. > Entering new AgentExecutor chain...
+```text
+> Entering new AgentExecutor chain...
+我需要查找今天北京的天气信息。
+Action: Search
+> Entering new AgentExecutor chain...
+我需要查找今天北京的天气信息。
+Action: Search
+Action Input: '今天 北京 天气'
 
-2. 我需要查找今天北京的天气信息。
-
-3. Action: Search
-
-4. > Entering new AgentExecutor chain...
-
-5. 我需要查找今天北京的天气信息。
-
-6. Action: Search
-
-7. Action Input: '今天 北京 天气'
-
-```python
 Observation: [{'title': '中国气象局-天气预报- 北京', 'url': 
 'https://weather.cma.cn/web/weather/54511.html', 'content': '| | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| æ\x97¶é\x97 ́ | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| å¤©æ°\x94 | | | | | | | | |\n| æ°\x94æ ̧© | 28.2â\x84\x83 | 32â\x84\x83 | 33.8â\x84\x83 | 33.5â\x84\x83 | 31â\x84\x83 | 27.8â\x84\x83 | 
 25.8â\x84\x83 | 24.2â\x84\x83 |\n| é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 
@@ -366,20 +341,14 @@ Observation: [{'title': '中国气象局-天气预报- 北京', 'url':
 19.9â\x84\x83 | 16.8â\x84\x83 |\n| é\x99\x8dæ° ́ | 2.3mm | 2.3mm | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ |\n| é£\x8eé\x80\x9f | 3m/s | 3.1m/s | 5.1m/s | 7.9m/s | 6.9m/s | 5.2m/s | 3m/s | 2.6m/s |', 'score': 0.74273956}, {'title': '北京市天气预报_天气查询- 墨迹天气', 'url': 'https://tianqi.moji.com/weather/china/beijing/beijing', 'content': '【北京市天气】_北京市天气预报_天气查询 - 墨迹天气\n\n===============\n\nImage 1: 墨迹天气\n\n_Image 2_ 随时随地 想查就查\n\n首页天气下载资讯关于墨迹\n\n 天气\n 中国\n 北京市\n 北京市\n\n_北京市, 北京市, 中国_\n\n更多城市\n\n Image 3: 72 良_72 良
 _\n\n_28_Image 4: 阴 阴今天18:37更新\n\n湿度 36%_南风2级_\n\n今日天气提示 _略微偏热,注意衣物变化。_\n\nImage 5: 墨迹天气 小墨哥\n\nImage 6: Windows 下载Windows 下载\n\n预报\n 7天预报\n 10天预报\n 15天预报\n\n 今天\n Image 7: 晴 晴 \n 18° / 32°\n _西南风_1级\n 93 良\n\n 明天\n Image 8: 晴 晴 \n 19° / 33°\n _西南风_1级\n 150 轻度污染 [...] _23_Image 66: 阴 \n12/22°\n\n北风 1级\n\n _24_Image 67: 晴 \n14/28°\n\n西南风 1级\n\n _25_Image 68: 多云 \n15/28°\n\n东风 1级\n\n _26_Image 69: 多云 
 \n17/29°\n\n西南风 1级\n\n _27_Image 70: 阴 \n18/32°\n\n西南风 1级\n\n _28_Image 71: 晴 \n19/33°\n\n西南风 1级\n\n _29_Image 72: 晴
-```
-
 \n22/33°\n\n西南风 1级', 'score': 0.7230167}, {'title': '北京-天气预报 - 中央气象台', 'url': 'https://www.nmc.cn/publish/forecast/ABJ/beijing.html', 'content': '土壤水分监测\n 农业干旱综合监测\n 关键农时农事\n 农业气象周报\n 农业气象月报\n 农业气象专报\n 生态气象监测评估\n 作物发育期监测\n\n 数值预报\n\n CMA全球天气模式\n CMA全球集合模式\n CMA区域模式\n CMA区域集合模式\n CMA台风模式\n 海浪模式\n\n1. 当前位置:首页\n2. 北京市\n3. 北京天气预报\n\n省份:城市:\n\n09:50更新\n\n日出04:45\n\n 北京 \n\n30°C\n\n日落19:43\n\n 降水量 \n\n0mm\n\n西南风\n\n3级\n\n 相对湿度 \n\n43%\n\n 体感温度 \n\n29.9°C\n\n空气质量:良 \n\n舒适度:温暖,较舒适\n\n 雷达图 \n\nImage 4\n\n24小时预报7天预报10天预报11-30天预报\n\n 发布时间:06-12 08:00 \n\n 06/12 \n\n周四 \n\nImage 5\n\n 多云 \n\n 南风 \n\n 3~4级 \n\n 35°C \n\n 23°C \n\nImage 6 [...] 05:00 \n\nImage 49\n\n - \n\n 20.2°C \n\n 1.8m/s \n\n 北风 \n\n 988.3hPa \n\n 71.3% \n\n 80% \n\n 08:00 \n\nImage 50\n\n - \n\n 26.2°C \n\n 3.3m/s \n\n 北风 \n\n 990hPa \n\n 57.7% \n\n 80.9% \n\n 11:00 
 \n\nImage 51\n\n 2.3mm \n\n 25.7°C \n\n 3.3m/s \n\n 西风 \n\n 990.6hPa \n\n 26.4% \n\n 70% \n\n 14:00 \n\nImage 52\n\n 2.3mm \n\n 28.8°C \n\n 2.2m/s \n\n 西南风 \n\n 990.9hPa \n\n 30.3% \n\n 72.1% \n\n 17:00 \n\nImage 53\n\n 2.3mm \n\n 28.2°C \n\n 2.3m/s \n\n 南风 \n\n 992.2hPa \n\n 27.2% \n\n 70% \n\n 20:00 \n\nImage 54\n\n 2.3mm \n\n 24.2°C \n\n 0.8m/s \n\n 东南风 \n\n 993.9hPa \n\n 56.9% \n\n 70% \n\n 23:00', 'score': 0.71425}]
 
-9. > Entering new AgentExecutor chain...
+> Entering new AgentExecutor chain...
+我需要查找今天北京的天气信息。
+Action: Search
+Action Input: '今天 北京 天气'
 
-10. 我需要查找今天北京的天气信息。
-
-11. Action: Search
-
-12. Action Input: '今天 北京 天气'
-
-```python
 Observation: [{'title': '中国气象局-天气预报- 北京', 'url': 
 'https://weather.cma.cn/web/weather/54511.html', 'content': '| | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| æ\x97¶é\x97 ́ | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| å¤©æ°\x94 | | | | | | | | |\n| æ°\x94æ ̧© | 28.2â\x84\x83 | 32â\x84\x83 | 33.8â\x84\x83 | 33.5â\x84\x83 | 31â\x84\x83 | 27.8â\x84\x83 | 
 25.8â\x84\x83 | 24.2â\x84\x83 |\n| é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 
@@ -389,40 +358,35 @@ Observation: [{'title': '中国气象局-天气预报- 北京', 'url':
 19.9â\x84\x83 | 16.8â\x84\x83 |\n| é\x99\x8dæ° ́ | 2.3mm | 2.3mm | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ |\n| é£\x8eé\x80\x9f | 3m/s | 3.1m/s | 5.1m/s | 7.9m/s | 6.9m/s | 5.2m/s | 3m/s | 2.6m/s |', 'score': 0.74273956}, {'title': '北京市天气预报_天气查询- 墨迹天气', 'url': 'https://tianqi.moji.com/weather/china/beijing/beijing', 'content': '【北京市天气】_北京市天气预报_天气查询 - 墨迹天气\n\n===============\n\nImage 1: 墨迹天气\n\n_Image 2_ 随时随地 想查就查\n\n首页天气下载资讯关于墨迹\n\n 天气\n 中国\n 北京市\n 北京市\n\n_北京市, 北京市, 中国_\n\n更多城市\n\n Image 3: 72 良_72 良
 _\n\n_28_Image 4: 阴 阴今天18:37更新\n\n湿度 36%_南风2级_\n\n今日天气提示 _略微偏热,注意衣物变化。_\n\nImage 5: 墨迹天气 小墨哥\n\nImage 6: Windows 下载Windows 下载\n\n预报\n 7天预报\n 10天预报\n 15天预报\n\n 今天\n Image 7: 晴 晴 \n 18° / 32°\n _西南风_1级\n 93 良\n\n 明天\n Image 8: 晴 晴 \n 19° / 33°\n _西南风_1级\n 150 轻度污染 [...] _23_Image 66: 阴 \n12/22°\n\n北风 1级\n\n _24_Image 67: 晴 \n14/28°\n\n西南风 1级\n\n _25_Image 68: 多云 \n15/28°\n\n东风 1级\n\n _26_Image 69: 多云 
 \n17/29°\n\n西南风 1级\n\n _27_Image 70: 阴 \n18/32°\n\n西南风 1级\n\n _28_Image 71: 晴 \n19/33°\n\n西南风 1级\n\n _29_Image 72: 晴
-```
-
 \n22/33°\n\n西南风 1级', 'score': 0.7230167}, {'title': '北京-天气预报 - 中央气象台', 'url': 'https://www.nmc.cn/publish/forecast/ABJ/beijing.html', 'content': '土壤水分监测\n 农业干旱综合监测\n 关键农时农事\n 农业气象周报\n 农业气象月报\n 农业气象专报\n 生态气象监测评估\n 作物发育期监测\n\n 数值预报\n\n CMA全球天气模式\n CMA全球集合模式\n CMA区域模式\n CMA区域集合模式\n CMA台风模式\n 海浪模式\n\n1. 当前位置:首页\n2. 北京市\n3. 北京天气预报\n\n省份:城市:\n\n09:50更新\n\n日出04:45\n\n 北京 \n\n30°C\n\n日落19:43\n\n 降水量 \n\n0mm\n\n西南风\n\n3级\n\n 相对湿度 \n\n43%\n\n 体感温度 \n\n29.9°C\n\n空气质量:良 \n\n舒适度:温暖,较舒适\n\n 雷达图 \n\nImage 4\n\n24小时预报7天预报10天预报11-30天预报\n\n 发布时间:06-12 08:00 \n\n 06/12 \n\n周四 \n\nImage 5\n\n 多云 \n\n 南风 \n\n 3~4级 \n\n 35°C \n\n 23°C \n\nImage 6 [...] 05:00 \n\nImage 49\n\n - \n\n 20.2°C \n\n 1.8m/s \n\n 北风 \n\n 988.3hPa \n\n 71.3% \n\n 80% \n\n 08:00 \n\nImage 50\n\n - \n\n 26.2°C \n\n 3.3m/s \n\n 北风 \n\n 990hPa \n\n 57.7% \n\n 80.9% \n\n 11:00 
 \n\nImage 51\n\n 2.3mm \n\n 25.7°C \n\n 3.3m/s \n\n 西风 \n\n 990.6hPa \n\n 26.4% \n\n 70% \n\n 14:00 \n\nImage 52\n\n 2.3mm \n\n 28.8°C \n\n 2.2m/s \n\n 西南风 \n\n 990.9hPa \n\n 30.3% \n\n 72.1% \n\n 17:00 \n\nImage 53\n\n 2.3mm \n\n 28.2°C \n\n 2.3m/s \n\n 南风 \n\n 992.2hPa \n\n 27.2% \n\n 70% \n\n 20:00 \n\nImage 54\n\n 2.3mm \n\n 24.2°C \n\n 0.8m/s \n\n 东南风 \n\n 993.9hPa \n\n 56.9% \n\n 70% \n\n 23:00', 'score': 0.71425}]
 
-14. Thought:我现在知道今天北京的天气情况。
+Thought:我现在知道今天北京的天气情况。
+Final Answer: 今天北京的天气是晴,最高气温32°C,最低气温18°C,湿度为36%,风速为南风2 级,空气质量良好。
 
-15. Final Answer: 今天北京的天气是晴,最高气温32°C,最低气温18°C,湿度为36%,风速为南风2 级,空气质量良好。
+Finished chain. 
+查询结果: 今天北京的天气是晴,最高气温32°C,最低气温18°C,湿度为36%,风速为南风2级, 空气质量良好。
+```
 
-17 > Finished chain. 
-18 查询结果: 今天北京的天气是晴,最高气温32°C,最低气温18°C,湿度为36%,风速为南风2级, 空气质量良好。拓展:上述程序中tool的设置也可以简化为:
+拓展:上述程序中tool的设置也可以简化为:
 
 ```python
 # 初始化搜索工具
 search = TavilySearchResults(max_results=3)
-```
 
-```python
 # 创建 AgentExecutor
 agent_executor = initialize_agent(
-tools=[search],
+	tools=[search],
+	llm=llm,
+	agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+	verbose=True
+)
 ```
-
-7. llm=llm,
-
-8. agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
-
-9. verbose=True
-
-10. )
-
 #### 方式 2：Function Call 模式
 
-AgentType是 OPENAI_FUNCTIONS提示:只需要修改前面代码中的initialize_agent中的agent参数值。
+- AgentType是 OPENAI_FUNCTIONS
+
+提示:只需要修改前面代码中的initialize_agent中的agent参数值。
 
 ```python
 from langchain_openai import ChatOpenAI
@@ -431,76 +395,53 @@ from langchain.tools import Tool
 import os
 import dotenv
 from langchain_openai import ChatOpenAI 
-7 from langchain_community.tools.tavily_search import TavilySearchResults
+from langchain_community.tools.tavily_search
+import TavilySearchResults
+
 # 1. 设置 API 密钥
-10 os.environ["TAVILY_API_KEY"] = "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"
+os.environ["TAVILY_API_KEY"] = "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"
+
 # 2. 初始化搜索工具
 search = TavilySearchResults(max_results=3)
-```
 
-```python
 # 3. 创建Tool的实例
 search_tool = Tool(
-17 name="Search",
-```
+	name="Search",
+	func=search.run,
+	description="用于搜索互联网上的信息"
+)
 
-18. func=search.run,
-
-```python
-19 description="用于搜索互联网上的信息"
-```
-
-20. )
-
-```python
 # 4. 初始化 LLM
-```
+dotenv.load_dotenv()
+os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY1")
+os.environ['OPENAI_BASE_URL'] = os.getenv("OPENAI_BASE_URL")
+llm = ChatOpenAI(
+	model="gpt-4o-mini",
+	temperature=0,
+)
 
-23. dotenv.load_dotenv()
-
-```python
-os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY1") 26 os.environ['OPENAI_BASE_URL'] = os.getenv("OPENAI_BASE_URL") 27 llm = ChatOpenAI(
-28 model="gpt-4o-mini",
-```
-
-29. temperature=0,
-
-30. )
-
-```python
 # 5. 创建 AgentExecutor
 agent_executor = initialize_agent(
-tools=[search_tool],
-```
-
-35. llm=llm,
-
-36. agent=AgentType.OPENAI_FUNCTIONS, #唯一变化
-
-37. verbose=True
-
-38. )
-
-```python
+	tools=[search_tool],
+	llm=llm,
+	agent=AgentType.OPENAI_FUNCTIONS, #唯一变化
+	verbose=True
+)
+ 
 # 5. 测试查询
-41 query = "今天北京的天气怎么样?"
-42 result = agent_executor.invoke(query)
+query = "今天北京的天气怎么样?"
+result = agent_executor.invoke(query)
 print(f"查询结果: {result}")
 ```
 
-1. > Entering new AgentExecutor chain...
-
-3. Invoking: `tavily_search_results_json` with `{'query': '北京天气'}`
-
-6. > Entering new AgentExecutor chain...
-
-8. Invoking: `tavily_search_results_json` with `{'query': '北京天气'}`
-
-11. > Entering new AgentExecutor chain...
-
-13. Invoking: `tavily_search_results_json` with `{'query': '北京天气'}`
-
-16 [{'title': '北京-天气预报 - 中央气象台', 'url': 
+```text
+> Entering new AgentExecutor chain...
+Invoking: `tavily_search_results_json` with `{'query': '北京天气'}`
+> Entering new AgentExecutor chain...
+Invoking: `tavily_search_results_json` with `{'query': '北京天气'}`
+> Entering new AgentExecutor chain...
+Invoking: `tavily_search_results_json` with `{'query': '北京天气'}`
+[{'title': '北京-天气预报 - 中央气象台', 'url': 
  'https://www.nmc.cn/publish/forecast/ABJ/beijing.html', 'content': '土壤水分监测\n 农 业干旱综合监测\n 关键农时农事\n 农业气象周报\n 农业气象月报\n 农业气象专 报\n 生态气象监测评估\n 作物发育期监测\n\n 数值预报\n\n CMA全球天气模式\n CMA全球集合模式\n CMA区域模式\n CMA区域集合模式\n CMA台风模式\n 海浪模式\n\n1. 当前位置:首页\n2. 北京市\n3. 北京天气预报\n\n省份:城市:\n\n09:50 更新\n\n日出04:45\n\n 北京 \n\n30°C\n\n日落19:43\n\n 降水量 \n\n0mm\n\n西南风\n\n3 级\n\n 相对湿度 \n\n43%\n\n 体感温度 \n\n29.9°C\n\n空气质量:良 \n\n舒适度:温暖,较 舒适\n\n 雷达图 \n\nImage 4\n\n24小时预报7天预报10天预报11-30天预报\n\n 发布时间: 06-12 08:00 \n\n 06/12 \n\n周四 \n\nImage 5\n\n 多云 \n\n 南风 \n\n 3~4级 \n\n 35°C \n\n 23°C \n\nImage 6', 'score': 0.78493005}, {'title': '中国气象局-天气预报- 北京', 'url': 'https://weather.cma.cn/web/weather/54511', 'content': '| | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 时间 | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| 天气 | | | | | | | | |\n| 气温 | 21.4°C | 23.6°C | 26.8°C | 29.8°C | 24.4°C | 23.3°C | 21.6°C | 20.2°C |\n| 降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 |\n| 风速 | 2.9m/s | 6.8m/s | 7.5m/s | 7.9m/s | 7.6m/s | 2.9m/s | 2.7m/s | 3.2m/s |\n| 风向 | 东 北风 | 东南风 | 西南风 | 西北风 | 西北风 | 西北风 | 东北风 | 西北风 | [...] | | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 时间 | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| 天气 | | | | | | | | |\n| 气温 | 23.7°C | 27°C | 30.2°C | 30.8°C | 28.1°C | 26.5°C | 21.1°C | 19.2°C |\n| 降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 |\n| 风速 | 3.3m/s | 7.4m/s | 7.3m/s | 7m/s | 7.9m/s | 3.3m/s | 2.2m/s | 1.8m/s |\n| 风 向 | 西南风 | 西北风 | 西北风 | 西北风 | 东北风 | 西北风 | 西北风 | 西北风 | [...] | | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 时间 | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| 天气 | | | | | | | | |\n| 气温 | 24.4°C | 26.9°C | 29.8°C | 28.8°C | 26°C | 24.6°C | 21.8°C | 19.2°C |\n| 降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 |\n| 风速 | 3.3m/s | 1.9m/s | 2m/s | 3.3m/s | 1.4m/s | 3.3m/s | 3.1m/s | 2.1m/s |\n| 风向 | 东北风 | 东北风 | 东南风 | 西南风 | 东南风 | 东南风 | 东北风 | 东北风 |', 'score': 0.77364457}, {'title': 'Beijing天气状况:气温| 30天预报 - AQI', 'url': 
  'https://www.aqi.in/weather/cn/china/beijing/beijing', 'content': "Image 56: 
  Cloudy\n\nCloudy\n\n4\n\nImage 57: Rainy\n\nRainy\n\n14\n\nImage 58: 
@@ -508,29 +449,27 @@ print(f"查询结果: {result}")
  \n\nBda\n\n34 °C\n\nImage 59: sunny\nSunny\n\n19%\n\n6.9\n\n13.7 kmph/ 
  W\n\nBeijing US Embassy\n\n34 °C\n\nImage 60: sunny\nSunny\n\n19%\n\n6.9\n\n12.2 kmph/ WNW\n\nChaoyang Agricultural Exhibition Hall\n\n34 °C\n\nImage 61: 
  sunny\nSunny\n\n19%\n\n6.9\n\n12.2 kmph/ WNW [...] Image 35: partly cloudy\n42°26 °C\n\n17 Tue.\n\nImage 36: Rainy\n37°26 °C\n\n18 Wed.\n\nImage 37: Moderate or heavy rain shower\n35°22 °C\n\n19 Thu.\n\nImage 38: Heavy rain at times\n34°22 °C\n\n20 Fri.\n\nImage 39: Rainy\n35°22 °C\n\n21 Sat.\n\nImage 40: Moderate rain at times\n35°22 °C\n\n22 Sun.\n\nImage 41: Moderate or heavy rain shower\n33°22 °C\n\n23 Mon.\n\nImage 42: Moderate or heavy rain shower\n34°21 °C\n\n24 
- Tue.\n\nImage 43: Moderate or heavy rain shower\n34°21 °C\n\n25 Wed.\n\nImage 44: Moderate or heavy rain shower\n34°22 °C", 'score': 0.74385756}]今天北京的天气情况如下:17
+ Tue.\n\nImage 43: Moderate or heavy rain shower\n34°21 °C\n\n25 Wed.\n\nImage 44: Moderate or heavy rain shower\n34°22 °C", 'score': 0.74385756}]
 
-18. - 当前气温:30°C
+今天北京的天气情况如下:
+- 当前气温:30°C
+- 天气状况:多云
+- 风速:西南风,约3级
+- 相对湿度:43%
+- 体感温度:29.9°C
+- 空气质量:良
+预计今天的最高气温为35°C,最低气温为23°C,降水量为0mm,整体感觉温暖且较为舒适。
 
-19. - 天气状况:多云
-
-20. - 风速:西南风,约3级
-
-21. - 相对湿度:43%
-
-22. - 体感温度:29.9°C
-
-23. - 空气质量:良
-
-24. 25 预计今天的最高气温为35°C,最低气温为23°C,降水量为0mm,整体感觉温暖且较为舒适。
-
-27. 如果你想查看更详细的天气预报,可以访问[中央气象台]
+如果你想查看更详细的天气预报,可以访问[中央气象台]
 
 (https://www.nmc.cn/publish/forecast/ABJ/beijing.html)。
 
-29 > Finished chain. 
-30 查询结果: {'input': '今天北京的天气怎么样?', 'output': '今天北京的天气情况如下:\n\n- 当前气 温:30°C\n- 天气状况:多云\n- 风速:西南风,约3级\n- 相对湿度:43%\n- 体感温度:29.9°C \n- 空气质量:良\n\n预计今天的最高气温为35°C,最低气温为23°C,降水量为0mm,整体感觉 温暖且较为舒适。\n\n如果你想查看更详细的天气预报,可以访问[中央气象台] 
- (https://www.nmc.cn/publish/forecast/ABJ/beijing.html)。'}二者对比:ZERO_SHOT_REACT_DESCRIPTION和OPENAI_FUNCTIONS
+> Finished chain. 
+查询结果: {'input': '今天北京的天气怎么样?', 'output': '今天北京的天气情况如下:\n\n- 当前气 温:30°C\n- 天气状况:多云\n- 风速:西南风,约3级\n- 相对湿度:43%\n- 体感温度:29.9°C \n- 空气质量:良\n\n预计今天的最高气温为35°C,最低气温为23°C,降水量为0mm,整体感觉 温暖且较为舒适。\n\n如果你想查看更详细的天气预报,可以访问[中央气象台] 
+ (https://www.nmc.cn/publish/forecast/ABJ/beijing.html)。'}
+```
+ 
+ **二者对比:ZERO_SHOT_REACT_DESCRIPTION和OPENAI_FUNCTIONS**
 
 | 对比维度 | ZERO_SHOT_REACT_DESCRIPTION | OPENAI_FUNCTIONS |
 | --- | --- | --- |
@@ -543,12 +482,10 @@ print(f"查询结果: {result}")
 
 案例2:多工具使用
 
-> 需求：
-
-|  | 计算特斯拉当前股价是多少?<br>比去年上涨了百分之几?(提示:调用PythonREPL实例的run方法) |
-| --- | --- |
-
-多个(两个)工具的选择
+- 需求：
+	- 计算特斯拉当前股价是多少?
+	- 比去年上涨了百分之几?(提示:调用PythonREPL实例的run方法)
+- 多个(两个)工具的选择
 
 #### 方式 1：ReAct 模式
 
@@ -559,77 +496,54 @@ AgentType是 ZERO_SHOT_REACT_DESCRIPTION
 from langchain_openai import ChatOpenAI
 from langchain.agents import initialize_agent, AgentType
 from langchain.tools import Tool 
-5 from langchain_community.tools.tavily_search import TavilySearchResults 6 from langchain_experimental.utilities.python import PythonREPL
+from langchain_community.tools.tavily_search import TavilySearchResults
+from langchain_experimental.utilities.python import PythonREPL
+
 # 2. 设置 TAVILY_API 密钥
-9 os.environ["TAVILY_API_KEY"] = "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" # 需要替换
-```
+os.environ["TAVILY_API_KEY"] = "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" # 需要替换为你的 Tavily API 密钥
 
-为你的 Tavily API 密钥
-
-```python
 # 3.定义搜索工具
 search = TavilySearchResults(max_results=3)
-```
-
-```python
 search_tool = Tool(
-```
-
-|  | ) | name="Search", |
-| --- | --- | --- |
-|  |  | func=search.run, |
-|  |  | description="用于搜索互联网上的信息,特别是股票价格和新闻" |
-
-```python
+	name="Search",
+	func=search.run,
+	description="用于搜索互联网上的信息,特别是股票价格和新闻"
+)
+ 
 # 4.定义计算工具
-21 python_repl = PythonREPL() # LangChain封装的工具类可以进行数学计算22
-23 calc_tool = Tool(
-24 name="Calculator",
-```
+python_repl = PythonREPL() # LangChain封装的工具类可以进行数学计算
 
-25. func=python_repl.run,
-
-```python
-26 description="用于执行数学计算,例如计算百分比变化"
-```
-
-27. )
-
-```python
+calc_tool = Tool(
+	name="Calculator",
+	func=python_repl.run,
+	description="用于执行数学计算,例如计算百分比变化"
+)
+ 
 # 5. 定义LLM
 llm = ChatOpenAI(
-31 model="gpt-4o-mini",
-```
-
-32. temperature=0,
-
-33. )
-
-```python
+	model="gpt-4o-mini",
+	temperature=0,
+)
+ 
 # 6. 创建AgentExecutor执行器对象
 agent_executor = initialize_agent(
-tools=[search_tool, calc_tool],
-```
-
-38. llm=llm,
-
-39. agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
-
-40. verbose=True
-
-41. )
-
-```python
+	tools=[search_tool, calc_tool],
+	llm=llm,
+	agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
+	verbose=True
+)
+ 
 # 7. 测试股票价格查询
-45 query = "特斯拉当前股价是多少?比去年上涨了百分之几?"
-46 result=agent_executor.invoke(query)
+query = "特斯拉当前股价是多少?比去年上涨了百分之几?"
+result=agent_executor.invoke(query)
 print(f"查询结果: {result}")
 ```
 
-Entering new AgentExecutor chain...我需要先查找特斯拉当前的股价,然后再查找去年同期的股价,最后计算百分比变化。Action: SearchAction Input: "特斯拉当前股价"Observation: [{8title8: '特斯拉(TSLA) 股票价格、股票新闻及分析师预测 - eToro8, 8url8: 'http s://www.etoro.com/zh/markets/tsla', 8content8: '"今日特斯拉股价为323.63,反映过去24小时变动\u200e-0.66\u200e%,过去一周变动\u200e0.72\u200e%。 目前TSLA 的市值为1.04T,过去三个月平均成交量为123.32M。该股票市盈率为177.98,股息率为0%。', 8score8:
-
+```text
+Entering new AgentExecutor chain...我需要先查找特斯拉当前的股价,然后再查找去年同期的股价,最后计算百分比变化。
+Action: Search
+Action Input: "特斯拉当前股价"Observation: [{8title8: '特斯拉(TSLA) 股票价格、股票新闻及分析师预测 - eToro8, 8url8: 'http s://www.etoro.com/zh/markets/tsla', 8content8: '"今日特斯拉股价为323.63,反映过去24小时变动\u200e-0.66\u200e%,过去一周变动\u200e0.72\u200e%。 目前TSLA 的市值为1.04T,过去三个月平均成交量为123.32M。该股票市盈率为177.98,股息率为0%。', 8score8:
 ### 0.918663 }, {8title8: 8TSLA股價— 特斯拉圖表 - TradingView8, 8url8: 'https://tw.tradingview.co m/symbols/NASDAQ-TSLA/', 8content8: 8Image 94NIO 股票價格 R休市 NIO
-
 Inc.\n\n3.97USD+0.25%\n\nImage 95ZK 股票價格 R休市 ZEEKR Intelligent TechnologyHolding Limited\n\n28.09USD+7.79%\n\nImage 96OSK 股票價格 R休市 OshkoshCorporation (Holding Company)\n\n92.02USD+0.93%\n\nImage 97HOG 股票價格 R休市 Harley-Davidson, Inc.\n\n23.62USD+0.94%\n\nImage 98PSNY 股票價格 R休市 PolestarAutomotive Holding UK Limited\n\n1.09USD−5.22%\n\n常見問題\n----\ufeff\n\n今天Tesla的股價是多少?\n\nTSLA目前的價格是298.26 USD — 在過去24小時內上漲了4.72%。 在圖表上更密切地關注Tesla股票價格表現。\n\nTesla股票代碼是什麼? [...] 1.77ZM93
 
 ### 20.9 a.1.1 0 0 1-.1.1h-2.8a.1.1 0 0 1-.1-.1V10.1c0-.06.04-.1.1-.1h2.8c.06 0
@@ -642,19 +556,17 @@ Current\n\n500.00 High\n\n\n\nView More\n\n### Company Insights: TSLA\n\n### Fai
 Milken\n\n Watch Now\n\n...\n\nUpgrade to Premium\n\nTSLA\n\nTesla, 
 Inc.\n\n327.00-0.45%7, 8score8: 0.7869018}] 
 Thought:从搜索结果中,我发现特斯拉当前的股价在不同来源中略有差异,但大致在323.63美元到327.00美元之间。接下来,我需要查找去年同期的股价以计算百分比变化。Action: Search
-
-```python
 Action Input: "特斯拉去年同期股价" 
 Observation: [{8title8: '特斯拉(TSLA)股票历史数据 - 英为财情', 8url8: 'https://cn.investing.co m/equities/tesla-motors-historical-data', 8content8: '| 5月 07, 2025 | 284.82 | 279.63 | 289.80 | 279.41 | 97.54M | +3.11% |\n| 5月 06, 2025 | 276.22 | 276.88 | 277.92 | 271.00 | 71.88M | +0.32% |\n| 5月 05, 2025 | 275.35 | 273.11 | 277.73 | 271.35 | 76.72M | -1.75% |\n| 5月 04, 2025 | 280.26 | 284.57 | 284.85 | 274.40 | 94.62M | -2.42% |\n| 5月 01, 2025 | 287.21 | 284.90 | 294.78 | 279.81 | 114.45M | +2.38% |\n| 4月 30, 2025 | 280.52 | 280.01 | 290.87 | 279.81 | 99.66M | -0.58% |\n| 4月 29, 2025 | 282.16 | 279.90 | 284.45 | 270.78 | 128.96M | -3.38% | [...] | 名称 | 最新价 | 看涨 | 公允价值 |\n| --- | --- | --- | --- |\n| Aaaaaaaaa | 12.18 | +60.67% | 19.57 |\n| Aaaaaa Aaaa | 25.34 | +59.67% | 40.46 |\n| Aaaaaa Aaaaaaaaa Aa | 6.86 | +58.94% | 10.90 |\n| Aaaaaa Aa Aaaaaa | 14.46 | +57.31% | 22.75 |\n| Aaaaaaaaaaaaa | 22.38 | +55.41% | 34.78 |\n| Aaaaaa Aa Aaaaaaaaaa | 19.08 | +54.75% | 29.53 |\n| Aaaaaaaaaaa A A A A | 17.07 | +54.60% | 26.39 | [...] | 5月 18, 2025 | 342.09 | 336.30 | 343.00 | 333.37 | 88.87M | -2.25% |\n| 5月 15, 2025 | 349.98 | 346.24 | 351.62 | 342.33 | 95.90M | +2.09% |\n| 5月 14, 2025 | 342.82 | 340.34 | 346.14 | 334.72 | 97.88M | -1.40% |\n| 5月 13, 2025 | 347.68 | 342.50 | 350.00 | 337.00 | 137.00M | +4.07% |\n| 5月 12, 2025 | 334.07 | 320.00 | 337.59 | 316.80 | 136.99M | +4.93% |\n| 5月 11, 2025 | 318.38 | 321.99 | 322.21 | 311.50 | 112.83M | +6.75% |\n| 5月 08, 2025 | 298.26 | 290.21 | 307.04 | 290.00 | 132.39M | +4.72% |', 8score8: 0.8095324}, {8title8: '特斯拉利空纏身Q1財報出爐前股價重摔近6% - MoneyDJ理財網', 8url8: 'https://www.m oneydj.com/kmdj/news/newsviewer.aspx?a=d4f4ee1b-e924-44df-bf80-8fcf941c8650',
-```
-
-8content8: '特斯拉利空纏身Q1財報出爐前股價重摔近6% ... 根據FactSet統整分析師預估值,華爾街平均預期,特斯拉第一季每股盈餘為0.39美元,遜於去年同期的0.45美元。', 8score8: 0.7711725}, {8title8: '特斯拉汽⻋NASDAQ:TSLA Tesla, Inc. - 美股新浪财经 - 行情中心', 8url8: 'h
-
-ttp://stock.finance.sina.com.cn/usstock/quotes/TSLA.html', 8content8: '| 详细行情 | 基本面摘要 |\n| --- | --- |\n| 开盘: | 247.61 | 前收盘: | 254.11 | 市盈率: | 108.32 | 市值: | 7769.50亿 |\n| 成交量: | 1.12亿 | 区间: | 233.89-251.97 | 每股收益: | 2.23 | 股本: | 32.17亿 |\n| 10日均量: | 1.60亿 | 52周区间: | 138.80-488.54 | ⻉塔系数: | \-- | 股息/收益率: | \--/-- |\n\n汽⻋制造:\-1.82% 领涨股:WNC 9.91(+8.07%) 领跌股:特斯拉 241.55(-4.94%)\n\n#### 行情对比:\n\n大盘指数\n\n纳斯达克) 道琼斯) 标普0)\n\n)\n\n当日\n\n5日\n\n日K\n\n周K\n\n月K\n\nImage 5\n\nImage 6\n\nImage 7\n\nImage 8\n\nImage 9\n\n当日\n\n5日\n\n收盘线\n\n日K\n\n周K\n\n月K\n\nYTD\n\n5分\n\n15分\n\n30分\n\n分时\n\n5日\n\n年线\n\n 不复权\n 前复权\n\nYTD\n\n日K [...] Image 56\n\n新浪证券关注)\n\n新浪财经证券微博\n\nImage 57\n\nTom孙\Chinesefn关注)\n\n美股专家\n\nImage 58\n\n沈东军关注)\n\n美股专家\n\nImage 59\n\n张茉楠关注)\n\n国家信息中心世界经济副研究员\n\n关注TSLA的好友\n---------\n\n(--)\n\n上一⻚) 下一⻚)\n\n关注TSLA的还关注\n----------\n\n| 名称 | 最新价 | 涨跌幅 |\n| --- | --- | --- |\n| 苹果 | 194.27 | \-3.89% |\n| 奇⻁360 | 76.92 | 0.00% |\n| 谷歌 | 155.50 | \-2.00% |\n| Meta Platforms | 196.64 | 0.00% |\n| 百度 | 82.50 | \-2.42% |\n| 新浪 | 43.26 | 0.00% |\n| 普拉格能源 | 0.92 | \-7.89% |\n| 欢聚集团 | 41.55 | 0.00% |\n| 唯品会 | 12.39 | \-1.43% |\n| 去哪儿网 | 30.41 | 0.00% |', 8score8: 0.7686816}] 
+8content8: '特斯拉利空纏身Q1財報出爐前股價重摔近6% ... 根據FactSet統整分析師預估值,華爾街平均預期,特斯拉第一季每股盈餘為0.39美元,遜於去年同期的0.45美元。', 8score8: 0.7711725}, {8title8: '特斯拉汽⻋NASDAQ:TSLA Tesla, Inc. - 美股新浪财经 - 行情中心', 8url8: 'http://stock.finance.sina.com.cn/usstock/quotes/TSLA.html', 8content8: '| 详细行情 | 基本面摘要 |\n| --- | --- |\n| 开盘: | 247.61 | 前收盘: | 254.11 | 市盈率: | 108.32 | 市值: | 7769.50亿 |\n| 成交量: | 1.12亿 | 区间: | 233.89-251.97 | 每股收益: | 2.23 | 股本: | 32.17亿 |\n| 10日均量: | 1.60亿 | 52周区间: | 138.80-488.54 | ⻉塔系数: | \-- | 股息/收益率: | \--/-- |\n\n汽⻋制造:\-1.82% 领涨股:WNC 9.91(+8.07%) 领跌股:特斯拉 241.55(-4.94%)\n\n#### 行情对比:\n\n大盘指数\n\n纳斯达克) 道琼斯) 标普0)\n\n)\n\n当日\n\n5日\n\n日K\n\n周K\n\n月K\n\nImage 5\n\nImage 6\n\nImage 7\n\nImage 8\n\nImage 9\n\n当日\n\n5日\n\n收盘线\n\n日K\n\n周K\n\n月K\n\nYTD\n\n5分\n\n15分\n\n30分\n\n分时\n\n5日\n\n年线\n\n 不复权\n 前复权\n\nYTD\n\n日K [...] Image 56\n\n新浪证券关注)\n\n新浪财经证券微博\n\nImage 57\n\nTom孙\Chinesefn关注)\n\n美股专家\n\nImage 58\n\n沈东军关注)\n\n美股专家\n\nImage 59\n\n张茉楠关注)\n\n国家信息中心世界经济副研究员\n\n关注TSLA的好友\n---------\n\n(--)\n\n上一⻚) 下一⻚)\n\n关注TSLA的还关注\n----------\n\n| 名称 | 最新价 | 涨跌幅 |\n| --- | --- | --- |\n| 苹果 | 194.27 | \-3.89% |\n| 奇⻁360 | 76.92 | 0.00% |\n| 谷歌 | 155.50 | \-2.00% |\n| Meta Platforms | 196.64 | 0.00% |\n| 百度 | 82.50 | \-2.42% |\n| 新浪 | 43.26 | 0.00% |\n| 普拉格能源 | 0.92 | \-7.89% |\n| 欢聚集团 | 41.55 | 0.00% |\n| 唯品会 | 12.39 | \-1.43% |\n| 去哪儿网 | 30.41 | 0.00% |', 8score8: 0.7686816}] 
 Thought:从搜索结果中,我发现去年同期特斯拉的股价大约在298.26美元左右。现在我可以计算当前股价与去年同期股价的百分比变化。Action: CalculatorAction Input: "(323.63 - 298.26) / 298.26 * 100"Observation:Thought:抱歉,我需要重新计算百分比变化。让我再次尝试。Action: CalculatorAction Input: "(323.63 - 298.26) / 298.26 * 100"Observation:Thought:Action: CalculatorAction Input: "(323.63 - 298.26) / 298.26 * 100"Observation:Thought:It seems there was an issue with the calculation tool. Let me try again tocalculate the percentage change manually.Action: Calculator... 
 Final Answer: 特斯拉当前股价为323.63美元,比去年同期上涨了约8.51%。Finished chain.
-查询结果: {8input8: '特斯拉当前股价是多少?比去年上涨了百分之几?', 8output8: '特斯拉当前股价为323.63美元,比去年同期上涨了约8.51%。'}Output is truncated. View as a scrollable element or open in a text editor. Adjust celloutput settings...注意:可能会失败(查询超时)。
+查询结果: {8input8: '特斯拉当前股价是多少?比去年上涨了百分之几?', 8output8: '特斯拉当前股价为323.63美元,比去年同期上涨了约8.51%。'}Output is truncated. View as a scrollable element or open in a text editor. Adjust celloutput settings...
+```
 
+```
+注意:可能会失败(查询超时)。
+```
 #### 方式 2：Function Call 模式
 
 AgentType是 FUNCATION_CALL
@@ -663,79 +575,52 @@ AgentType是 FUNCATION_CALL
 # 1.导入相关依赖
 from langchain_openai import ChatOpenAI
 from langchain.agents import initialize_agent, AgentType
-```
-
-```python
 from langchain.tools import Tool 
-5 from langchain_community.tools.tavily_search import TavilySearchResults 6 from langchain_experimental.utilities.python import PythonREPL
+from langchain_community.tools.tavily_search import TavilySearchResults
+from langchain_experimental.utilities.python import PythonREPL
+
 # 2. 设置 TAVILY_API 密钥
-9 os.environ["TAVILY_API_KEY"] = "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" # 需要替换
-```
+os.environ["TAVILY_API_KEY"] = "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" # 需要替换为你的 Tavily API 密钥
 
-为你的 Tavily API 密钥
-
-```python
 # 3.定义搜索工具
 search = TavilySearchResults(max_results=3)
 search_tool = Tool(
-14 name="Search",
-```
+	name="Search",
+	func=search.run,
+	description="用于搜索互联网上的信息,特别是股票价格和新闻"
+)
 
-15. func=search.run,
-
-```python
-16 description="用于搜索互联网上的信息,特别是股票价格和新闻"
-```
-
-17. )
-
-```python
 # 4.定义计算工具
-20 python_repl = PythonREPL() # LangChain封装的工具类可以进行数学计算21 calc_tool = Tool(
-22 name="Calculator",
-```
+python_repl = PythonREPL() # LangChain封装的工具类可以进行数学计算
+calc_tool = Tool(
+	name="Calculator",
+	func=python_repl.run,
+	description="用于执行数学计算,例如计算百分比变化"
+)
 
-23. func=python_repl.run,
-
-```python
-24 description="用于执行数学计算,例如计算百分比变化"
-```
-
-25. )
-
-```python
 # 5. 定义LLM
 llm = ChatOpenAI(
-29 model="gpt-4",
-```
+	model="gpt-4",
+	temperature=0,
+)
 
-30. temperature=0,
-
-31. )
-
-```python
 # 6. 创建AgentExecutor执行器对象
 agent_executor = initialize_agent(
-tools=[search_tool, calc_tool],
-```
+	tools=[search_tool, calc_tool],
+	llm=llm,
+	agent=AgentType.OPENAI_FUNCTIONS, #唯一变化的位置
+	verbose=True
+)
 
-36. llm=llm,
-
-37. agent=AgentType.OPENAI_FUNCTIONS, #唯一变化的位置
-
-38. verbose=True
-
-39. )
-
-```python
 # 7. 测试股票价格查询
-43 query = "特斯拉当前股价是多少?比去年上涨了百分之几?"
-44 result=agent_executor.invoke(query)
+query = "特斯拉当前股价是多少?比去年上涨了百分之几?"
+result=agent_executor.invoke(query)
 print(f"查询结果: {result}")
 ```
 
-Entering new AgentExecutor chain...Invoking: Search with 特斯拉当前股价Entering new AgentExecutor chain...Invoking: Search with 特斯拉当前股价
+```
 
+Entering new AgentExecutor chain...Invoking: Search with 特斯拉当前股价Entering new AgentExecutor chain...Invoking: Search with 特斯拉当前股价
 Entering new AgentExecutor chain...Invoking: Search with 特斯拉当前股价[{8title8: '特斯拉(TSLA)股票历史数据 - 英为财情', 8url8: 'https://cn.investing.com/equities/tesla-motors-historical-data', 8content8: '| 日期 | 收盘 | 开盘 | 高 | 低 | 交易量 | 涨跌幅 |\n| --- | --- | --- | --- | --- | --- | --- |\n| 5月 26, 2025 | 362.89 | 347.35 | 363.79 | 347.32 | 120.15M | +6.94% |\n| 5月 22, 2025 | 339.34 | 337.92 | 343.18 | 333.21 | 84.65M | -0.50% |\n| 5月 21, 2025 | 341.04 | 331.90 | 347.27 | 331.39 | 97.11M | +1.92% |\n| 5月 20, 2025 | 334.62 | 344.43 | 347.35 | 332.20 | 102.35M | -2.68% |\n| 5月 19, 2025 | 343.82 | 347.87 | 354.99 | 341.63 | 131.72M | +0.51% | [...] | 4月 28, 2025 | 292.03 | 285.50 | 293.32 | 279.47 | 108.91M | +2.15% |\n| 4月 27, 2025 | 285.88 | 288.98 | 294.86 | 272.42 | 151.73M | +0.33% | [...] | 名称 | 最新价 | 看涨 | 公允价值 |\n| --- | --- | --- | --- |\n|Aaaaaaaaa | 12.18 | +60.67% | 19.57 |\n| Aaaaaa Aaaa | 25.34 | +59.67% | 40.46 |\n| AaaaaaAaaaaaaaa Aa | 6.86 | +58.94% | 10.90 |\n| Aaaaaa Aa Aaaaaa | 14.46 | +57.31% | 22.75 |\n|Aaaaaaaaaaaaa | 22.38 | +55.41% | 34.78 |\n| Aaaaaa Aa Aaaaaaaaaa | 19.08 | +54.75% | 29.53 |\n| Aaaaaaaaaaa A A A A | 17.07 | +54.60% | 26.39 |', 8score8: 0.8649622}, {8title8: '特斯拉(TSLA)股票走势图_K线图 - 英为财情', 8url8: 'https://cn.investing.com/equities/tesla-motors-c andlestick', 8content8: '取消关注此评论 \n\n保存;)\n\n已保存。查看收藏列表。;)\n\n此评论已保存至您的收藏列表;)\n\n屏蔽该用戶;)\n\n120 能撑住不\n\n回复)\n\n- [x] 0- [x] 0\n\n报
 告;)\n\nImage 17: Peter Li\n\nPeter Li2025年3月22日 0:01\n\n;)\n\n分享;)\n\n关注此评论 \n\n取消关注此评论 \n\n保存;)\n\n已保存。查看收藏列表。;)\n\n此评论已保存至您的收藏列表;)\n\n屏蔽该用戶;)\n\n卖掉 \n\n回复)\n\n- [x] 1- [x] 0\n\n报告;)\n\nImage 18: Íker 
 Santiago\n\n先生 樊2025年3月19日 7:12\n\n;)\n\n分享;)\n\n关注此评论 \n\n取消关注此评论 \n\n保存;)\n\n已保存。查看收藏列表。;)\n\n此评论已保存至您的收藏列表;)\n\n屏蔽该用戶;)\n\n现在是3月18日,股价223,大胆买进,加仓到预期的56%,下一次加仓点位是200左右,后续是180,150,120。在120左右打光所有子弹\n\n回复)\n\n- [x] 0- [x] 1\n\n报告;)\n\nImage 19: Íker Santiago [...] - 实时数据\n\n类型:股票\n\n市场:美国\n\n 量:84,654,818\n 卖价/买价:0.00 / 0.00\n 当日幅度:333.21 - 343.18\n\n特斯拉 339.34-1.70-0.50%\n\n 总况\n\n 概览\n 简介\n 历史数据\n 相关品种\n 期权\n 所属股指\n\n 图表\n\n 流图\n 互动图表\n\n 资讯和分析\n\n 资讯\n 分析评论\n\n 财务状况\n\n 财务概要\n 利润表\n 资产负债表\n 现金流量\n 比率\n 股息\n 财报\n\n 技术 \n 论坛\n\n 所有评论\n 最近观点\n 用戶排名\n\n 技术分析\n K线型态\n 分析师目标价\n\nTSLAK线型态\n-------- [...] 创建提醒;)\n\n创建提醒;); "我如何收到这些提醒?
@@ -818,7 +703,9 @@ Invoking: Search with 特斯拉去年股价
 
 ### 24.3 %。
 
-Finished chain.查询结果: {8input8: '特斯拉当前股价是多少?比去年上涨了百分之几?', 8output8: '特斯拉当前股价为362.89美元,去年同期股价为292.03美元。相比去年,特斯拉股价上涨了约24.3%。'}注意:也有可能输出失败,但是机会小。案例3:自定义函数与工具
+Finished chain.查询结果: {8input8: '特斯拉当前股价是多少?比去年上涨了百分之几?', 8output8: '特斯拉当前股价为362.89美元,去年同期股价为292.03美元。相比去年,特斯拉股价上涨了约24.3%。'}
+```
+注意:也有可能输出失败,但是机会小。案例3:自定义函数与工具
 
 > 需求：计算3的平方,Agent自动调用工具完成
 
@@ -1015,7 +902,11 @@ agent_executor.invoke({"input": "今天北京的天气怎么样??"})
 
 #### 方式 2：ReAct模式
 
-体会1:使用PromptTemplate提示词要体现可以使用的工具、用户输入和agent_scratchpad。远程的提示词模版通过https://smith.langchain.com/hub/hwchase17获取举例:https://smith.langchain.com/hub/hwchase17/react,这个模板是专为ReAct模式设计的提示模板。这个模板中已经有聊天对话键tools、tool_names、agent_scratchpad
+**体会1:使用PromptTemplate**
+
+提示词要体现可以使用的工具、用户输入和agent_scratchpad。
+远程的提示词模版通过[https://smith.langchain.com/hub/hwchase17](https://smith.langchain.com/hub/hwchase17)获取
+- 举例:[https://smith.langchain.com/hub/hwchase17/react](https://smith.langchain.com/hub/hwchase17/react),这个模板是专为ReAct模式设计的提示模板。这个模板中已经有聊天对话键`tools、tool_names、agent_scratchpad`
 
 #### 方式1：
 
@@ -1024,51 +915,34 @@ agent_executor.invoke({"input": "今天北京的天气怎么样??"})
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_core.prompts import PromptTemplate
-```
 
-```python
 # 2.定义搜索化工具
 tools = [TavilySearchResults(max_results=1,tavily_api_key="tvly-dev-
-```
-
 T9z5UN2xmiw6XlruXnH2JXbYFZf12JYd")]
 
-```python
 # 3.自定义提示词模版
-10 template = '''Answer the following questions as best you can. You have access to the following
-```
+template = '''Answer the following questions as best you can. You have access to the following
 
 tools:
+	{tools}
 
-```python
-11 {tools}
-```
+	Use the following format:
 
-13. Use the following format:
+	Question: the input question you must answer
+	Thought: you should always think about what to do
+	Action: the action to take, should be one of [{tool_names}]
+	Action Input: the input to the action
+	Observation: the result of the action
+	... (this Thought/Action/Action Input/Observation can repeat N times)
+	Thought: I now know the final answer
+	Final Answer: the final answer to the original input question
 
-15. Question: the input question you must answer
+	Begin!
 
-16. Thought: you should always think about what to do
+	Question: {input}
+	Thought:{agent_scratchpad}'''
 
-17. Action: the action to take, should be one of [{tool_names}]
 
-18. Action Input: the input to the action
-
-19. Observation: the result of the action
-
-20. ... (this Thought/Action/Action Input/Observation can repeat N times)
-
-21. Thought: I now know the final answer
-
-22. Final Answer: the final answer to the original input question
-
-24. Begin!
-
-26. Question: {input}
-
-27. Thought:{agent_scratchpad}'''
-
-```python
 # template1 = '''
 # 请尽可能准确地回答以下问题。您可以使用以下工具:{tools}
 # 请使用以下格式:
@@ -1080,68 +954,43 @@ tools:
 # ......(此思考/行动/行动输入/观察可重复 N 次)
 # 思考:我现在知道最终答案了
 # 最终答案:对原始输入问题的最终答案
-```
-
-```python
 # 开始!
 # 问题：{question}
 # 思考:{agent_scratchpad}
 # '''
-```
 
-```python
 prompt = PromptTemplate.from_template(template)
-```
 
-```python
 # 4.定义LLM
 llm = ChatOpenAI(
-49 model="gpt-4o-mini",
-```
+	model="gpt-4o-mini",
+	temperature=0,
+)
 
-50. temperature=0,
-
-51. )
-
-```python
 # 5.创建Agent对象
 agent = create_react_agent(llm, tools, prompt)
-```
 
-```python
 # 6.创建AgentExecutor执行器
 agent_executor = AgentExecutor(agent=agent, tools=tools,
 verbose=True,handle_parsing_errors=True)
-```
 
-```python
 # 7.测试
 agent_executor.invoke({"input": "今天北京的天气怎么样??"})
 ```
 
-1. > Entering new AgentExecutor chain...
+```text
+> Entering new AgentExecutor chain...
+我需要查找今天北京的天气情况。
+Action: tavily_search_results_json
+> Entering new AgentExecutor chain...
+我需要查找今天北京的天气情况。
+Action: tavily_search_results_json
+> Entering new AgentExecutor chain...
+我需要查找今天北京的天气情况。
+Action: tavily_search_results_json 
+Action Input: "今天 北京 天气" [{'title': '中国气象局-天气预报- 北京', 'url': 'https://weather.cma.cn/web/weather/54511', 'content': '| | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 时间 | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| 天气 | | | | | | | | |\n| 气温 | 21.4°C | 23.6°C | 26.8°C | 29.8°C | 24.4°C | 23.3°C | 21.6°C | 20.2°C |\n| 降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 |\n| 风速 | 2.9m/s | 6.8m/s | 7.5m/s | 7.9m/s | 7.6m/s | 2.9m/s | 2.7m/s | 3.2m/s |\n| 风向 | 东 北风 | 东南风 | 西南风 | 西北风 | 西北风 | 西北风 | 东北风 | 西北风 | [...] | | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 时间 | 02:00 | 05:00 | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 |\n| 天气 | | | | | | | | |\n| 气温 | 23.6°C | 22.2°C | 24°C | 26.8°C | 28.8°C | 27.3°C | 24.7°C | 24.1°C |\n| 降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 |\n| 风速 | 2.9m/s | 3m/s | 3m/s | 3.1m/s | 3.3m/s | 3.1m/s | 2.5m/s | 2.6m/s |\n| 风向 | 东南风 | 东南风 | 东北风 | 东北风 | 东北风 | 东北风 | 东北风 | 东北风 | [...] | | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 时间 | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| 天气 | | | | | | | | |\n| 气温 | 23.7°C | 27°C | 30.2°C | 30.8°C | 28.1°C | 26.5°C | 21.1°C | 19.2°C |\n| 降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 |\n| 风速 | 3.3m/s | 7.4m/s | 7.3m/s | 7m/s | 7.9m/s | 3.3m/s | 2.2m/s | 1.8m/s |\n| 风向 | 西南风 | 西北风 | 西北风 | 西北风 | 东北风 | 西北风 | 西北风 | 西北风 |', 'score': 0.7859175}]我现在知道今天北京的天气情况。
+Final Answer: 今天北京的天气是晴天,气温在21.4°C到30.8°C之间,全天无降水。
 
-2. 我需要查找今天北京的天气情况。
-
-3. Action: tavily_search_results_json
-
-4. > Entering new AgentExecutor chain...
-
-5. 我需要查找今天北京的天气情况。
-
-6. Action: tavily_search_results_json
-
-7. > Entering new AgentExecutor chain...
-
-8. 我需要查找今天北京的天气情况。
-
-9 Action: tavily_search_results_json 
-10 Action Input: "今天 北京 天气" [{'title': '中国气象局-天气预报- 北京', 'url': 
- 'https://weather.cma.cn/web/weather/54511', 'content': '| | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 时间 | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| 天气 | | | | | | | | |\n| 气温 | 21.4°C | 23.6°C | 26.8°C | 29.8°C | 24.4°C | 23.3°C | 21.6°C | 20.2°C |\n| 降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 |\n| 风速 | 2.9m/s | 6.8m/s | 7.5m/s | 7.9m/s | 7.6m/s | 2.9m/s | 2.7m/s | 3.2m/s |\n| 风向 | 东 北风 | 东南风 | 西南风 | 西北风 | 西北风 | 西北风 | 东北风 | 西北风 | [...] | | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 时间 | 02:00 | 05:00 | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 |\n| 天气 | | | | | | | | |\n| 气温 | 23.6°C | 22.2°C | 24°C | 26.8°C | 28.8°C | 27.3°C | 24.7°C | 24.1°C |\n| 降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 |\n| 风速 | 2.9m/s | 3m/s | 3m/s | 3.1m/s | 3.3m/s | 3.1m/s | 2.5m/s | 2.6m/s |\n| 风向 | 东南风 | 东南风 | 东北风 | 东北风 | 东北风 | 东北风 | 东北风 | 东北风 | [...] | | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 时间 | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| 天气 | | | | | | | | |\n| 气温 | 23.7°C | 27°C | 30.2°C | 30.8°C | 28.1°C | 26.5°C | 21.1°C | 19.2°C |\n| 降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 | 无降水 |\n| 风速 | 3.3m/s | 7.4m/s | 7.3m/s | 7m/s | 7.9m/s | 3.3m/s | 2.2m/s | 1.8m/s |\n| 风向 | 西南风 | 西北风 | 西北风 | 西北风 | 东北风 | 西北风 | 西北风 | 西北风 |', 'score': 0.7859175}]我现在知道今天北京的天气情况。
-
-11. Final Answer: 今天北京的天气是晴天,气温在21.4°C到30.8°C之间,全天无降水。
-
-```python
 {'input': '今天北京的天气怎么样??', 'output': '今天北京的天气是晴天,气温在21.4°C到30.8°C之间,全天无降水。'}
 ```
 
@@ -1152,110 +1001,80 @@ agent_executor.invoke({"input": "今天北京的天气怎么样??"})
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_core.prompts import PromptTemplate
-```
 
-```python
 # 2.定义搜索化工具
 tools = [TavilySearchResults(max_results=1,tavily_api_key="tvly-dev-
-```
-
 T9z5UN2xmiw6XlruXnH2JXbYFZf12JYd")]
 
-```python
 # 3.使用LangChain Hub中的官方ReAct提示模板
 prompt = hub.pull("hwchase17/react")
-```
 
-```python
 # 4.定义LLM
 llm = ChatOpenAI(
-14 model="gpt-4o-mini",
-```
+	model="gpt-4o-mini",
+	temperature=0,
+)
 
-15. temperature=0,
-
-16. )
-
-```python
 # 5.创建Agent对象
 agent = create_react_agent(llm, tools, prompt)
-```
 
-```python
 # 6.创建AgentExecutor执行器
 agent_executor = AgentExecutor(agent=agent, tools=tools,
 verbose=True,handle_parsing_errors=True)
-```
 
-```python
 # 7.测试
 agent_executor.invoke({"input": "今天北京的天气怎么样??"})
 ```
 
-体会2:使用ChatPromptTemplate提示词中需要体现使用的工具、用户输入和agent_scratchpad。
+**体会2:使用ChatPromptTemplate**
+
+提示词中需要体现使用的工具、用户输入和agent_scratchpad。
 
 ```python
 from langchain.agents import create_react_agent
 from langchain_core.prompts import ChatPromptTemplate
 # 获取Tavily搜索的实例
 from langchain_openai import ChatOpenAI 
-5 from langchain.agents import initialize_agent, AgentType, create_tool_calling_agent, AgentExecutor
+from langchain.agents import initialize_agent, AgentType, create_tool_calling_agent, AgentExecutor
 from langchain.tools import Tool
 import os
 import dotenv
 from langchain_openai import ChatOpenAI
 from langchain_community.tools.tavily_search import TavilySearchResults
-```
 
-11. dotenv.load_dotenv()
 
-```python
+dotenv.load_dotenv()
+
 # 读取配置文件的信息
-```
 
-```python
 os.environ['TAVILY_API_KEY'] = "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"
+
 # 获取Tavily搜索工具的实例
 search = TavilySearchResults(max_results=3)
-```
 
-```python
 # 获取一个搜索的工具
 # 使用Tool
 search_tool = Tool(
-```
+	func=search.run,
+	name="Search",
+	description="用于检索互联网上的信息,尤其是天气情况",
+)
 
-22. func=search.run,
-
-```python
-23 name="Search",
-24 description="用于检索互联网上的信息,尤其是天气情况",
-```
-
-25. )
-
-```python
 # 获取大语言模型
-29 os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY1") 30 os.environ['OPENAI_BASE_URL'] = os.getenv("OPENAI_BASE_URL") 31 llm = ChatOpenAI(
-32 model="gpt-4o-mini",
-```
+os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY1")
+os.environ['OPENAI_BASE_URL'] = os.getenv("OPENAI_BASE_URL")
+llm = ChatOpenAI(
+	model="gpt-4o-mini",
+	temperature=0,
+)
 
-33. temperature=0,
-
-34. )
-
-```python
 # 提供提示词模板(以ChatPromptTemplate为例)
 # prompt_template = ChatPromptTemplate.from_messages([ 
-38 # ("system", "你是一个人工智能的助手,在用户提出需求以后,必须要调用Search工具进行联网搜
-```
-
-索"), 
-39 # ("system", """这是你可以使用的工具列表{tools},每次Action时调用{tool_names},并根据工具输出的网络结果回答用户的问题。
-
-```python
+# ("system", "你是一个人工智能的助手,在用户提出需求以后,必须要调用Search工具进行联网搜索"), 
+# ("system", """这是你可以使用的工具列表{tools},每次Action时调用{tool_names},并根据工具输出的网络结果回答用户的问题。
 # 工具调用格式(必须严格遵守):
-41 # Thought:分析需要做什么(例如:需要查询明天北京的天气)42 # Action:工具名称(只能是[{tool_names}]中的一个)
+# Thought:分析需要做什么(例如:需要查询明天北京的天气)
+# Action:工具名称(只能是[{tool_names}]中的一个)
 # ActionInput:工具的输入内容(例如:北京明天天气)
 # 若工具返回内容:
 # Observation:工具返回的结果
@@ -1266,100 +1085,78 @@ search_tool = Tool(
 # ("human", "我的问题是:{question}"),
 #
 # ])
-```
 
-```python
 prompt_template = ChatPromptTemplate.from_messages([ 
-55 ("system", "你是一个人工智能的助手,在用户提出需求以后,必须要调用Search工具进行联网搜 索"), 
-56 ("system", """Answer the following questions as best you can. You have access to the
-```
+	("system", "你是一个人工智能的助手,在用户提出需求以后,必须要调用Search工具进行联网搜 索"), 
+	("system", """Answer the following questions as best you can. You have access to the following tools:
 
-following tools:
+	{tools}
+	
+	Use the following format:
 
-```python
-57 {tools}
-```
+	Question: the input question you must answer
+	Thought: you should always think about what to do
+	Action: the action to take, should be one of [{tool_names}]
+	Action Input: the input to the action
+	Observation: the result of the action 
+	... (this Thought/Action/Action Input/Observation can repeat N times)
+	Thought: I now know the final answer
+	Final Answer: the final answer to the original input question
 
-59. Use the following format:
+	Begin!
+	执行过程建议使用中文
+	"""),
+	("system", "当前思考:{agent_scratchpad}"),
+	("human", "我的问题是:{question}"), #必须在提示词模板中提供agent_scratchpad参数。
 
-61. Question: the input question you must answer
-
-62. Thought: you should always think about what to do
-
-63. Action: the action to take, should be one of [{tool_names}]
-
-64. Action Input: the input to the action
-
-65 Observation: the result of the action 
-66 ... (this Thought/Action/Action Input/Observation can repeat N times) 67 Thought: I now know the final answer
-
-68. Final Answer: the final answer to the original input question
-
-|  | ]) | Begin! |
-| --- | --- | --- |
-|  |  | 执行过程建议使用中文 |
-|  |  | """), |
-|  |  | ("system", "当前思考:{agent_scratchpad}"), |
-|  |  | ("human", "我的问题是:{question}"), #必须在提示词模板中提供agent_scratchpad参数。 |
-
-```python
 # 获取Agent的实例:create_tool_calling_agent()
 agent = create_react_agent(
-```
+	llm=llm,
+	prompt=prompt_template,
+	tools=[search_tool]
+)
 
-80. llm=llm,
-
-81. prompt=prompt_template,
-
-```python
-tools=[search_tool]
-```
-
-83. )
-
-```python
 # 获取AgentExecutor的实例
 agent_executor = AgentExecutor(
-```
+	agent=agent,
+	tools=[search_tool],
+	verbose=True,
+	handle_parsing_errors=True,
+	max_iterations=6 # 可选:限制最大迭代次数,防止无限循环
+)
 
-87. agent=agent,
-
-```python
-tools=[search_tool],
-```
-
-89. verbose=True,
-
-90. handle_parsing_errors=True,
-
-91. max_iterations=6 # 可选:限制最大迭代次数,防止无限循环
-
-92. )
-
-```python
 # 通过AgentExecutor的实例调用invoke(),得到响应
-96 result = agent_executor.invoke({"question":"查询今天北京的天气情况"})
+result = agent_executor.invoke({"question":"查询今天北京的天气情况"})
 # 处理响应
 print(result)
 ```
 
-执行结果:上述执行可能会报错。错误原因:使用ReAct模式时,要求 LLM 的响应必须遵循严格的格式(如包含 Thought:、Action: 等标记)。但 LLM 直接返回了自由文本(非结构化),导致解析器无法识别。
+执行结果:
+上述执行可能会报错。
+错误原因:
+- 使用ReAct模式时,要求 LLM 的响应必须遵循严格的格式(如包含 Thought:、Action: 等标记)。
+- 但 LLM 直接返回了自由文本(非结构化),导致解析器无法识别。
 
-修改:任务不变,添加 handle_parsing_errors=True。用于控制 Agent 在解析工具调用或输出时发生错误的容错行为。handle_parsing_errors=True 的作用自动捕获错误并修复:当解析失败时,Agent 不会直接崩溃,而是将错误信息传递给 LLM,让 LLM自行修正并重试。降级处理:如果重试后仍失败,Agent 会返回一个友好的错误消息(如 "I couldn't process that request."),而不是抛出异常。
+修改:
+- 任务不变,添加 `handle_parsing_errors=True`。用于控制 Agent 在解析工具调用或输出时发生错误的容错行为。
+handle_parsing_errors=True 的作用
+- 自动捕获错误并修复:当解析失败时,Agent 不会直接崩溃,而是将错误信息传递给 LLM,让 LLM自行修正并重试。
+- 降级处理:如果重试后仍失败,Agent 会返回一个友好的错误消息(如 "I couldn't process that request."),而不是抛出异常。
 
 **小结：**
 
-| 场景 | handle_parsing_errors=True | handle_parsing_errors=False |
-| --- | --- | --- |
-| 解析成功 | 正常执行 | 正常执行 |
-| 解析失败 | 自动修复或降级响应 | 直接抛出异常 |
-| 适用场景 | 生产环境(保证鲁棒性) | 开发调试(快速发现问题) |
+| 场景   | handle_parsing_errors=True | handle_parsing_errors=False |
+| ---- | -------------------------- | --------------------------- |
+| 解析成功 | 正常执行                       | 正常执行                        |
+| 解析失败 | 自动修复或降级响应                  | 直接抛出异常                      |
+| 适用场景 | 生产环境(保证鲁棒性)                | 开发调试(快速发现问题)                |
 
 ## 4. Agent嵌入记忆组件
 
 ### 4.1 传统方式
 
-比如:北京明天的天气怎么样?上海呢? (通过两次对话实现)举例:以REACT模式为例
+比如:北京明天的天气怎么样?上海呢? (通过两次对话实现)
+举例:以REACT模式为例
 
 ```python
 # 1. 导入依赖包
@@ -1369,69 +1166,59 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain.memory import ConversationBufferMemory
 import os
 import dotenv
-```
 
-9. dotenv.load_dotenv()
+dotenv.load_dotenv()
 
-```python
 # 2. 设置 API 密钥
-12 os.environ["TAVILY_API_KEY"] = "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"
+os.environ["TAVILY_API_KEY"] = "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"
+
 # 3. 定义搜索工具
 search_tool = TavilySearchResults(max_results=2)
-```
 
-```python
 # 4. 定义LLM
 os.environ['OPENAI_API_KEY'] = os.getenv("OPENAI_API_KEY1")
 os.environ['OPENAI_BASE_URL'] = os.getenv("OPENAI_BASE_URL")
 llm = ChatOpenAI(
-21 model="gpt-4o-mini",
-```
+	model="gpt-4o-mini",
+	temperature=0
+)
 
-22. temperature=0
-
-23. )
-
-```python
 # 5. 定义记忆组件(以ConversationBufferMemory为例)
 memory = ConversationBufferMemory( 
-27 memory_key="chat_history", #必须是此值,通过initialize_agent()的源码追踪得到28 return_messages=True
-```
+	memory_key="chat_history", #必须是此值,通过initialize_agent()的源码追踪得到
+	return_messages=True
+)
 
-29. )
-
-```python
 # 6. 创建 AgentExecutor
 agent_executor = initialize_agent(
-tools=[search_tool],
-```
+	tools=[search_tool],
+	llm=llm,
+	agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
+	memory=memory, #在AgentExecutor中声明
+	verbose=True
+)
 
-34. llm=llm,
-
-35. agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
-
-36. memory=memory, #在AgentExecutor中声明
-
-37. verbose=True
-
-38. )
-
-```python
 # 7. 测试对话
 # 第一个查询
-43 query1="北京明天的天气怎么样?"
-44 result1 = agent_executor.invoke(query1)
+query1="北京明天的天气怎么样?"
+result1 = agent_executor.invoke(query1)
 print(f"查询结果: {result1}")
-```
 
-```python
 # print("\n=== 继续对话 ===")
-48 query2="上海呢"
-49 result2=agent_executor.invoke(query2)
+query2="上海呢"
+result2=agent_executor.invoke(query2)
 print(f"分析结果: {result2}")
 ```
 
-上述执行可能会报错。错误原因:使用 ReAct模式时,要求 LLM 的响应必须遵循严格的格式(如包含 Thought:、Action: 等标记)。但 LLM 直接返回了自由文本(非结构化),导致解析器无法识别。修改:任务不变,添加 handle_parsing_errors=True。用于控制 Agent 在解析工具调用或输出时发生错误的容错行为。handle_parsing_errors=True 的作用自动捕获错误并修复:当解析失败时,Agent 不会直接崩溃,而是将错误信息传递给 LLM,让 LLM自行修正并重试。降级处理:如果重试后仍失败,Agent 会返回一个友好的错误消息(如 "I couldn't process that request."),而不是抛出异常。
+上述执行可能会报错。
+**错误原因:**
+- 使用 ReAct模式时,要求 LLM 的响应必须遵循严格的格式(如包含 `Thought:、Action`: 等标记)。
+- 但 LLM 直接返回了自由文本(非结构化),导致解析器无法识别。
+修改:
+- 任务不变,添加 `handle_parsing_errors=True`。用于控制 Agent 在解析工具调用或输出时发生错误的容错行为。
+handle_parsing_errors=True 的作用
+- 自动捕获错误并修复:当解析失败时,Agent 不会直接崩溃,而是将错误信息传递给 LLM,让 LLM自行修正并重试。
+- 降级处理:如果重试后仍失败,Agent 会返回一个友好的错误消息(如 "I couldn't process that request."),而不是抛出异常。
 
 **小结：**
 
@@ -1448,90 +1235,62 @@ print(f"分析结果: {result2}")
 from langchain_openai import ChatOpenAI
 from langchain.agents import initialize_agent, AgentType
 from langchain.tools import Tool 
-5 from langchain_community.tools.tavily_search import TavilySearchResults 6 from langchain_experimental.utilities.python import PythonREPL 
-7 from langchain.memory import ConversationBufferMemory
-```
+from langchain_community.tools.tavily_search import TavilySearchResults
+from langchain_experimental.utilities.python import PythonREPL 
+from langchain.memory import ConversationBufferMemory
 
-```python
 # 2. 设置 API 密钥
-10 os.environ["TAVILY_API_KEY"] = "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"
+os.environ["TAVILY_API_KEY"] = "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"
+
 # 3. 定义搜索工具
 search_tool = TavilySearchResults(max_results=2)
-```
 
-```python
 # 5. 定义LLM
 llm = ChatOpenAI(
-17 model="gpt-4",
-```
+	model="gpt-4",
+	temperature=0
+)
 
-18. temperature=0
-
-19. )
-
-```python
 # 6. 定义记忆组件(以ConversationBufferMemory为例)
 memory = ConversationBufferMemory(
-memory_key="chat_history",
-```
+	memory_key="chat_history",
+	return_messages=True
+)
 
-24. return_messages=True
-
-25. )
-
-```python
 # 7. 创建 AgentExecutor
 agent_executor = initialize_agent(
-tools=[search_tool],
-```
+	tools=[search_tool],
+	llm=llm,
+	agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
+	memory=memory,
+	handle_parsing_errors=True,
+	verbose=True
+)
 
-30. llm=llm,
-
-31. agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
-
-32. memory=memory,
-
-33. handle_parsing_errors=True,
-
-34. verbose=True
-
-35. )
-
-```python
 # 8. 测试对话
 # 第一个查询
-40 query1="北京明天的天气怎么样?"
-41 result1 = agent_executor.invoke(query1)
+query1="北京明天的天气怎么样?"
+result1 = agent_executor.invoke(query1)
 print(f"查询结果: {result1}")
-```
 
-|  |  | # print("\n=== 继续对话 ===") |
-| --- | --- | --- |
-|  |  | query2="上海呢" |
-|  |  | result2=agent_executor.invoke(query2) |
-|  |  | print(f"分析结果: {result2}") |
-|  |  | > Entering new AgentExecutor chain... |
-|  |  | ``` |
+# print("\n=== 继续对话 ===")
+query2="上海呢"
+result2=agent_executor.invoke(query2)
+print(f"分析结果: {result2}")
 
-3. Thought: Do I need to use a tool? Yes
+```text
+> Entering new AgentExecutor chain...
+Thought: Do I need to use a tool? Yes
+Action: tavily_search_results_json
+Action Input: 北京 明天的天气
+> Entering new AgentExecutor chain...
 
-4. Action: tavily_search_results_json
+Thought: Do I need to use a tool? Yes
 
-5. Action Input: 北京 明天的天气
+Action: tavily_search_results_json
 
-6. > Entering new AgentExecutor chain...
+Action Input: 北京 明天的天气
 
-7. ```
-
-8. Thought: Do I need to use a tool? Yes
-
-9. Action: tavily_search_results_json
-
-10. Action Input: 北京 明天的天气
-
-11. ```
-
-```python
 Observation: [{'title': '中国气象局-天气预报- 北京', 'url': 
 'https://weather.cma.cn/web/weather/54511.html', 'content': '| | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| æ\x97¶é\x97 ́ | 05:00 | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 |\n| å¤©æ°\x94 | | | | | | | | |\n| æ°\x94æ ̧© | 17.2â\x84\x83 | 21â\x84\x83 | 26.5â\x84\x83 | 30.8â\x84\x83 | 29.5â\x84\x83 | 25.8â\x84\x83 | 
 19.9â\x84\x83 | 16.8â\x84\x83 |\n| é\x99\x8dæ° ́ | 2.3mm | 2.3mm | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ |\n| é£\x8eé\x80\x9f | 3m/s | 3.1m/s | 5.1m/s | 7.9m/s | 6.9m/s | 5.2m/s | 3m/s | 2.6m/s | [...] | | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| æ\x97¶é\x97 ́ | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| å¤©æ°\x94 | | | | | | | | |\n| æ°\x94æ ̧© | 28.2â\x84\x83 | 32â\x84\x83 | 33.8â\x84\x83 | 33.5â\x84\x83 | 31â\x84\x83 | 27.8â\x84\x83 | 25.8â\x84\x83 | 24.2â\x84\x83 |\n| 
@@ -1543,84 +1302,54 @@ Observation: [{'title': '中国气象局-天气预报- 北京', 'url':
 \n===================================\n\n\n\n### 网站服务\n\n关于我们联系我们用户反馈\n\n版权声明网站律师\n\n### 营销中心\n\n商务合作广告服务媒资合作\n\n### 相关链接\n\n中国气象局中国气象服务协会中国天气频道\n\n客服邮箱:
 service@weather.com.cn客服电话:010-68409444京ICP证010385-2号京公网安备
 11041400134号\n\nImage 66\n\n 中国天气网版权所有,未经书面授权禁止使用 Copyright©中国气象局公共气象服务中心 All Rights Reserved (2008-
-```
 
-5. \n\n我在全国,现在看到的天空状况是:\n====================', 'score': 0.67166495}]
 
-14. > Finished chain.
+\n\n我在全国,现在看到的天空状况是:\n====================', 'score': 0.67166495}]
 
-```python
+> Finished chain.
+
 查询结果: {'input': '北京明天的天气怎么样?', 'chat_history': [HumanMessage(content='北京明天的天气怎么样?', additional_kwargs={}, response_metadata={}), 
 AIMessage(content='北京明天的天气预报显示,天气将是晴转多云,最高气温约为33°C,最低气温约为20°C。风速在3级以下。', additional_kwargs={}, response_metadata={})], 'output': '北京明天的天气预报显示,天气将是晴转多云,最高气温约为33°C,最低气温约为20°C。风速在3级以下。'}
-```
 
-18. > Entering new AgentExecutor chain...
+> Entering new AgentExecutor chain...
 
-19. ```
+Thought: Do I need to use a tool? Yes
+Action: tavily_search_results_json
 
-20. Thought: Do I need to use a tool? Yes
+Action Input: 北京 明天的天气
 
-21. Action: tavily_search_results_json
+Observation: [{'title': '中国气象局-天气预报- 北京', 'url':
 
-22. Action Input: 北京 明天的天气
+> Finished chain. 
+查询结果: {'input': '北京明天的天气怎么样?', 'chat_history': [HumanMessage(content='北京 明天的天气怎么样?', additional_kwargs={}, response_metadata={}),  AIMessage(content='北京明天的天气预报显示,天气将是晴转多云,最高气温约为33°C,最低 气温约为20°C。风速在3级以下。', additional_kwargs={}, response_metadata={})], 'output': '北京明天的天气预报显示,天气将是晴转多云,最高气温约为33°C,最低气温约为20°C。风速在 3级以下。'}
 
-23. ```
+> Entering new AgentExecutor chain...
+Thought: Do I need to use a tool? Yes
 
-24. Observation: [{'title': '中国气象局-天气预报- 北京', 'url':
+Action: tavily_search_results_json
 
-```python
-26 > Finished chain. 
-27 查询结果: {'input': '北京明天的天气怎么样?', 'chat_history': [HumanMessage(content='北京 明天的天气怎么样?', additional_kwargs={}, response_metadata={}), 
- AIMessage(content='北京明天的天气预报显示,天气将是晴转多云,最高气温约为33°C,最低 气温约为20°C。风速在3级以下。', additional_kwargs={}, response_metadata={})], 'output': '北京明天的天气预报显示,天气将是晴转多云,最高气温约为33°C,最低气温约为20°C。风速在 3级以下。'}
-```
+Action Input: 上海明天的天气
 
-30. > Entering new AgentExecutor chain...
+Observation: [{'title': '中国气象局-天气预报-城市预报- 上海', 'url':  'https://weather.cma.cn/web/weather/58367.html', 'content': '| | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| æ\x97¶é\x97 ́ | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 | 08:00 | 11:00 |\n| å¤©æ°\x94 | | | | | | | | |\n| æ°\x94æ ̧© | 32.3â\x84\x83 | 28.5â\x84\x83 | 25.9â\x84\x83 | 23.7â\x84\x83 | 23â\x84\x83 | 22.6â\x84\x83 |  25.9â\x84\x83 | 30.8â\x84\x83 |\n| é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97  é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ |\n| é£\x8eé\x80\x9f | 7.9m/s | 7.4m/s | 7.4m/s | 7.8m/s | 7.7m/s | 7.5m/s | 7.9m/s | 7.9m/s | [...] | | | | | | | | | |\n| --- | -- - | --- | --- | --- | --- | --- | --- | --- |\n| æ\x97¶é\x97 ́ | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| å¤©æ°\x94 | | | | | | | | |\n| æ°\x94æ ̧© | 25.9â\x84\x83 | 30.8â\x84\x83 | 31.5â\x84\x83 | 30.3â\x84\x83 | 28.1â\x84\x83 | 25.2â\x84\x83 |  23.7â\x84\x83 | 24.1â\x84\x83 |\n| é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97  é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ |\n| é£\x8eé\x80\x9f | 7.9m/s | 7.9m/s | 7.7m/s | 7.5m/s | 7.5m/s | 7.9m/s | 7.7m/s | 7.5m/s | [...] | | | | | | | | | |\n| --- | -- - | --- | --- | --- | --- | --- | --- | --- |\n| æ\x97¶é\x97 ́ | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| å¤©æ°\x94 | | | | | | | | |\n| æ°\x94æ ̧© | 25â\x84\x83 | 25.9â\x84\x83 | 26.4â\x84\x83 | 25.5â\x84\x83 | 24.8â\x84\x83 | 24â\x84\x83 |  23.8â\x84\x83 | 23.6â\x84\x83 |\n| é\x99\x8dæ° ́ | 0.6mm | 1.6mm | 2.4mm | 1.6mm | 4.3mm | 3mm | 6.9mm | 7mm |\n| é£\x8eé\x80\x9f | 7.6m/s | 7.6m/s | 7.8m/s | 7.9m/s | 7.7m/s | 7.8m/s | 7.7m/s | 7.8m/s |', 'score': 0.7192461}, {'title': '【上海天气预报】上海天气预 报7天,10天,15天 - 全国天气网', 'url': 'https://tianqi.so.com/weather/101020100', 'content': '# 全国天气网\n\n45日天气\n\n15日天气\n\n### 当前天气信息\n\n天气:晴 34°C\n\n体感: 33°C\n\n风向:北风\n\n风力:2级\n\n气压:1007\n\n湿度:45%\n\n日出:04:50\n\n日 落:19:00\n\n### 空气质量\n\n良\n\n无需戴口罩\n\n适宜外出\n\n适宜开窗\n\n关闭净化器 \n\n### 主要污染物\n\nPM2.5\n\n21优\n\nPM10\n\n39优\n\nO3\n\n166轻度 \n\nNO2\n\n14优\n\nSO2\n\n7优\n\n14时\n\n17时\n\n20时\n\n23时\n\n02时\n\n05时 \n\n08时\n\n11时\n\n北风\n\n2级\n\n东南风\n\n微风\n\n东南风\n\n微风\n\n南风\n\n微风 \n\n南风\n\n微风\n\n南风\n\n微风\n\n南风\n\n微风\n\n南风\n\n3-5级\n\n### 明日天气信 息\n\n天气:小雨\n\n温度:26~30°C\n\n风向:东南风\n\n风力:3-5级\n\n### 最优空气质 量排行榜\n\n查看全国最优排行榜>>\n\n### 最差空气质量排行榜\n\n查看全国最差排行榜 >>\n\n02时\n\n05时\n\n08时\n\n11时\n\n14时\n\n17时\n\n20时\n\n23时\n\n南风\n\n微 风\n\n南风\n\n微风\n\n南风\n\n微风\n\n南风\n\n3-5级\n\n东南风', 'score': 0.6680367}]
+Thought:NoAI: 上海明天的天气预报显示,天气将是小雨,气温在26°C到30°C之间,风向为东南风,风力为3- 5级。
 
-31. ```
-
-32. Thought: Do I need to use a tool? Yes
-
-33. Action: tavily_search_results_json
-
-34. Action Input: 上海明天的天气
-
-35. ```
-
-36 Observation: [{'title': '中国气象局-天气预报-城市预报- 上海', 'url': 
- 'https://weather.cma.cn/web/weather/58367.html', 'content': '| | | | | | | | | |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| æ\x97¶é\x97 ́ | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 | 08:00 | 11:00 |\n| å¤©æ°\x94 | | | | | | | | |\n| æ°\x94æ ̧© | 32.3â\x84\x83 | 28.5â\x84\x83 | 25.9â\x84\x83 | 23.7â\x84\x83 | 23â\x84\x83 | 22.6â\x84\x83 | 
- 25.9â\x84\x83 | 30.8â\x84\x83 |\n| é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 
- é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ |\n| é£\x8eé\x80\x9f | 7.9m/s | 7.4m/s | 7.4m/s | 7.8m/s | 7.7m/s | 7.5m/s | 7.9m/s | 7.9m/s | [...] | | | | | | | | | |\n| --- | -- - | --- | --- | --- | --- | --- | --- | --- |\n| æ\x97¶é\x97 ́ | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| å¤©æ°\x94 | | | | | | | | |\n| æ°\x94æ ̧© | 25.9â\x84\x83 | 30.8â\x84\x83 | 31.5â\x84\x83 | 30.3â\x84\x83 | 28.1â\x84\x83 | 25.2â\x84\x83 | 
- 23.7â\x84\x83 | 24.1â\x84\x83 |\n| é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 
- é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ | æ\x97 é\x99\x8dæ° ́ |\n| é£\x8eé\x80\x9f | 7.9m/s | 7.9m/s | 7.7m/s | 7.5m/s | 7.5m/s | 7.9m/s | 7.7m/s | 7.5m/s | [...] | | | | | | | | | |\n| --- | -- - | --- | --- | --- | --- | --- | --- | --- |\n| æ\x97¶é\x97 ́ | 08:00 | 11:00 | 14:00 | 17:00 | 20:00 | 23:00 | 02:00 | 05:00 |\n| å¤©æ°\x94 | | | | | | | | |\n| æ°\x94æ ̧© | 25â\x84\x83 | 25.9â\x84\x83 | 26.4â\x84\x83 | 25.5â\x84\x83 | 24.8â\x84\x83 | 24â\x84\x83 | 
- 23.8â\x84\x83 | 23.6â\x84\x83 |\n| é\x99\x8dæ° ́ | 0.6mm | 1.6mm | 2.4mm | 1.6mm | 4.3mm | 3mm | 6.9mm | 7mm |\n| é£\x8eé\x80\x9f | 7.6m/s | 7.6m/s | 7.8m/s | 7.9m/s | 7.7m/s | 7.8m/s | 7.7m/s | 7.8m/s |', 'score': 0.7192461}, {'title': '【上海天气预报】上海天气预 报7天,10天,15天 - 全国天气网', 'url': 'https://tianqi.so.com/weather/101020100', 'content': '# 全国天气网\n\n45日天气\n\n15日天气\n\n### 当前天气信息\n\n天气:晴 34°C\n\n体感: 33°C\n\n风向:北风\n\n风力:2级\n\n气压:1007\n\n湿度:45%\n\n日出:04:50\n\n日 落:19:00\n\n### 空气质量\n\n良\n\n无需戴口罩\n\n适宜外出\n\n适宜开窗\n\n关闭净化器 \n\n### 主要污染物\n\nPM2.5\n\n21优\n\nPM10\n\n39优\n\nO3\n\n166轻度
- \n\nNO2\n\n14优\n\nSO2\n\n7优\n\n14时\n\n17时\n\n20时\n\n23时\n\n02时\n\n05时 \n\n08时\n\n11时\n\n北风\n\n2级\n\n东南风\n\n微风\n\n东南风\n\n微风\n\n南风\n\n微风 \n\n南风\n\n微风\n\n南风\n\n微风\n\n南风\n\n微风\n\n南风\n\n3-5级\n\n### 明日天气信 息\n\n天气:小雨\n\n温度:26~30°C\n\n风向:东南风\n\n风力:3-5级\n\n### 最优空气质 量排行榜\n\n查看全国最优排行榜>>\n\n### 最差空气质量排行榜\n\n查看全国最差排行榜 >>\n\n02时\n\n05时\n\n08时\n\n11时\n\n14时\n\n17时\n\n20时\n\n23时\n\n南风\n\n微 风\n\n南风\n\n微风\n\n南风\n\n微风\n\n南风\n\n3-5级\n\n东南风', 'score': 0.6680367}] 37 Thought:No 
-38 AI: 上海明天的天气预报显示,天气将是小雨,气温在26°C到30°C之间,风向为东南风,风力为3- 5级。
-
-```python
-40 > Finished chain. 
-41 分析结果: {'input': '上海呢', 'chat_history': [HumanMessage(content='北京明天的天气怎么 样?', additional_kwargs={}, response_metadata={}), AIMessage(content='北京明天的天气 预报显示,天气将是晴转多云,最高气温约为33°C,最低气温约为20°C。风速在3级以下。', additional_kwargs={}, response_metadata={}), HumanMessage(content='上海呢', additional_kwargs={}, response_metadata={}), AIMessage(content='上海明天的天气预报显 示,天气将是小雨,气温在26°C到30°C之间,风向为东南风,风力为3-5级。', 
+> Finished chain. 
+分析结果: {'input': '上海呢', 'chat_history': [HumanMessage(content='北京明天的天气怎么 样?', additional_kwargs={}, response_metadata={}), AIMessage(content='北京明天的天气 预报显示,天气将是晴转多云,最高气温约为33°C,最低气温约为20°C。风速在3级以下。', additional_kwargs={}, response_metadata={}), HumanMessage(content='上海呢', additional_kwargs={}, response_metadata={}), AIMessage(content='上海明天的天气预报显 示,天气将是小雨,气温在26°C到30°C之间,风向为东南风,风力为3-5级。', 
  additional_kwargs={}, response_metadata={})], 'output': '上海明天的天气预报显示,天气将是 小雨,气温在26°C到30°C之间,风向为东南风,风力为3-5级。'}
 ```
 
 再例:
-
-|  | # ... 前面的代码省略 ...<br># 8. 测试对话<br># 第一个查询 |
-| --- | --- |
-
-```python
+```
+# ... 前面的代码省略 ...
+# 8. 测试对话<br># 第一个查询
 print("=== 查询昨天的新闻 ===")
 5 result1 = agent_executor.invoke("昨天的新闻头条是什么?")
 print(f"查询结果: {result1}")
-```
-
-```python
 # 第二个查询(基于上下文)
 print("\n=== 用中文总结 ===")
 10 result2 = agent_executor.invoke("用中文总结一下")
 print(f"总结结果: {result2}")
-```
 
-```python
 # 可以继续对话
 print("\n=== 继续对话 ===") 
 15 result3 = agent_executor.invoke("这些新闻对股市有什么影响?") 16 print(f"分析结果: {result3}")

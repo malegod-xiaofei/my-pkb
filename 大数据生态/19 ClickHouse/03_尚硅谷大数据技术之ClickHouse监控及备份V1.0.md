@@ -61,11 +61,9 @@ scrape_configs:
 static_configs:
 
 - targets: ['hadoop1:9090']
-```
 
 #添加ClickHouse监控配置
 
-```yaml
 - job_name: clickhouse-1
 
 static_configs:
@@ -245,23 +243,17 @@ echo -n 'alter table t_order_mt freeze' | clickhouse-client
 
 ### 5.1.3 将备份数据保存到其他路径
 
-#创建备份存储路径
-
 ```bash
+#创建备份存储路径
 sudo mkdir -p /var/lib/clickhouse/backup/
-```
+
 
 #拷贝数据到备份路径
-
-```bash
 sudo cp -r /var/lib/clickhouse/shadow/
 
 /var/lib/clickhouse/backup/my-backup-name
-```
 
 #为下次备份准备，删除shadow下的数据
-
-```bash
 sudo rm -rf /var/lib/clickhouse/shadow/*
 ```
 

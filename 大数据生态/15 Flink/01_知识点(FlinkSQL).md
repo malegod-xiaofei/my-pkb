@@ -23,13 +23,15 @@ SQL API 是基于 SQL 标准的 Apache Calcite 框架实现的，可通过纯 SQ
 ### 1.1.2 常用配置
 
 - 结果显示模式
+```sql
 #默认table，还可以设置为tableau、changelog
 
 SET sql-client.execution.result-mode=tableau;
-
+```
 - 执行环境
+```sql
 SET execution.runtime-mode=streaming; #默认streaming，也可以设置batch
-
+```
 - 默认并行度
 SET parallelism.default=1;
 
