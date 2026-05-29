@@ -1,7 +1,10 @@
+# 1 HanLP词性标注
+
 参考 https://www.hankcs.com//part-of-speech-tagging.html#h2-8
 
-| a | 形容词 |
+| 词性 | 含义 |
 | --- | --- |
+| a | 形容词 |
 | ad | 副形词 |
 | ag | 形容词性语素 |
 | al | 形容词性惯用语 |
