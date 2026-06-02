@@ -11,8 +11,8 @@
 
 核心方向包括：
 
-- AI 大模型（尚硅谷）：学习路线、通识课、应用实战、核心技术、RAG 与智能体
-- AI 大模型（黑马）：Python 高级、数据结构算法、Linux、传智项目文档
+- AI 大模型（尚硅谷）：学习路线、通识课、核心技术、RAG 与智能体、应用实战（LangChain、MCP、Claude Code、Spring AI、Spring AI Alibaba、Cursor、企业级部署、共享充电宝项目）
+- AI 大模型（黑马）：Python 高级、数据结构算法、Linux、机器学习基础（科学计算库）、机器学习算法（经典算法）、深度学习（TensorFlow）、计算机视觉（OpenCV）、NLP、文本摘要、传智项目文档
 - Java生态：Java 基础、集合、多线程、设计模式、MySQL、JavaWeb、SSM、SpringBoot
 - 大数据生态：Hadoop、HDFS、MapReduce、Yarn、Zookeeper、Hive、Kafka、Spark、Flink、ClickHouse、Doris 等
 - 开发工具：Obsidian、IDEA、PyCharm、Git、Linux、Docker、Jenkins/GitLab/CCE
@@ -21,8 +21,8 @@
 
 | 一级目录 | Markdown 数量 | 说明 |
 |---|---:|---|
-| AI尚硅谷/ | ~75 | AI 大模型学习路线、通识基础、应用实战、核心技术、RAG 与智能体 |
-| AI黑马/ | ~385 | Python 高级、数据结构算法、Linux、传智 NLP/多模态项目文档 |
+| AI尚硅谷/ | ~95 | AI 大模型学习路线、通识基础、核心技术、RAG 与智能体、应用实战（MCP、LangChain、Spring AI、Cursor、企业级部署、项目实战） |
+| AI黑马/ | ~385 | Python 高级、数据结构算法、Linux、机器学习（科学计算库+经典算法）、深度学习（TensorFlow）、计算机视觉（OpenCV）、NLP、文本摘要、传智项目文档 |
 | Java生态/ | ~35 | Java 基础、数据结构、设计模式、MySQL、JavaWeb、正则表达式 |
 | 大数据生态/ | ~88 | Hadoop 生态、Hive、Kafka、Spark、Flink、OLAP 引擎和监控组件 |
 | 开发工具/ | ~50 | IDEA、PyCharm、Git、Linux、Docker、Jenkins/GitLab/CCE 等 |
@@ -48,12 +48,23 @@ my-pkb/
 │       ├── 03 MCP/                     # MCP 课程实战与官方文档整理
 │       ├── 04 ClaudeCode/              # Claude Code 使用笔记
 │       ├── 05 LangChain/               # LangChain Model IO、Chains、Memory、Tools、Agents、Retrieval
-│       └── 06 硅谷小智（医疗版）/       # Java + 大模型医疗项目笔记
+│       ├── 06 硅谷小智（医疗版）/       # Java + 大模型医疗项目笔记
+│       ├── 07 小谷充电宝/              # 共享充电宝项目：设备、柜机、规则、微信登录、MQTT、RabbitMQ、扫码、归还、支付、AI 报表
+│       ├── 08 SpringAI/                # Spring AI 课程笔记
+│       ├── 09 Cursor/                  # Cursor 快速上手和科学使用指南
+│       ├── 10 企业级大规模部署与开发实战/ # 企业级大模型部署、Agent 与 RAG 实战项目
+│       └── 11 Spring AI Alibaba/       # Spring AI Alibaba 速通实战
 ├── AI黑马/
 │   ├── 01 基础知识/
 │   │   ├── 01 Python高级/              # 多任务编程、网络编程、闭包、高级语法与正则
 │   │   ├── 02 数据结构与算法（Python）/ # 顺序表、链表、栈、队列、排序与搜索、树
 │   │   └── 03 Linux/                   # Linux 基础命令与高级命令
+│   ├── 02 机器学习基础_科学计算库/      # Matplotlib、Numpy、Pandas、Seaborn、综合案例
+│   ├── 03 机器学习算法_经典算法/        # KNN、线性回归、逻辑回归、决策树、集成学习、聚类、朴素贝叶斯、SVM、EM、HMM
+│   ├── 04 深度学习入门_tensorflow/      # TensorFlow 入门、深度神经网络、图像分类、目标检测、目标分割
+│   ├── 04.5 计算机视觉_OpenCV/          # OpenCV 简介、基本操作、图像处理、特征提取、视频操作
+│   ├── 05 NLP文档/                      # PyTorch、NLP 入门、文本预处理、RNN、NLP 项目、Transformer、FastText、迁移学习
+│   ├── 06 文本摘要(HTML)/               # TextRank、seq2seq、PGN、评估方法、迭代优化、部署
 │   └── 传智项目文档/                   # NLP 案例、Transformers、传智大脑、多模态、推荐系统、模型优化等
 ├── Java生态/
 │   ├── 00 数据结构/                    # 知识点、排序算法
@@ -129,7 +140,7 @@ my-pkb/
   - 拆分章节：1 深度学习概述.md ~ 9 循环神经网络.md
 - 03 尚硅谷AI大模型之NLP教程/
   - 原始整合文件：尚硅谷大模型技术之NLP.md
-  - 拆分章节：1 NLP导论.md ~ 9 附录.md
+  - 拆分章节：1 NLP导论.md ~ 9 附录.md、10 Hugging Face生态.md
 
 #### 05 大模型应用实战
 
@@ -139,6 +150,11 @@ my-pkb/
 - 04 ClaudeCode/：AI工具飞速上手之Claude Code.md、Claude Code快速入门与配置.md、Claude Code核心功能与高效操作技巧.md
 - 05 LangChain/：01-LangChain使用概述.md ~ 07-LangChain使用之Retrieval.md
 - 06 硅谷小智（医疗版）/：尚硅谷-Java+大模型应用-硅谷小智（医疗版）.md
+- 07 小谷充电宝/：01_项目概述&环境搭建.md ~ 15_整合AI实现数据报表.md，覆盖设备管理、柜机/站点/监控管理、权限与日志、微信登录、附近门店、MQTT、扫码、RabbitMQ、规则引擎、归还、订单支付、AI 报表
+- 08 SpringAI/：SpringAI课程.md
+- 09 Cursor/：Cursor快速上手和科学使用指南.md
+- 10 企业级大规模部署与开发实战/：01-企业级大模型的部署.md、02-大模型实战项目：Agent&RAG.md
+- 11 Spring AI Alibaba/：Spring AI Alibaba速通实战.md
 
 ### AI黑马
 
@@ -147,6 +163,32 @@ my-pkb/
 - 01 Python高级/：多任务编程-进程、线程、网络编程、Http协议与静态Web服务器、闭包和装饰器、高级语法和正则表达式（共约 54 个文件）
 - 02 数据结构与算法（Python）/：引入概念、顺序表、链表、栈、队列、排序与搜索、树
 - 03 Linux/：Linux基础命令（14 节）、Linux高级命令（14 节）
+
+#### 02 机器学习基础_科学计算库
+
+- 01 机器学习（常用科学计算库的使用）基础定位、目标/：机器学习概述、环境安装、Matplotlib、Numpy、Pandas、拓展阅读
+- 02 机器学习(常用科学计算库的使用2)/：Seaborn、综合案例
+
+#### 03 机器学习算法_经典算法
+
+- 机器学习算法篇1/：K-近邻算法、线性回归、逻辑回归、决策树算法、集成学习、聚类算法、拓展知识
+- 机器学习算法篇2/：朴素贝叶斯、支持向量机、EM算法、HMM模型、集成学习进阶、扩展知识
+
+#### 04 深度学习入门_tensorflow
+
+- 课程介绍、TensorFlow 入门、深度神经网络、图像分类、目标检测、目标分割
+
+#### 04.5 计算机视觉_OpenCV
+
+- OpenCV 简介、基本操作、图像处理、图像特征提取与描述、视频操作
+
+#### 05 NLP文档
+
+- 01_PyTorch/、02_NLP入门/、03_文本预处理/、04_RNN入门/、05_NLP项目集合/、06_transformer论文复现/、07_fasttext迁移学习/、08_迁移学习经典网络tf_GTP_Bert_Elmo/
+
+#### 06 文本摘要(HTML)
+
+- 文本摘要项目简介、TextRank模型、seq2seq经典架构、PGN先进架构、生成式模型的评估方法、模型的迭代优化、模型的部署与总结
 
 #### 传智项目文档
 

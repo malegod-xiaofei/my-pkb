@@ -17,8 +17,8 @@
 
 核心方向包括：
 
-- AI 大模型（尚硅谷）：学习路线、通识课、应用实战、核心技术、RAG 与智能体
-- AI 大模型（黑马）：Python 高级、数据结构算法、Linux、传智项目文档
+- AI 大模型（尚硅谷）：学习路线、通识课、核心技术、RAG 与智能体、应用实战（LangChain、MCP、Claude Code、Spring AI、Spring AI Alibaba、Cursor、企业级部署、共享充电宝项目）
+- AI 大模型（黑马）：Python 高级、数据结构算法、Linux、机器学习基础（科学计算库）、机器学习算法（经典算法）、深度学习（TensorFlow）、计算机视觉（OpenCV）、NLP、文本摘要、传智项目文档
 - Java生态：Java 基础、集合、多线程、设计模式、MySQL、JavaWeb、SSM、SpringBoot
 - 大数据生态：Hadoop、HDFS、MapReduce、Yarn、Zookeeper、Hive、Kafka、Spark、Flink、ClickHouse、Doris 等
 - 开发工具：Obsidian、IDEA、PyCharm、Git、Linux、Docker、Jenkins/GitLab/CCE
@@ -44,12 +44,23 @@ my-pkb/
 │       ├── 03 MCP/                     # MCP 课程实战与官方文档整理
 │       ├── 04 ClaudeCode/              # Claude Code 使用笔记（3 个文件）
 │       ├── 05 LangChain/               # LangChain Model IO、Chains、Memory、Tools、Agents、Retrieval
-│       └── 06 硅谷小智（医疗版）/       # Java + 大模型医疗项目笔记
+│       ├── 06 硅谷小智（医疗版）/       # Java + 大模型医疗项目笔记
+│       ├── 07 小谷充电宝/              # 共享充电宝项目：设备、柜机、规则、微信登录、MQTT、RabbitMQ、扫码、归还、支付、AI 报表
+│       ├── 08 SpringAI/                # Spring AI 课程笔记
+│       ├── 09 Cursor/                  # Cursor 快速上手和科学使用指南
+│       ├── 10 企业级大规模部署与开发实战/ # 企业级大模型部署、Agent 与 RAG 实战项目
+│       └── 11 Spring AI Alibaba/       # Spring AI Alibaba 速通实战
 ├── AI黑马/
 │   ├── 01 基础知识/
 │   │   ├── 01 Python高级/              # 多任务、网络编程、闭包、高级语法等
 │   │   ├── 02 数据结构与算法（Python）/ # 顺序表、链表、栈、队列、排序、树
 │   │   └── 03 Linux/                   # Linux 基础命令与高级命令
+│   ├── 02 机器学习基础_科学计算库/      # Matplotlib、Numpy、Pandas、Seaborn、综合案例
+│   ├── 03 机器学习算法_经典算法/        # KNN、线性回归、逻辑回归、决策树、集成学习、聚类、朴素贝叶斯、SVM、EM、HMM
+│   ├── 04 深度学习入门_tensorflow/      # TensorFlow 入门、深度神经网络、图像分类、目标检测、目标分割
+│   ├── 04.5 计算机视觉_OpenCV/          # OpenCV 简介、基本操作、图像处理、特征提取、视频操作
+│   ├── 05 NLP文档/                      # PyTorch、NLP 入门、文本预处理、RNN、NLP 项目、Transformer、FastText、迁移学习
+│   ├── 06 文本摘要(HTML)/               # TextRank、seq2seq、PGN、评估方法、迭代优化、部署
 │   └── 传智项目文档/                   # NLP 案例、多模态、推荐系统、模型优化等
 ├── Java生态/
 │   ├── 00 数据结构/                    # 知识点、排序算法
