@@ -17,8 +17,8 @@
 
 核心方向包括：
 
-- AI 大模型（尚硅谷）：学习路线、通识课、核心技术、RAG 与智能体、应用实战（LangChain、MCP、Claude Code、Spring AI、Spring AI Alibaba、Cursor、企业级部署、共享充电宝项目）
-- AI 大模型（黑马）：Python 高级、数据结构算法、Linux、机器学习基础（科学计算库）、机器学习算法（经典算法）、深度学习（TensorFlow）、计算机视觉（OpenCV）、NLP、文本摘要、传智项目文档
+- AI 大模型（尚硅谷）：学习路线、通识课、核心技术、RAG 与智能体、应用实战（LangChain、MCP、Claude Code、Spring AI、Spring AI Alibaba、Cursor、企业级部署、共享充电宝项目）、面试题
+- AI 大模型（黑马）：Python 高级、数据结构算法、Linux、机器学习基础（科学计算库）、机器学习算法（经典算法）、深度学习（TensorFlow）、计算机视觉（OpenCV）、NLP、文本摘要、传智项目文档、面试题
 - Java生态：Java 基础、集合、多线程、设计模式、MySQL、JavaWeb、SSM、SpringBoot
 - 大数据生态：Hadoop、HDFS、MapReduce、Yarn、Zookeeper、Hive、Kafka、Spark、Flink、ClickHouse、Doris 等
 - 开发工具：Obsidian、IDEA、PyCharm、Git、Linux、Docker、Jenkins/GitLab/CCE
@@ -38,18 +38,19 @@ my-pkb/
 │   │   ├── 01 尚硅谷AI大模型之机器学习/ # 数学基础、机器学习章节笔记与原始整合文件
 │   │   ├── 02 尚硅谷AI大模型之深度学习/ # 深度学习章节笔记与原始整合文件
 │   │   └── 03 尚硅谷AI大模型之NLP教程/  # NLP 章节笔记与原始整合文件
-│   └── 05 大模型应用实战/
-│       ├── 01 conda使用指南/           # conda 使用指南
-│       ├── 02 Ollama/                  # Ollama 本地模型使用
-│       ├── 03 MCP/                     # MCP 课程实战与官方文档整理
-│       ├── 04 ClaudeCode/              # Claude Code 使用笔记（3 个文件）
-│       ├── 05 LangChain/               # LangChain Model IO、Chains、Memory、Tools、Agents、Retrieval
-│       ├── 06 硅谷小智（医疗版）/       # Java + 大模型医疗项目笔记
-│       ├── 07 小谷充电宝/              # 共享充电宝项目：设备、柜机、规则、微信登录、MQTT、RabbitMQ、扫码、归还、支付、AI 报表
-│       ├── 08 SpringAI/                # Spring AI 课程笔记
-│       ├── 09 Cursor/                  # Cursor 快速上手和科学使用指南
-│       ├── 10 企业级大规模部署与开发实战/ # 企业级大模型部署、Agent 与 RAG 实战项目
-│       └── 11 Spring AI Alibaba/       # Spring AI Alibaba 速通实战
+│   ├── 05 大模型应用实战/
+│   │   ├── 01 conda使用指南/           # conda 使用指南
+│   │   ├── 02 Ollama/                  # Ollama 本地模型使用
+│   │   ├── 03 MCP/                     # MCP 课程实战与官方文档整理
+│   │   ├── 04 ClaudeCode/              # Claude Code 使用笔记（3 个文件）
+│   │   ├── 05 LangChain/               # LangChain Model IO、Chains、Memory、Tools、Agents、Retrieval
+│   │   ├── 06 硅谷小智（医疗版）/       # Java + 大模型医疗项目笔记
+│   │   ├── 07 小谷充电宝/              # 共享充电宝项目：设备、柜机、规则、微信登录、MQTT、RabbitMQ、扫码、归还、支付、AI 报表
+│   │   ├── 08 SpringAI/                # Spring AI 课程笔记
+│   │   ├── 09 Cursor/                  # Cursor 快速上手和科学使用指南
+│   │   ├── 10 企业级大规模部署与开发实战/ # 企业级大模型部署、Agent 与 RAG 实战项目
+│   │   └── 11 Spring AI Alibaba/       # Spring AI Alibaba 速通实战
+│   └── 06 面试题/                      # 机器学习、深度学习、NLP、大模型、RAG、Agent、Spring AI、部署等面试题
 ├── AI黑马/
 │   ├── 01 基础知识/
 │   │   ├── 01 Python高级/              # 多任务、网络编程、闭包、高级语法等
@@ -61,6 +62,7 @@ my-pkb/
 │   ├── 04.5 计算机视觉_OpenCV/          # OpenCV 简介、基本操作、图像处理、特征提取、视频操作
 │   ├── 05 NLP文档/                      # PyTorch、NLP 入门、文本预处理、RNN、NLP 项目、Transformer、FastText、迁移学习
 │   ├── 06 文本摘要(HTML)/               # TextRank、seq2seq、PGN、评估方法、迭代优化、部署
+│   ├── 07 面试题/                       # Python、数据结构、机器学习、深度学习、OpenCV、NLP、文本摘要、项目实战、模型优化等面试题
 │   └── 传智项目文档/                   # NLP 案例、多模态、推荐系统、模型优化等
 ├── Java生态/
 │   ├── 00 数据结构/                    # 知识点、排序算法
