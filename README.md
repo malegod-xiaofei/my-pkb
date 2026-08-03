@@ -42,7 +42,7 @@ my-pkb/
 │   │   ├── 01 尚硅谷AI大模型之机器学习/ # 数学基础、机器学习章节笔记与原始整合文件
 │   │   ├── 02 尚硅谷AI大模型之深度学习/ # 深度学习章节笔记与原始整合文件
 │   │   └── 03 尚硅谷AI大模型之NLP教程/  # NLP 章节笔记与原始整合文件
-│   └── 05 大模型应用实战/
+│   ├── 05 大模型应用实战/
 │       ├── 01 conda使用指南/           # conda 使用指南
 │       ├── 02 Ollama/                  # Ollama 本地模型使用
 │       ├── 03 MCP/                     # MCP 课程实战与官方文档整理
@@ -54,6 +54,7 @@ my-pkb/
 │       ├── 09 Cursor/                  # Cursor 快速上手和科学使用指南
 │       ├── 10 企业级大规模部署与开发实战/ # 企业级大模型部署、Agent 与 RAG 实战项目
 │       └── 11 Spring AI Alibaba/       # Spring AI Alibaba 速通实战
+│   └── 06 面试题/                      # 机器学习、深度学习、NLP、大模型、RAG、Agent、Spring AI、部署等面试题
 ├── AI黑马/
 │   ├── 01 基础知识/
 │   │   ├── 01 Python高级/              # 多任务编程、网络编程、闭包、高级语法与正则
@@ -65,6 +66,7 @@ my-pkb/
 │   ├── 04.5 计算机视觉_OpenCV/          # OpenCV 简介、基本操作、图像处理、特征提取、视频操作
 │   ├── 05 NLP文档/                      # PyTorch、NLP 入门、文本预处理、RNN、NLP 项目、Transformer、FastText、迁移学习
 │   ├── 06 文本摘要(HTML)/               # TextRank、seq2seq、PGN、评估方法、迭代优化、部署
+│   ├── 07 面试题/                       # Python、数据结构、科学计算库、机器学习、深度学习、OpenCV、NLP、文本摘要、项目实战、模型优化等面试题
 │   └── 传智项目文档/                   # NLP 案例、Transformers、传智大脑、多模态、推荐系统、模型优化等
 ├── Java生态/
 │   ├── 00 数据结构/                    # 知识点、排序算法
@@ -148,13 +150,25 @@ my-pkb/
 - 02 Ollama/：Ollama使用.md
 - 03 MCP/：01-MCP实战指南.md ~ 05-Cherry Studio中使用MCP案例.md，以及 c-01-MCP入门.md ~ c-07-Open-WebUI接入MCP.md
 - 04 ClaudeCode/：AI工具飞速上手之Claude Code.md、Claude Code快速入门与配置.md、Claude Code核心功能与高效操作技巧.md
-- 05 LangChain/：01-LangChain使用概述.md ~ 07-LangChain使用之Retrieval.md
+- 05 LangChain/：01-LangChain使用概述.md、02-Model IO.md、03-Chains.md、04-Memory.md、06-Agents.md、07-Retrieval.md（Tools 章节缺失）
 - 06 硅谷小智（医疗版）/：尚硅谷-Java+大模型应用-硅谷小智（医疗版）.md
 - 07 小谷充电宝/：01_项目概述&环境搭建.md ~ 15_整合AI实现数据报表.md，覆盖设备管理、柜机/站点/监控管理、权限与日志、微信登录、附近门店、MQTT、扫码、RabbitMQ、规则引擎、归还、订单支付、AI 报表
 - 08 SpringAI/：SpringAI课程.md
 - 09 Cursor/：Cursor快速上手和科学使用指南.md
 - 10 企业级大规模部署与开发实战/：01-企业级大模型的部署.md、02-大模型实战项目：Agent&RAG.md
 - 11 Spring AI Alibaba/：Spring AI Alibaba速通实战.md
+
+#### 06 面试题
+
+- 00 面试题总览.md
+- 01 机器学习基础面试题.md
+- 02 深度学习面试题.md
+- 03 NLP与Transformer面试题.md
+- 04 大模型基础面试题.md
+- 05 RAG面试题.md
+- 06 Agent、LangChain与MCP面试题.md
+- 07 Spring AI与Java大模型应用面试题.md
+- 08 本地部署、评测与安全面试题.md
 
 ### AI黑马
 
@@ -189,6 +203,22 @@ my-pkb/
 #### 06 文本摘要(HTML)
 
 - 文本摘要项目简介、TextRank模型、seq2seq经典架构、PGN先进架构、生成式模型的评估方法、模型的迭代优化、模型的部署与总结
+
+#### 07 面试题
+
+- 00 AI黑马面试题总览.md
+- 01 Python高级与Linux面试题.md
+- 02 数据结构与算法面试题.md
+- 03 科学计算库与数据分析面试题.md
+- 04 机器学习基础与模型评估面试题.md
+- 05 经典机器学习算法面试题.md
+- 06 深度学习基础面试题.md
+- 07 计算机视觉与OpenCV面试题.md
+- 08 NLP基础与序列模型面试题.md
+- 09 Transformer与大模型基础面试题.md
+- 10 文本摘要与生成式模型面试题.md
+- 11 项目实战面试题.md
+- 12 模型优化与部署面试题.md
 
 #### 传智项目文档
 
