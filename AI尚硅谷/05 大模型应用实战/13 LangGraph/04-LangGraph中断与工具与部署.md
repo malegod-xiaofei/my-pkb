@@ -2761,7 +2761,7 @@ chat_graph = builder.compile()
 
 - **`reject`**：
 
-  ```json
+```json
   {
       "decisions": [
           {
