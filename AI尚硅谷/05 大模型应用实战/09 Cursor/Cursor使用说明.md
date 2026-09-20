@@ -778,21 +778,21 @@ Prompt injection 在连生产时特别危险：Agent 若读取了恶意 issue、
 
 ## 11. 速查：什么场景用什么
 
-| 你想做的事 | 用这个 |
-| --- | --- |
-| 写到一半补下一行 | Tab |
-| 改当前函数 | `Ctrl + K` |
-| 搞懂模块，先别动代码 | Ask |
-| 加功能、修 bug、重构 | Agent |
-| 大需求、方案要先过目 | Plan |
-| 偶现 bug、要日志证据 | Debug |
-| 看生产日志 / 查库 | Ask + 只读 MCP（副本） |
-| 在 staging 机器上改 | Remote SSH 到 staging，不要 SSH 到 prod |
-| 关电脑也要继续跑 | Cloud Agent |
-| 代码不能出内网 | Self-hosted worker；仍要假设 tool 返回值会进模型 |
-| 同一规范反复说 | Rule 或 AGENTS.md |
-| 一套固定步骤（发布、TDD） | Skill / Custom Mode |
-| 接 Jira / 设计稿 / 内部 API | MCP |
+| 你想做的事                 | 用这个                                  |
+| --------------------- | ------------------------------------ |
+| 写到一半补下一行              | Tab                                  |
+| 改当前函数                 | `Ctrl + K`                           |
+| 搞懂模块，先别动代码            | Ask                                  |
+| 加功能、修 bug、重构          | Agent                                |
+| 大需求、方案要先过目            | Plan                                 |
+| 偶现 bug、要日志证据          | Debug                                |
+| 看生产日志 / 查库            | Ask + 只读 MCP（副本）                     |
+| 在 staging 机器上改        | Remote SSH 到 staging，不要 SSH 到 prod   |
+| 关电脑也要继续跑              | Cloud Agent                          |
+| 代码不能出内网               | Self-hosted worker；仍要假设 tool 返回值会进模型 |
+| 同一规范反复说               | Rule 或 AGENTS.md                     |
+| 一套固定步骤（发布、TDD）        | Skill / Custom Mode                  |
+| 接 Jira / 设计稿 / 内部 API | MCP                                  |
 
 ---
 
