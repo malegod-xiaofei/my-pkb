@@ -1889,7 +1889,7 @@ public class StreamOutputController
 
 ![图片-070](images/图片-070.jpeg)
 
-### 5.4.2 Flux<T>本质提一嘴
+### 5.4.2 Flux<`T`>本质提一嘴
 
 ![图片-071](images/图片-071.jpeg)
 
