@@ -2572,7 +2572,7 @@ conda activate langgraph
 
 ### 9.2.1. 准备文件
 
-#### 9.2.1.1. `chat_agent.py` 
+#### 9.2.1.1. `chat_agent.py`
 
 在项目的 **`src`** 目录下新建 **`chat_agent.py`**，写入以下内容
 
@@ -2773,6 +2773,7 @@ chat_graph = builder.compile()
 
 - **`edit`**：
 
+```
   ```json
   {
       "decisions": [
@@ -2792,6 +2793,7 @@ chat_graph = builder.compile()
 
 在 **`graphs`** 中新增条目，如下
 
+```
 ```json
 {
   "dependencies": ["."],

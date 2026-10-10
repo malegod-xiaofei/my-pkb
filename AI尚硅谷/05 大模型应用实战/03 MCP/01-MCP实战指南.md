@@ -61,11 +61,11 @@ Manus的每一次任务处理都至少需要调用网页搜索、网页访问、
 用户询问“查询上季度营业额”，MCP 自动组合调用 CRM 系统 API（获取客户数据）+ 财务系统 API（调取报表）+ 邮件 API（发送总结报告）。
 # 2. MCP是什么？
 ## 2.1 MCP的理解
-MCP（Model Context Protocol，模型上下文协议） ，<font style="color:#C75C00;">2024年11月底</font>，由 <font style="color:#C75C00;">Anthropic</font> 推出的一种开放标准。旨在为大语言模型（LLM）提供统一的、标准化方式与外部数据源和工具之间进行通信。
+MCP（Model Context Protocol，模型上下文协议） ，2024年11月底，由 Anthropic 推出的一种开放标准。旨在为大语言模型（LLM）提供统一的、标准化方式与外部数据源和工具之间进行通信。
 ![图片](images/图片6.png)
-<font style="color:#C75C00;">传统AI集成的问题</font>：这种为每个数据源构建独立连接的方式，可以被视为一个M*N问题。
-<font style="color:#C75C00;">问题</font>：架构碎片化，难以扩展，限制了AI获取必要上下文信息的能力
-<font style="color:#C75C00;">MCP解决方案</font>：提供统一且可靠的方式来访问所需数据，克服了以往集成方法的局限性。
+传统AI集成的问题：这种为每个数据源构建独立连接的方式，可以被视为一个M*N问题。
+问题：架构碎片化，难以扩展，限制了AI获取必要上下文信息的能力
+MCP解决方案：提供统一且可靠的方式来访问所需数据，克服了以往集成方法的局限性。
 ![图片](images/图片7.png)
 MCP 作为一种标准化协议，极大地简化了大语言模型与外部世界的交互方式，使开发者能够以统一的方式为 AI 应用添加各种能力。
 官方文档：[https://modelcontextprotocol.io/introduction](https://modelcontextprotocol.io/introduction)
@@ -74,10 +74,10 @@ MCP 作为一种标准化协议，极大地简化了大语言模型与外部世�
 2024年11月底，Anthropic推出了MCP。
 目标就是能在Agent 的开发过程中，让大模型更加便捷地调用外部工具。
 ![图片](images/图片9.png)
-<font style="color:#C75C00;">今年2月份，</font>
+今年2月份，
 Cursor正式宣布加入MCP功能支持，一举将MCP推到了全体开发人员面前！
 ![图片](images/图片10.png)
-<font style="color:#C75C00;">2025年3月27日，OpenAI智能体支持MCP。</font>
+2025年3月27日，OpenAI智能体支持MCP。
 OpenAI联合创始人兼首席执行官Sam Altman也特意发文大赞MCP，可见其对Agent的重要性。
 ![图片](images/图片11.png)
 ![图片](images/图片12.png)
@@ -98,25 +98,25 @@ github查看：
 在Smithery平台上你可以轻松查找不同功能对应的工具及服务。
 ![图片](images/图片15.png)
 这里有两点要说的：
-第1，随着越来越多的Server接入MCP协议，未来AI能够直接调用的工具将呈现<font style="color:#C75C00;">指数级增长</font>，这能从根源上打开Agent能力的天花板。未来 AI 生态系统将变得更加开放和强大。
-第2，目前社区的 MCP Server <font style="color:#C75C00;">还是比较混乱</font>，有很多缺少教程和文档，很多的代码功能也有问题，大家只能凭经验和参考官方文档了。
+第1，随着越来越多的Server接入MCP协议，未来AI能够直接调用的工具将呈现指数级增长，这能从根源上打开Agent能力的天花板。未来 AI 生态系统将变得更加开放和强大。
+第2，目前社区的 MCP Server 还是比较混乱，有很多缺少教程和文档，很多的代码功能也有问题，大家只能凭经验和参考官方文档了。
 # 3. 程序员如何使用MCP
-##  3.1 MCP应用场景
+## 3.1 MCP应用场景
 ![图片](images/图片16.png)
 ## 3.2 使用前的准备工作
-1. <font style="color:#C75C00;">MCP的通信机制</font>
+1. MCP的通信机制
 根据 MCP 的规范，当前支持两种通信机制（传输方式）：
 + stdio(标准输入输出)：主要用在本地服务上，操作你本地的软件或者本地的文件。比如 Blender 这种就只能用 Stdio 因为他没有在线服务。MCP默认通信方式
 + SSE(Server-Sent Events)：主要用在远程通信服务上，这个服务本身就有在线的 API，比如访问你的谷歌邮件，天气情况等。
 ![图片](images/图片17.png)
 ### stdio方式
 优点
-+ 这种方式适用于客户端和服务器在同一台机器上运行的场景，<font style="color:#C75C00;">简单</font>。
-+ stdio模式<font style="color:#C75C00;">无需外部网络依赖</font>，通信速度快，适合快速响应的本地应用。
++ 这种方式适用于客户端和服务器在同一台机器上运行的场景，简单。
++ stdio模式无需外部网络依赖，通信速度快，适合快速响应的本地应用。
 + 可靠性高，且易于调试
 缺点
-+ Stdio 的<font style="color:#C75C00;">配置比较复杂</font>，我们需要做些准备工作，你需要提前安装需要的命令行工具。
-+ stdio模式为单进程通信，<font style="color:#C75C00;">无法并行处理多个客户端请求</font>，同时由于进程资源开销较大，不适合在本地运行大量服务。（限制了其在更复杂分布式场景中的使用）
++ Stdio 的配置比较复杂，我们需要做些准备工作，你需要提前安装需要的命令行工具。
++ stdio模式为单进程通信，无法并行处理多个客户端请求，同时由于进程资源开销较大，不适合在本地运行大量服务。（限制了其在更复杂分布式场景中的使用）
 ### SSE方式
 场景
 + SSE方式适用于客户端和服务器位于不同物理位置的场景。
@@ -124,12 +124,12 @@ github查看：
 + 对于分布式或远程部署的场景，基于 HTTP和 SSE 的传输方式则更为合适。
 优点
 + 配置方式非常简单，基本上就一个链接就行，直接复制他的链接填上就行
-2. <font style="color:#C75C00;">stdio的本地环境安装</font>
+2. stdio的本地环境安装
 stdio的本地环境有两种：
 一种是Python 编写的服务，
 一种用TypeScript 编写的服务。
 分别对应着uvx 和 npx 两种指令。
-    1. <font style="color:#C75C00;">uvx</font>
+    1. uvx
 两种安装方式：
 第1种：若已配置Python环境，可使用以下命令安装：
 ```bash
@@ -145,7 +145,7 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 uv --version
 uvx --help
 ```
-    2. <font style="color:#C75C00;">npx</font>
+    2. npx
 Node.js 下载的官网：[https://nodejs.org/zh-cn](https://nodejs.org/zh-cn)
 ![图片](images/图片19.png)
 配置环境变量，并测试
@@ -158,13 +158,13 @@ cursor 中国区官网：[https://www.cursor.com/cn](https://www.cursor.com/cn)
 具体操作见《[Cline中使用mcp](https://www.yuque.com/zhaoyingfei-ypwo0/ua7kgd/lgk86906tbx1ox6m)》
 # 4. MCP的工作原理
 ## 4.1 MCP的C/S架构
-<font style="color:#C75C00;">5个核心概念</font>
+5个核心概念
 MCP 遵循客户端-服务器架构（client-server），其中包含以下几个核心概念：
-+ <font style="color:#C75C00;">MCP 主机(MCP Hosts)</font>
-+ <font style="color:#C75C00;">MCP 客户端( MCP Clients ) </font>
-+ <font style="color:#C75C00;">MCP 服务器( MCP Servers ) </font>
-+ <font style="color:#C75C00;">本地资源( Local Resources ) </font>
-+ <font style="color:#C75C00;">远程资源( Remote Resources ) </font>
++ MCP 主机(MCP Hosts)
++ MCP 客户端( MCP Clients ) 
++ MCP 服务器( MCP Servers ) 
++ 本地资源( Local Resources ) 
++ 远程资源( Remote Resources ) 
 ![图片](images/图片22.png)
 1. MCP Host
 作为运行 MCP 的主应用程序，例如 Claude Desktop、Cursor、Cline 或 AI 工具。为用户提供与LLM交互的接口，同时集成 MCP Client 以连接 MCP Server。
@@ -186,25 +186,25 @@ Awesome MCP Clients ：[https://github.com/punkpeye/awesome-mcp-clients/](https:
 3.  MCP Server
 每个 MCP 服务器都提供了一组特定的工具，负责从本地数据或远程服务中检索信息。是 MCP 架构中的关键组件。
 ![图片](images/图片25.png)
-与传统的远程 API 服务器不同，MCP 服务器既可以作为<font style="color:#C75C00;">本地应用程序</font>在用户设备上运行，也可部署至<font style="color:#C75C00;">远程服务器</font>。
+与传统的远程 API 服务器不同，MCP 服务器既可以作为本地应用程序在用户设备上运行，也可部署至远程服务器。
 比如你让助手：
-+ “帮我查航班信息” → 它调用<font style="color:#C75C00;">航班查询 API</font>
-+ “算一下 37% 折扣后多少钱” → 它运行<font style="color:#C75C00;">计算器函数</font>
++ “帮我查航班信息” → 它调用航班查询 API
++ “算一下 37% 折扣后多少钱” → 它运行计算器函数
 作用：让 LLM 不仅能“说”，还能“做”（执行代码、查询数据等）。
-与传统的远程 API 服务器不同，MCP 服务器既可以作为<font style="color:#C75C00;">本地应用程序</font>（stdio的方式）在用户设备上运行，也可部署至<font style="color:#C75C00;">远程服务器</font>（SSE的方式）。	
+与传统的远程 API 服务器不同，MCP 服务器既可以作为本地应用程序（stdio的方式）在用户设备上运行，也可部署至远程服务器（SSE的方式）。	
 比如你让助手：
-+ “帮我查航班信息” → 它调用<font style="color:#C75C00;">航班查询 API</font>
-+ “算一下 37% 折扣后多少钱” → 它运行<font style="color:#C75C00;">计算器函数</font>
++ “帮我查航班信息” → 它调用航班查询 API
++ “算一下 37% 折扣后多少钱” → 它运行计算器函数
 作用：让 LLM 不仅能“说”，还能“做”（执行代码、查询数据等）。
-<font style="color:#C75C00;">MCP Server 的本质</font>
+MCP Server 的本质
 本质是运行在电脑上的一个nodejs或python程序。可以理解为客户端用命令行调用了电脑上的nodejs或python程序。
 + 使用 TypeScript 编写的 MCP server 可以通过 npx 命令来运行
 + 使用 Python 编写的 MCP server 可以通过 uvx 命令来运行。
 ![图片](images/图片26.png)
 ## 4.2 MCP工作流程
 API 主要有两个
-+ <font style="color:#C75C00;">tools/list</font>：列出 Server 支持的所有工具
-+ <font style="color:#C75C00;">tools/call</font>：Client 请求 Server 去执行某个工具，并将结果返回
++ tools/list：列出 Server 支持的所有工具
++ tools/call：Client 请求 Server 去执行某个工具，并将结果返回
 ![图片](images/图片27.png)
 举例：
 ![图片](images/图片28.png)
@@ -228,61 +228,61 @@ Cherry Studio 的下载地址：[https://cherry-ai.com/](https://cherry-ai.com/)
 ## 6.2 使用案例
 具体详情，见《[Cherry Studio中使用MCP案例](https://www.yuque.com/zhaoyingfei-ypwo0/ua7kgd/qw5mf7uimbrn59lz)》
 ## 6.3 准备工作：安装uv、bun
-Cherry Studio 目前只使用内置的 uv([https://github.com/oven-sh/bun/releases)](https://github.com/oven-sh/bun/releases)) 和 bun([https://github.com/astral-sh/uv/releases)](https://github.com/astral-sh/uv/releases))，<font style="color:#C75C00;">不会复用</font>系统中已经安装的 uv 和 bun。
-#  7. 热门MCP Servers推荐
+Cherry Studio 目前只使用内置的 uv([https://github.com/oven-sh/bun/releases)](https://github.com/oven-sh/bun/releases)) 和 bun([https://github.com/astral-sh/uv/releases)](https://github.com/astral-sh/uv/releases))，不会复用系统中已经安装的 uv 和 bun。
+# 7. 热门MCP Servers推荐
 ## 推荐1：文件系统 filesystem
 Filesystem MCP 旨在为大型语言模型(LLM)和 AI 助手提供对本地文件系统的安全、受控访问。
 主要功能： 
-<font style="color:#C75C00;">- 文件读写：</font>允许读取和写入文件内容，支持创建新文件或覆盖现有文件。- 目录管理：支持创建、列出和删除目录，以及移动文件或目录。
-<font style="color:#C75C00;">- 文件搜索：</font>能够在指定路径中搜索匹配特定模式的文件或目录。
-<font style="color:#C75C00;">- 元数据获取：</font>提供获取文件或目录的详细元数据，包括大小、创建时间、修改时间、访问时间、类 型和权限等信息。
+- 文件读写：允许读取和写入文件内容，支持创建新文件或覆盖现有文件。- 目录管理：支持创建、列出和删除目录，以及移动文件或目录。
+- 文件搜索：能够在指定路径中搜索匹配特定模式的文件或目录。
+- 元数据获取：提供获取文件或目录的详细元数据，包括大小、创建时间、修改时间、访问时间、类 型和权限等信息。
 ## 推荐2：数据库 mysqldb-mcp-server
-一种模型上下文协议 （MCP） 实现，支持与 MySQL 数据库进行安全交互。此服务器组件可促进<font style="color:#C75C00;"> AI 应用程序（主机/客户端）与 MySQL 数据库之间的通信</font>，提供安全的 MySQL 数据库操作，通过受控接口使数据库探索和分析更安全、更有条理。
+一种模型上下文协议 （MCP） 实现，支持与 MySQL 数据库进行安全交互。此服务器组件可促进 AI 应用程序（主机/客户端）与 MySQL 数据库之间的通信，提供安全的 MySQL 数据库操作，通过受控接口使数据库探索和分析更安全、更有条理。
 ## 推荐3：高德地图 amap-maps
-高德地图是一个支持任何 MCP 协议客户端的服务器，允许用户轻松地利用高德地图 MCP 服务器<font style="color:#C75C00;">进行各种基于位置的服务</font>。
+高德地图是一个支持任何 MCP 协议客户端的服务器，允许用户轻松地利用高德地图 MCP 服务器进行各种基于位置的服务。
 高德地图的主要特点
-+ 支持多种位置服务，包括<font style="color:#C75C00;">地理编码、天气和距离测量</font>
++ 支持多种位置服务，包括地理编码、天气和距离测量
 + 提供步行、驾车、公交等多种交通方式的 API
-+ 允许根据关键字或位置详细<font style="color:#C75C00;">搜索兴趣点</font> （POI）
++ 允许根据关键字或位置详细搜索兴趣点 （POI）
 ## 推荐4：网页数据采集 Firecrawl
-Firecrawl MCP 工具是一款基于模型上下文协议（MCP）的企业级<font style="color:#C75C00;">网页数据采集</font>服务器。能够为大型语言模型（LLM）提供强大的网页抓取能力。
+Firecrawl MCP 工具是一款基于模型上下文协议（MCP）的企业级网页数据采集服务器。能够为大型语言模型（LLM）提供强大的网页抓取能力。
 主要功能：
 + JavaScript 渲染：能够处理动态网页内容，突破传统抓取工具的局限，获取更全面的数据。
 + 批量处理：支持并行处理和队列管理，提高数据抓取效率。
 + 智能限速：根据网络状况和任务需求智能调整抓取速度，避免对目标网站造成过大压力。
 + 多种输出格式：支持将抓取的内容转换为 Markdown、HTML 等格式，满足不同场景的需求。
-<font style="color:#C75C00;">说明：去firecrawl官网注册后即可查看自己的api_key</font>
+说明：去firecrawl官网注册后即可查看自己的api_key
 ## 推荐5：Github
 GitHub MCP 服务器是一个模型上下文协议 （MCP）提供与 GitHub API 无缝集成的服务器，从而实现面向开发人员的高级自动化工具和交互功能。
 使用案例：
 + 自动化 GitHub 工作流程和流程。
 + 从 GitHub 存储库中提取和分析数据。
 + 构建与 GitHub 生态系统交互的 AI 驱动的工具和应用程序。
-<font style="color:#C75C00;">说明：去</font> [https://github.com/settings/tokens](https://github.com/settings/tokens)<font style="color:#C75C00;"> 申请自己的token</font>
+说明：去 [https://github.com/settings/tokens](https://github.com/settings/tokens) 申请自己的token
 ## 推荐6：Git
 用于 Git 存储库交互和自动化的模型上下文协议服务器。
 直接的Git仓库操作，包括读取、搜索和分析本地仓库
 ## 推荐7：记忆图谱 memory
-基于知识图谱的<font style="color:#C75C00;">长期记忆系统</font>用于维护上下文
-使用本地知识图谱的<font style="color:#C75C00;">持久内存的基本实现</font>。这使 Claude 可以在聊天中记住有关用户的信息。
+基于知识图谱的长期记忆系统用于维护上下文
+使用本地知识图谱的持久内存的基本实现。这使 Claude 可以在聊天中记住有关用户的信息。
 ## 推荐8：控制台 desktop-commander
 在计算机上无缝执行终端命令和管理流程。使用强大的命令执行和文件作工具简化您的开
 发任务。
 ## 推荐9：社交软件 Slack
 用于 Slack API 的 MCP 服务器，使 LLM 能够与 Slack 工作区进行交互，用于频道
 管理和消息传递。
-<font style="color:#C75C00;">说明：去</font>[https://app.slack.com/intl/zh-cn](https://app.slack.com/intl/zh-cn) <font style="color:#C75C00;">注册并获取自己的team id</font>
+说明：去[https://app.slack.com/intl/zh-cn](https://app.slack.com/intl/zh-cn) 注册并获取自己的team id
 # 8. A2A协议：开启Agent间自然协作
 ![图片](images/图片32.png)
 在 AI Agent 的世界里，主要解决两大互联领域的挑战：
 MCP
-<font style="color:#C75C00;">第一、Agent 与 Tools（工具</font><font style="color:#C99103;"></font><font style="color:#C75C00;">）的交互</font>
+第一、Agent 与 Tools（工具）的交互
 Agent 需要调用外部 API、访问数据库、执行代码等。
 A2A
-<font style="color:#C75C00;">第二、Agent 与 Agent（其他智能体或用户）的交互</font>
+第二、Agent 与 Agent（其他智能体或用户）的交互
 Agent 需要理解其他 Agent 的意图、协同完成任务、与用户进行自然的对话。
 ## 8.1 A2A的发布
-谷歌，25年4月10日发布<font style="color:#C75C00;">开源的</font>、应用层协议 A2A（Agent-to-Agent 协议），即 Agent-to-Agent。其设计目的是使智能体（Agent）间能够以一种自然的模态进行协作，类似于人与人之间的互动。
+谷歌，25年4月10日发布开源的、应用层协议 A2A（Agent-to-Agent 协议），即 Agent-to-Agent。其设计目的是使智能体（Agent）间能够以一种自然的模态进行协作，类似于人与人之间的互动。
 Github  地址：[https://github.com/google/A2A](https://github.com/google/A2A)
 ![图片](images/图片33.png)
 ## 8.2 A2A的设计意义
@@ -291,7 +291,7 @@ Github  地址：[https://github.com/google/A2A](https://github.com/google/A2A)
 ![图片](images/图片35.png)
 ## 8.3 举例
 ### 举例1：阿里云 & 火山云
-<font style="color:#C75C00;">阿里云</font>上创建的 AI Agent，通过A2A协议，可以与<font style="color:#C75C00;">火山云</font>上创建的 AI Agent 进行无缝的通信与协作。
+阿里云上创建的 AI Agent，通过A2A协议，可以与火山云上创建的 AI Agent 进行无缝的通信与协作。
 ### 举例2：修理汽车
 用户（或代表用户的智能体）对修理店智能体说：“给我看看左前轮的照片，似乎漏液了，这种情况多久了？” 
 + A2A 协议使得人与智能体之间这种更自然、多轮次的对话式互动成为可能。
@@ -302,5 +302,5 @@ Github  地址：[https://github.com/google/A2A](https://github.com/google/A2A)
 在谷歌的 Agentspace 统一界面中，招聘经理可以向自己的智能体下达任务，让其寻找与职位描述、工作地点和技能要求相匹配的候选人。
 然后，该智能体立即与其他专业智能体展开互动，寻找潜在候选人。用户会收到推荐人选，之后可以指示自己的智能体安排进一步的面试，面试环节结束后，还可以启动另一个智能体来协助进行背景调查。
 ## 8.4 A2A展望
-谷歌已经与超过 50 家技术合作伙伴（例如 Atlassian、Box、Salesforce、SAP 等）和服务提供商建立了合作关系。这表明了行业对这些协议的认可和采用，对于 AI 学习者来说，也<font style="color:#C75C00;">意味着这些协议可能会成为未来职业发展中的关键技能</font>。
+谷歌已经与超过 50 家技术合作伙伴（例如 Atlassian、Box、Salesforce、SAP 等）和服务提供商建立了合作关系。这表明了行业对这些协议的认可和采用，对于 AI 学习者来说，也意味着这些协议可能会成为未来职业发展中的关键技能。
 ![图片](images/图片36.png)

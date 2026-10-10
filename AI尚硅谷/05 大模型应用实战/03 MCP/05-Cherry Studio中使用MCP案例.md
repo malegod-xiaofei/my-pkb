@@ -1,10 +1,10 @@
-# 1、Cherry Studio的MCP说明 
-<font style="color:#C75C00;">Cherry Studio</font>是一款集多模型对话、知识库管理、AI 绘画、翻译等功能于一体的全能 AI 助手平台。支持 
+# 1、Cherry Studio的MCP说明
+Cherry Studio是一款集多模型对话、知识库管理、AI 绘画、翻译等功能于一体的全能 AI 助手平台。支持 
 Windows，Linux 和 Mac。
 同时，CherryStudio提供了一个简洁便于操作的可视化页面，通过简单的配置即可开启MCP服务。非常适合大众用户用于构建“低代码智能流程”。
 # 2、准备工作
 ## 2.1 安装Cherry Studio&添加大模型
-<font style="color:#C75C00;">Cherry Studio的下载：</font>
+Cherry Studio的下载：
 Cherry Studio的下载地址：[https://cherry-ai.com/](https://cherry-ai.com/)
 ![图片](images/图片86.png)
 安装过程：傻瓜式安装，这里省略。
@@ -16,15 +16,15 @@ Cherry Studio的下载地址：[https://cherry-ai.com/](https://cherry-ai.com/)
 ![图片](images/图片90.png)
 缺点：花完送的token，再想用就需要充值了。 
 ## 2.2 安装 uv、bun
-Cherry Studio 目前只使用内置的 <font style="color:#C75C00;">uv</font> 和<font style="color:#C75C00;">bun</font>，<font style="color:#C75C00;">不会复用</font>系统中已经安装的 uv 和 bun。
-在 <font style="color:#C75C00;">设置 - MCP 服务器</font> 中，点击 <font style="color:#C75C00;">安装</font> 按钮，即可自动下载并安装。安装成功与否，以下文提到的文件夹内是否有文件为准。
+Cherry Studio 目前只使用内置的 uv 和bun，不会复用系统中已经安装的 uv 和 bun。
+在 设置 - MCP 服务器 中，点击 安装 按钮，即可自动下载并安装。安装成功与否，以下文提到的文件夹内是否有文件为准。
 ![图片](images/图片91.png)
 UV：是python的运行环境
 Bun：是类似于Nodejs的运行环境
 因为是直接从 GitHub 上下载，速度可能会比较慢，且有较大可能失败。
-<font style="color:#C75C00;">可执行程序安装目录：</font>
-Windows: <font style="color:#C75C00;">C:\Users\用户名\.cherrystudio\bin</font>
-macOS，Linux: <font style="color:#C75C00;">~/.cherrystudio/bin</font>
+可执行程序安装目录：
+Windows: C:\Users\用户名\.cherrystudio\bin
+macOS，Linux: ~/.cherrystudio/bin
 ![图片](images/图片92.png)
 无法正常安装的情况下：
 可以手动下载可执行文件放到这个目录下。如果没有对应目录，需要手动建立。
@@ -79,7 +79,7 @@ UV: [https://github.com/astral-sh/uv/releases](https://github.com/astral-sh/uv/r
 ```
 确保三个Server都是绿色显式：
 ![图片](images/图片94.png)
-## 步骤2：聊天框中启用 MCP 服务 
+## 步骤2：聊天框中启用 MCP 服务
 进入聊天界面，先确定使用的大语言模型。这里注意：需要使用支持函数调用（在模型名字后会出现扳手符号）的模型。
 ![图片](images/图片95.png)
 然后，输入框中有一个 MCP 配置项，选择要使用的MCP Servers：

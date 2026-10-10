@@ -13,11 +13,11 @@
 
 提示：如果输入此命令没有报错,则跳过下面步骤,继续安装下一个服务端
 
-<font style="color:rgb(255, 0, 0);">1</font> [root@localhost ~]#yum install mysql-server
+1 [root@localhost ~]#yum install mysql-server
 
 ![图片2](images/图片2.png)
 
-<font style="color:rgb(255, 0, 0);">原因：CentOS7自带有MariaDB而不是MySQL，MariaDB和MySQL一样也是开元的数据库</font>
+原因：CentOS7自带有MariaDB而不是MySQL，MariaDB和MySQL一样也是开元的数据库
 
 ![图片3](images/图片3.png)
 
@@ -25,7 +25,7 @@
 
 ![图片4](images/图片4.png)
 
-<font style="color:rgb(255, 0, 0);">2</font> [root@localhost ~]#yum install mysql-devel
+2 [root@localhost ~]#yum install mysql-devel
 
 ![图片5](images/图片5.png)
 
@@ -53,7 +53,7 @@ mysqladmin -u root password 密码
 
 mysql增加权限：mysql库中的user表新增一条记录host为“%”，user为“root”。
 
-use mysql; UPDATE user SET `Host` = <font style="color:rgb(128, 0, 0);">'%'</font> WHERE `User` = <font style="color:rgb(128, 0, 0);">'root'</font> LIMIT <font style="color:rgb(128, 0, 128);">1</font>;
+use mysql; UPDATE user SET `Host` = '%' WHERE `User` = 'root' LIMIT 1;
 
 ![图片9](images/图片9.png)
 
@@ -67,7 +67,7 @@ vi /etc/sysconfig/iptables
 
 systemctl restart iptables.service -- 重启防火墙 systemctl status iptables.service -- 查看状态 service iptables save -- 保存规则 systemctl enable iptables.service -- 设置开机启动 systemctl start iptables.service -- 开启服务 
 
-<font style="color:rgb(255, 0, 0);">注意：如果用的是阿里</font><font style="color:rgb(255, 0, 0);">云服务器</font><font style="color:rgb(255, 0, 0);">,需要配置安全组规则,否则无法访问</font>
+注意：如果用的是阿里云服务器,需要配置安全组规则,否则无法访问
 
 我用的是SQLyog客户端进行连接,如果弹出该提示框,则表示连接成功！
 

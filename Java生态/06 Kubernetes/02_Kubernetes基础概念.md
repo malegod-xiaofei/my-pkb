@@ -1,4 +1,4 @@
-# 1、是什么 
+# 1、是什么
 
 ![](images/image1.png)  
 
@@ -26,7 +26,7 @@ Kubernetes 允许你存储和管理敏感信息，例如密码、OAuth 令牌和
   
 
 
-_**<font style="color:#2f54eb;">Kubernetes 为你提供了一个可弹性运行分布式系统的框架。 Kubernetes 会满足你的扩展要求、故障转移、部署模式等。 例如，Kubernetes 可以轻松管理系统的 Canary 部署。</font>**_
+_**Kubernetes 为你提供了一个可弹性运行分布式系统的框架。 Kubernetes 会满足你的扩展要求、故障转移、部署模式等。 例如，Kubernetes 可以轻松管理系统的 Canary 部署。**_
 
   
 
@@ -39,7 +39,7 @@ _**<font style="color:#2f54eb;">Kubernetes 为你提供了一个可弹性运行�
 
 
 ## 1、工作方式
-Kubernetes **<font style="color:#f5222d;">Cluster </font>****<font style="color:#f5222d;">=</font>** N **<font style="color:#f5222d;">Master</font>**Node **<font style="color:#f5222d;">+</font>** N **<font style="color:#f5222d;">Worker </font>**Node：N主节点+N工作节点； N>=1
+Kubernetes **Cluster ****=** N **Master**Node **+** N **Worker **Node：N主节点+N工作节点； N>=1
 
   
 
@@ -51,7 +51,7 @@ Kubernetes **<font style="color:#f5222d;">Cluster </font>****<font style="color:
 
 ![](images/image2.png)
 
-### 1、控制平面组件（Control Plane Components） 
+### 1、控制平面组件（Control Plane Components）
 控制平面的组件对集群做出全局决策(比如调度)，以及检测和响应集群事件（例如，当不满足部署的 `replicas` 字段时，启动新的 [pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/)）。
 
 控制平面组件可以在集群中的任何节点上运行。 然而，为了简单起见，设置脚本通常会在同一个计算机上启动所有控制平面组件， 并且不会在此计算机上运行用户容器。 请参阅[使用 kubeadm 构建高可用性集群](https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/high-availability/) 中关于多 VM 控制平面设置的示例。
@@ -86,7 +86,7 @@ etcd 是兼具一致性和高可用性的键值数据库，可以作为保存 Ku
 + 服务帐户和令牌控制器（Service Account & Token Controllers）: 为新的命名空间创建默认帐户和 API 访问令牌
 
 #### cloud-controller-manager
-<font style="color:#222222;">云控制器管理器是指嵌入特定云的控制逻辑的 </font>[控制平面](https://kubernetes.io/zh/docs/reference/glossary/?all=true#term-control-plane)<font style="color:#222222;">组件。 云控制器管理器允许您链接集群到云提供商的应用编程接口中， 并把和该云平台交互的组件与只和您的集群交互的组件分离开。</font>
+云控制器管理器是指嵌入特定云的控制逻辑的 [控制平面](https://kubernetes.io/zh/docs/reference/glossary/?all=true#term-control-plane)组件。 云控制器管理器允许您链接集群到云提供商的应用编程接口中， 并把和该云平台交互的组件与只和您的集群交互的组件分离开。
 
 `cloud-controller-manager` 仅运行特定于云平台的控制回路。 如果你在自己的环境中运行 Kubernetes，或者在本地计算机中运行学习环境， 所部署的环境中不需要云控制器管理器。
 
@@ -98,7 +98,7 @@ etcd 是兼具一致性和高可用性的键值数据库，可以作为保存 Ku
 + 路由控制器（Route Controller）: 用于在底层云基础架构中设置路由
 + 服务控制器（Service Controller）: 用于创建、更新和删除云提供商负载均衡器
 
-### 2、Node 组件 
+### 2、Node 组件
 节点组件在每个节点上运行，维护运行的 Pod 并提供 Kubernetes 运行环境。
 
 #### kubelet
@@ -329,9 +329,9 @@ kubeadm join cluster-endpoint:6443 --token x5g4uy.wpjjdbgra92s25pp \
 
 新令牌
 
-<font style="color:#000000;background-color:#fafafa;">kubeadm token create --print-join-command</font>
+kubeadm token create --print-join-command
 
-_**<font style="color:#f5222d;">高可用部署方式，也是在这一步的时候，使用添加主节点的命令即可</font>**_
+_**高可用部署方式，也是在这一步的时候，使用添加主节点的命令即可**_
 
   
 

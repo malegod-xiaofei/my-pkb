@@ -371,5 +371,5 @@ docker logout 192.168.xxx.xxx:8889
 # 其他仓库
 npm私仓、helm私仓等与前面搭建几乎一致。
 
-与docker私仓类似，nexus默认npm也是是失效的，需要 在`security` --> `Realms`，将npm配置成`Active`
+与docker私仓类似，nexus默认npm也是失效的，需要 在`security` --> `Realms`，将npm配置成`Active`
 

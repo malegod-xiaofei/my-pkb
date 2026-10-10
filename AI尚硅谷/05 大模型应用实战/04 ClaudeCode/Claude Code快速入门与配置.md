@@ -1,20 +1,20 @@
 1. **Claude Code快速入门与配置**
 
-_<font style="color:#646A73;">🔗</font>__<font style="color:#646A73;"> 原文链接： </font>_[_<font style="color:#3370FF;">⁣⁢⁣⁣⁡Claude Code快速入门与配置</font>_](https://ocn0xcqc407f.feishu.cn/wiki/UMEawEPSeii5X3ksbqZcRiGqn2b)
+_🔗__ 原文链接： _[_⁣⁢⁣⁣⁡Claude Code快速入门与配置_](https://ocn0xcqc407f.feishu.cn/wiki/UMEawEPSeii5X3ksbqZcRiGqn2b)
 
-_<font style="color:#646A73;">⏰</font>__<font style="color:#646A73;"> 剪存时间：2026-04-07 17:32:10</font>_
+_⏰__ 剪存时间：2026-04-07 17:32:10_
 
-_<font style="color:#646A73;">✂️</font>__<font style="color:#646A73;"> 本文档由 </font>_[_<font style="color:#3370FF;">游侠飞书剪存 </font>_](https://pwwjpto7tva.feishu.cn/wiki/space/7517832277555544092)_<font style="color:#646A73;">一键生成</font>_
+_✂️__ 本文档由 _[_游侠飞书剪存 _](https://pwwjpto7tva.feishu.cn/wiki/space/7517832277555544092)_一键生成_
 
-_<font style="color:#646A73;">💖</font>__<font style="color:#646A73;"> 更多好物请访问 </font>_[_<font style="color:#3370FF;">游侠创客 </font>_](https://uibot.cn)_<font style="color:#646A73;">微信：xuefuta</font>_
+_💖__ 更多好物请访问 _[_游侠创客 _](https://uibot.cn)_微信：xuefuta_
 
-[<font style="color:#3370FF;">claude-demo.zip</font>](https://pan.quark.cn/s/095f32735a6f)
+[claude-demo.zip](https://pan.quark.cn/s/095f32735a6f)
 
 **安装 Claude Code**
 
 **系统需要满足以下最低要求：**
 
-**操作系统 **： [<font style="color:#3370FF;">Linux </font>](https://so.csdn.net/so/search?q=Linux&spm=1001.2101.3001.7020)(Ubuntu 18.04+, CentOS 7+) macOS 10.15+, Windows 10+
+**操作系统 **： [Linux ](https://so.csdn.net/so/search?q=Linux&spm=1001.2101.3001.7020)(Ubuntu 18.04+, CentOS 7+) macOS 10.15+, Windows 10+
 
 网络连接：稳定的互联网连接
 
@@ -23,16 +23,16 @@ _<font style="color:#646A73;">💖</font>__<font style="color:#646A73;"> 更多�
 **安装Node.js**
 
 在开始安装前，请先检查您的 Node.js 版本： node --version  npm --version  
- 下载地址： [<font style="color:#3370FF;">https://nodejs.org/zh-cn/download/</font>](https://nodejs.org/zh-cn/download/) 
+ 下载地址： [https://nodejs.org/zh-cn/download/](https://nodejs.org/zh-cn/download/) 
 
-安装文档： [<font style="color:#3370FF;">https://help.aliyun.com/zh/sdk/developer-reference/install-node-js-in-windows</font>](https://help.aliyun.com/zh/sdk/developer-reference/install-node-js-in-windows)
+安装文档： [https://help.aliyun.com/zh/sdk/developer-reference/install-node-js-in-windows](https://help.aliyun.com/zh/sdk/developer-reference/install-node-js-in-windows)
 
 **安装Git**
 
 在开始安装前，请先检查您的 git 版本： git --version  
- 下载地址： [<font style="color:#3370FF;">https://git-scm.com/downloads</font>](https://git-scm.com/downloads) 
+ 下载地址： [https://git-scm.com/downloads](https://git-scm.com/downloads) 
 
-安装文档： [<font style="color:#3370FF;">https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git</font>](https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git)
+安装文档： [https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git](https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git)
 
 **Linux /macOS 安装**
 
@@ -137,7 +137,7 @@ claude --dangerously-skip-permissions
 
 和聊天机器人交流时，我们知道 “系统提示词” 很重要，会持续影响 AI 的行为。那么 CC 中， CLAUDE.md 也是类似的地位。一个典型的工作流是：
 
-_<font style="color:#646A73;">建初始 CLAUDE.md → 对话直到长度接近溢出，运行 /compact 续命 → 达到里程碑时要求 CC 根据进度更新CLAUDE.md → 循环直到结束</font>_
+_建初始 CLAUDE.md → 对话直到长度接近溢出，运行 /compact 续命 → 达到里程碑时要求 CC 根据进度更新CLAUDE.md → 循环直到结束_
 
 可以看到 CLAUDE.md 就是一个持续发挥作用的全局变量。而且 CC 往里写入时一般做了充分的缩略，所以可读性很好。
 

@@ -48,7 +48,7 @@ Miniconda是 Anaconda 的精简版本，同样也是一个开源环境，两者�
 
  下载后依据指引进行 Miniconda 安装。
 
-###  2.2 Anaconda的使用方式
+### 2.2 Anaconda的使用方式
 
 #### 2.2.1 使用方式一： Anaconda Powershell Prompt终端
 
@@ -136,7 +136,7 @@ conda create --name < env_name> python=<version> [package_name1] [package_name2]
 conda create --name myenv python=3.10 # --name 可以简写为 -n
 ```
 
-####  3.2.2 切换 Conda环境
+#### 3.2.2 切换 Conda环境
 
 前面说到 Conda可以创建多套相互隔离的 Python环境，使用 `conda activate env_name` 可以切换不同的环境。
 
@@ -164,7 +164,7 @@ conda deactivate
 conda env list
 ```
 
-####  3.2.4 删除某个 Conda 环境
+#### 3.2.4 删除某个 Conda 环境
 
 ```shell
 # 语法
@@ -174,7 +174,7 @@ conda remove --name <env_name> --all
 conda remove --name learn - - all
 ```
 
-####  3.2.5 克隆环境
+#### 3.2.5 克隆环境
 
 ```shell
 # 语法
@@ -182,7 +182,7 @@ conda create --name <new_evn_name> --clone <old_env_name>#样例
 conda create --name myclone --clone myenv
 ```
 
-### 3.3 包管理                  
+### 3.3 包管理
 
 一旦激活了环境，你就可以使用 `conda`和 `pip`在当前环境下安装你所需要的包。在conda环境中, 不建议使用 `pip`。
 
@@ -221,7 +221,7 @@ conda update --all
 conda remove numpy
 ```
 
-####  3.3.4 列出环境中的所有包
+#### 3.3.4 列出环境中的所有包
 
 查看当前环境中已安装的所有包：
 
@@ -237,7 +237,7 @@ conda list pip
 
 
 
-####  3.3.5 搜索包
+#### 3.3.5 搜索包
 
  搜索可用的包及其版本信息：
 
@@ -316,7 +316,7 @@ conda config --set channel_priority false # 禁用优先级
 
 如果你需要在团队中共享包，或者需要托管私有包，可以创建自己的 Conda通道。自定义通道可以通过简单的HTTP服务器 (如NGINX或 Apache)托管，或者使用Anaconda的企业解决方案。
 
-###  3.5 设置镜像
+### 3.5 设置镜像
 
 为了提高 Conda包的下载速度，特别是在网络连接到默认的 Conda服务器速度较慢的情况下，设置国内镜像 (或其他更接近你的地理位置的镜像)是一个常见且有效的方法。
 
@@ -393,7 +393,7 @@ conda install numpy
 
 查看输出的信息，确保包是从你设置的镜像URL下载的。
 
-###  3.6 环境导入与导出(忽略)
+### 3.6 环境导入与导出(忽略)
 
 **导出环境**
 
@@ -413,7 +413,7 @@ conda env create - f environment.yml
 
 
 
-##  4. Mamba 使用(忽略)
+## 4. Mamba 使用(忽略)
 
 Mamba是一个用于管理 Conda环境和包的开源工具，旨在解决 Conda在处理大型环境时的速度和性能问题。它与 Conda兼容，但提供更快的依赖解析和包安装，这使得它在处理复杂环境时更加高效。
 
@@ -464,7 +464,7 @@ Mamba可以直接替代 Conda的命令。以下是一些常见的 Conda命令及
 - 新兴工具：作为一个较新的工具，Mamba可能在某些边缘情况下不如 Conda稳定。
 - 社区支持：虽然 Mamba的社区在快速增长，但它仍然没有 Conda那么成熟。
 
-##  5. Jupyter Lab 使用
+## 5. Jupyter Lab 使用
 
 ### 5.1 Jupyter 介绍
 
@@ -472,7 +472,7 @@ JupyterLab 是最新的基于 Web 的交互式开发环境, 适用于 notebooks�
 
 ![image-20250613170804298](image-20250613170804298.png)
 
-### 5.2 Jupyter 安装使用           
+### 5.2 Jupyter 安装使用
 
 使用安装JupyterLab: `pip`
 
@@ -490,7 +490,7 @@ JupyterLab 是最新的基于 Web 的交互式开发环境, 适用于 notebooks�
 
 
 
-##  6. PyCharm 中使用 Conda 环境 
+## 6. PyCharm 中使用 Conda 环境
 
 1) 创建项目所需要的虚拟环境
 

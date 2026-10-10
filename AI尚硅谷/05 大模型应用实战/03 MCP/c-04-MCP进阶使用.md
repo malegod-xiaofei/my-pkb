@@ -38,7 +38,7 @@ if __name__ == "__main__":
     mcp.run(transport="sse")
 ```
 ## server 端测试
-使用 Cherry studio来调用这个mcp server。打开 cherry studio 的mcp 添加配置界面，类型选择 SSE，url 填写 `<font style="color:rgb(54, 70, 78);background-color:rgb(245, 245, 245);">http://localhost:8000/sse</font>`, SSE 类型的mcp server 配置起来要比stdio 类型要简单很多，只需要配个url 即可。
+使用 Cherry studio来调用这个mcp server。打开 cherry studio 的mcp 添加配置界面，类型选择 SSE，url 填写 `http://localhost:8000/sse`, SSE 类型的mcp server 配置起来要比stdio 类型要简单很多，只需要配个url 即可。
 ![图片](images/图片112.jpg)
 之后回到聊天界面，依然问一个需要查询天气的问题
 ![图片](images/图片113.jpg)
@@ -299,7 +299,7 @@ if __name__ == "__main__":
     main()
 ```
 ## server 端测试
-使用 Cherry studio来调用这个mcp server。打开 cherry studio 的mcp 添加配置界面，类型选择流式传输 HTTP，url 填写 `<font style="color:rgb(54, 70, 78);background-color:rgb(245, 245, 245);">http://localhost:3000/mcp/</font>`
+使用 Cherry studio来调用这个mcp server。打开 cherry studio 的mcp 添加配置界面，类型选择流式传输 HTTP，url 填写 `http://localhost:3000/mcp/`
 ![图片](images/图片114.jpg)
 之后回到聊天界面，依然问一个需要查询天气的问题
 ![图片](images/图片115.jpg)

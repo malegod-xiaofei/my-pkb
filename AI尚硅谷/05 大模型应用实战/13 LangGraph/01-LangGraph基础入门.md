@@ -563,7 +563,7 @@ Pydantic对输入字段进行校验，不匹配时抛出`ValidationError`异常�
 
 ## 3.2. State Reducer
 
-#### 3.2.1. 什么是State Reducer
+### 3.2.1. 什么是State Reducer
 
 State Reducer 是 LangGraph 中用于合并状态更新的核心机制。在 LangGraph 的 `StateGraph` 中，每个节点可以读取和写入共享状态，而 Reducer 定义了如何将多个节点对同一状态键的更新合并 
 

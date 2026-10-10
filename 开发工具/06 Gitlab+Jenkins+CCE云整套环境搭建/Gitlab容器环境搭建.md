@@ -66,7 +66,7 @@ sudo docker exec -it gitlab grep 'Password:'
 
 # 初始化项目
 ## gitlab上创建项目
-在gitlab上创建一个`群组(groups)`（例如`我的测试项目myproject`），在群组中新建一个项目（例如`myproject-vue`）。（新建项目时<font style="background-color:#f3bb2f;">不要</font>勾选自动创建README）
+在gitlab上创建一个`群组(groups)`（例如`我的测试项目myproject`），在群组中新建一个项目（例如`myproject-vue`）。（新建项目时不要勾选自动创建README）
 
   
 

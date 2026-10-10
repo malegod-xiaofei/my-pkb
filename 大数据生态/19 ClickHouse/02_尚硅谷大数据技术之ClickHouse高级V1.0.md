@@ -1851,7 +1851,7 @@ binlog_format=ROW
 ```
 
 （2）开启GTID模式
-如果如果clickhouse使用的是20.8 prestable之后发布的版本，那么MySQL还需要配置开启GTID模式, 这种方式在mysql主从模式下可以确保数据同步的一致性(主从切换时)。
+如果clickhouse使用的是20.8 prestable之后发布的版本，那么MySQL还需要配置开启GTID模式, 这种方式在mysql主从模式下可以确保数据同步的一致性(主从切换时)。
 
 ```text
 gtid-mode=on

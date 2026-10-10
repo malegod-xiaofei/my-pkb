@@ -364,7 +364,7 @@ prometheus_http_requests_total{instance!="localhost:9090"}
 
 - 反之使用 label!~regx 进行排除；
 
-例如，如果想查询多个环节下的时间序列序列可以使用如下表达式：
+例如，如果想查询多个环节下的时间序列可以使用如下表达式：
 
 prometheus_http_requests_total{environment=~"staging|testing|development",method!="GET
 

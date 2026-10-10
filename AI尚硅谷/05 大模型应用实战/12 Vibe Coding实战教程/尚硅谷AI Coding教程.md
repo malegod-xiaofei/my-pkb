@@ -2406,7 +2406,7 @@ Claude Code 有多层配置体系，从全局到项目级，层层覆盖。
   └── 项目根目录/CLAUDE.md ← 最重要！
 ```
 
-##### 3.2.1 settings.json 配置文件
+#### 3.2.1 settings.json 配置文件
 
 Claude Code 的配置文件位于 `~/.claude/settings.json`（全局）或项目目录下的 `.claude/settings.json`（项目级）。
 
@@ -2609,7 +2609,7 @@ dist/            # 编译输出
 
 掌握 Claude Code 的日常使用，就像学会开车的基本操作 —— 方向盘、油门、刹车、倒车镜。
 
-##### 3.3.1 启动与基本交互
+#### 3.3.1 启动与基本交互
 
 ```bash
 # 最基本的启动方式（在当前目录启动）
@@ -2845,7 +2845,7 @@ claude --dangerously-skip-permissions # "危险模式"：一路绿灯不问任�
 
 了解了基本操作后，让我们来看一个完整的开发工作流。这就像学会了方向盘和油门后，实际上路开一圈。
 
-##### 3.4.1 官方推荐工作流：**Explore → Plan → Implement → Commit**
+#### 3.4.1 官方推荐工作流：**Explore → Plan → Implement → Commit**
 
 Claude Code 的常见推荐工作流可以概括为 **四阶段**：
 
@@ -2998,7 +2998,7 @@ git commit -m "初始化 Express Hello World API"
 
 经过大量实践总结出的使用技巧，帮你事半功倍。
 
-##### 3.5.1 Prompt 编写技巧（针对 Claude Code 场景）
+#### 3.5.1 Prompt 编写技巧（针对 Claude Code 场景）
 
 **1. 任务描述要具体，不要模糊**
 
@@ -3409,7 +3409,7 @@ Skills 把你上线前的心理检查清单变成命令——不用再临时想"
 
 ### 3.7 Claude Code 常见问题与排查（FAQ）
 
-##### 3.7.1 安装类问题
+#### 3.7.1 安装类问题
 
 **Q1：安装时报 `ENOENT: no such file or directory`**
 - **原因**：npm 缓存损坏
@@ -3495,7 +3495,7 @@ Claude Code 就会按照你定义的步骤执行部署检查。
 
 **答案**：Claude Code 原生提供了 **Plan Mode（规划模式）**。它不是“一种提示词技巧”，而是官方内置的一个**只读运行模式**，在该模式下 AI 只能分析不能修改，有专门的快捷键与命令可随时切入。
 
-##### 3.9.1 三种运行模式（官方）
+#### 3.9.1 三种运行模式（官方）
 
 Claude Code 内置 **三种互斥的运行模式**：
 
@@ -5080,7 +5080,7 @@ $ git commit -m "chore(skills): 升级 React 组件 Skill 至 v1.1，优化模�
 
 Superpowers 是 Claude Code 生态中的一类**社区增强插件 / Skills 集合**。它不是“必装”的，但思路值得学习：把成熟工作流封装成可复用能力，让 AI 不只是会写代码，还会按固定方法做事。
 
-##### 4.6.1 什么是 Superpowers？
+#### 4.6.1 什么是 Superpowers？
 
 Superpowers 本质是一套**工作方法论集合**，通常会封装成多个可复用 Skill。安装后，AI 可以在合适的任务中调用这些方法论。
 

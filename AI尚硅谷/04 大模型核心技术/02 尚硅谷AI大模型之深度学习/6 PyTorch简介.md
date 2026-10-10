@@ -888,7 +888,7 @@ print(tensor1.squeeze())
 
 ## 6.9 张量拼接操作
 
-#### 6.9.0.1 torch.cat()张量拼接，按已有维度拼接。除拼接维度外，其他维度大小须相同
+### 6.9.1 torch.cat()张量拼接，按已有维度拼接。除拼接维度外，其他维度大小须相同
 
 ```python
 import torch
@@ -900,7 +900,7 @@ print(tensor2)
 print(torch.cat([tensor1, tensor2], dim=1))
 ```
 
-#### 6.9.0.2 torch.stack()张量堆叠，按新维度堆叠。所有张量形状必须一致
+### 6.9.2 torch.stack()张量堆叠，按新维度堆叠。所有张量形状必须一致
 
 ```python
 import torch

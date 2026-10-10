@@ -11,21 +11,23 @@
 
 核心方向包括：
 
-- AI 大模型（尚硅谷）：学习路线、通识课、核心技术、RAG 与智能体、应用实战（LangChain、MCP、Claude Code、Spring AI、Spring AI Alibaba、Cursor、企业级部署、共享充电宝项目）
-- AI 大模型（黑马）：Python 高级、数据结构算法、Linux、机器学习基础（科学计算库）、机器学习算法（经典算法）、深度学习（TensorFlow）、计算机视觉（OpenCV）、NLP、文本摘要、传智项目文档
-- Java生态：Java 基础、集合、多线程、设计模式、MySQL、JavaWeb、SSM、SpringBoot
+- AI 大模型（尚硅谷）：学习路线、通识课、核心技术、RAG 与智能体、应用实战（LangChain、LangChain 1.2、LangGraph、LlamaIndex、MCP、Claude Code、Hermes Agent、Vibe Coding、Spring AI、Spring AI Alibaba、Cursor、企业级部署、共享充电宝项目）、面试题
+- AI 大模型（黑马）：Python 高级、数据结构算法、Linux、机器学习基础（科学计算库）、机器学习算法（经典算法）、深度学习（TensorFlow）、计算机视觉（OpenCV）、NLP、文本摘要、传智项目文档、面试题
+- Java生态：Java 基础、集合、多线程、设计模式、MySQL、JavaWeb、SSM、SpringBoot、正则表达式、Kubernetes、Docker
 - 大数据生态：Hadoop、HDFS、MapReduce、Yarn、Zookeeper、Hive、Kafka、Spark、Flink、ClickHouse、Doris 等
 - 开发工具：Obsidian、IDEA、PyCharm、Git、Linux、Docker、Jenkins/GitLab/CCE
+- 面试：自我介绍、AI-native
 
 ## 内容概览
 
 | 一级目录 | Markdown 数量 | 说明 |
 |---|---:|---|
-| AI尚硅谷/ | ~95 | AI 大模型学习路线、通识基础、核心技术、RAG 与智能体、应用实战（MCP、LangChain、Spring AI、Cursor、企业级部署、项目实战） |
-| AI黑马/ | ~385 | Python 高级、数据结构算法、Linux、机器学习（科学计算库+经典算法）、深度学习（TensorFlow）、计算机视觉（OpenCV）、NLP、文本摘要、传智项目文档 |
-| Java生态/ | ~35 | Java 基础、数据结构、设计模式、MySQL、JavaWeb、正则表达式 |
-| 大数据生态/ | ~88 | Hadoop 生态、Hive、Kafka、Spark、Flink、OLAP 引擎和监控组件 |
-| 开发工具/ | ~50 | IDEA、PyCharm、Git、Linux、Docker、Jenkins/GitLab/CCE 等 |
+| AI尚硅谷/ | 135 | AI 大模型学习路线、通识基础、核心技术、RAG 与智能体、应用实战（MCP、LangChain、LangGraph、LlamaIndex、Spring AI、Cursor、Hermes、Vibe Coding、企业级部署、项目实战）与面试题 |
+| AI黑马/ | 398 | Python 高级、数据结构算法、Linux、机器学习（科学计算库+经典算法）、深度学习（TensorFlow）、计算机视觉（OpenCV）、NLP、文本摘要、传智项目文档与面试题 |
+| Java生态/ | 58 | Java 基础、数据结构、设计模式、MySQL、JavaWeb、正则表达式、Kubernetes、Docker |
+| 大数据生态/ | 96 | Hadoop 生态、Hive、Kafka、Spark、Flink、OLAP 引擎和监控组件 |
+| 开发工具/ | 54 | IDEA、PyCharm、Git、Linux、Docker、Jenkins/GitLab/CCE 等 |
+| 面试/ | 2 | 自我介绍、AI-native |
 
 ## 目录结构
 
@@ -43,17 +45,22 @@ my-pkb/
 │   │   ├── 02 尚硅谷AI大模型之深度学习/ # 深度学习章节笔记与原始整合文件
 │   │   └── 03 尚硅谷AI大模型之NLP教程/  # NLP 章节笔记与原始整合文件
 │   ├── 05 大模型应用实战/
-│       ├── 01 conda使用指南/           # conda 使用指南
-│       ├── 02 Ollama/                  # Ollama 本地模型使用
-│       ├── 03 MCP/                     # MCP 课程实战与官方文档整理
-│       ├── 04 ClaudeCode/              # Claude Code 使用笔记
-│       ├── 05 LangChain/               # LangChain Model IO、Chains、Memory、Tools、Agents、Retrieval
-│       ├── 06 硅谷小智（医疗版）/       # Java + 大模型医疗项目笔记
-│       ├── 07 小谷充电宝/              # 共享充电宝项目：设备、柜机、规则、微信登录、MQTT、RabbitMQ、扫码、归还、支付、AI 报表
-│       ├── 08 SpringAI/                # Spring AI 课程笔记
-│       ├── 09 Cursor/                  # Cursor 快速上手和科学使用指南
-│       ├── 10 企业级大规模部署与开发实战/ # 企业级大模型部署、Agent 与 RAG 实战项目
-│       └── 11 Spring AI Alibaba/       # Spring AI Alibaba 速通实战
+│   │   ├── 01 conda使用指南/           # conda 使用指南
+│   │   ├── 02 Ollama/                  # Ollama 本地模型使用
+│   │   ├── 03 MCP/                     # MCP 课程实战与官方文档整理
+│   │   ├── 04 ClaudeCode/              # Claude Code 使用笔记
+│   │   ├── 05 LangChain/               # Model IO、Chains、Memory、Tools、Agents、Retrieval
+│   │   ├── 06 硅谷小智（医疗版）/       # Java + 大模型医疗项目笔记
+│   │   ├── 07 小谷充电宝/              # 共享充电宝项目：设备、柜机、规则、微信登录、MQTT、RabbitMQ、扫码、归还、支付、AI 报表
+│   │   ├── 08 SpringAI/                # Spring AI 课程笔记
+│   │   ├── 09 Cursor/                  # 快速上手、使用说明、实战经验
+│   │   ├── 10 企业级大规模部署与开发实战/ # 企业级大模型部署、Agent 与 RAG 实战项目
+│   │   ├── 11 Spring AI Alibaba/       # Spring AI Alibaba 速通实战
+│   │   ├── 12 Vibe Coding实战教程/     # 尚硅谷 AI Coding 教程
+│   │   ├── 13 LangGraph/               # 环境、控制流、持久化、中断、高级特性
+│   │   ├── 14 Hermes Agent/            # 入门、能力、进化、协作、实战
+│   │   ├── 15 LangChain1.2/            # 模型、LangSmith、Tools、智能体、RAG
+│   │   └── 16 LlamaIndex/              # 快速上手、基础组件、RAG 评估与优化
 │   └── 06 面试题/                      # 机器学习、深度学习、NLP、大模型、RAG、Agent、Spring AI、部署等面试题
 ├── AI黑马/
 │   ├── 01 基础知识/
@@ -67,14 +74,16 @@ my-pkb/
 │   ├── 05 NLP文档/                      # PyTorch、NLP 入门、文本预处理、RNN、NLP 项目、Transformer、FastText、迁移学习
 │   ├── 06 文本摘要(HTML)/               # TextRank、seq2seq、PGN、评估方法、迭代优化、部署
 │   ├── 07 面试题/                       # Python、数据结构、科学计算库、机器学习、深度学习、OpenCV、NLP、文本摘要、项目实战、模型优化等面试题
-│   └── 传智项目文档/                   # NLP 案例、Transformers、传智大脑、多模态、推荐系统、模型优化等
+│   └── 传智项目文档/                   # AI 题库、BERT、DOCTOR、Neo4j、NLP 案例、传智大脑、多模态、推荐、模型优化、智能文本分类
 ├── Java生态/
 │   ├── 00 数据结构/                    # 知识点、排序算法
 │   ├── 01 Java基础/                    # JavaSE、基础知识、集合、Java 8、多线程、时间处理、PDF
 │   ├── 02 设计模式/                    # 动态代理、单例、装饰者、建造者
 │   ├── 03 MySQL/                       # 环境搭建、基础知识、优化方法、实战知识
 │   ├── 04 JavaWeb/                     # 前端、JavaWeb、SSM、SpringBoot
-│   └── 05 正则表达式/                  # 常用字符、基础知识、入门教程
+│   ├── 05 正则表达式/                  # 常用字符、基础知识、入门教程
+│   ├── 06 Kubernetes/                  # 云平台、核心概念、实战、DevOps、尚医通上云
+│   └── 07 Docker/                      # 安装、镜像、数据卷、Dockerfile、网络、Compose、Portainer、监控
 ├── 大数据生态/
 │   ├── 01 Hadoop/                      # Hadoop、环境搭建、集群、调优、迁移、源码、面试题
 │   ├── 02 HDFS/                        # HDFS 知识点、命令、面试题
@@ -104,6 +113,9 @@ my-pkb/
 │   ├── 04 Linux/                       # Linux 环境、知识点、shell 命令、快捷键、脚本编程
 │   ├── 05 Docker/                      # 安装、常用命令、镜像、容器、网络、Compose、私仓
 │   └── 06 Gitlab+Jenkins+CCE云整套环境搭建/  # GitLab、Jenkins、CCE、ELK、Nacos 全链路 CI/CD
+├── 面试/
+│   ├── 01 自我介绍.md
+│   └── AI-native.md
 ├── .claude/
 │   └── CLAUDE.md                       # Claude Code 项目说明
 └── README.md
@@ -150,13 +162,18 @@ my-pkb/
 - 02 Ollama/：Ollama使用.md
 - 03 MCP/：01-MCP实战指南.md ~ 05-Cherry Studio中使用MCP案例.md，以及 c-01-MCP入门.md ~ c-07-Open-WebUI接入MCP.md
 - 04 ClaudeCode/：AI工具飞速上手之Claude Code.md、Claude Code快速入门与配置.md、Claude Code核心功能与高效操作技巧.md
-- 05 LangChain/：01-LangChain使用概述.md、02-Model IO.md、03-Chains.md、04-Memory.md、06-Agents.md、07-Retrieval.md（Tools 章节缺失）
+- 05 LangChain/：01-LangChain使用概述.md、02-Model IO.md、03-Chains.md、04-Memory.md、05-Tools.md、06-Agents.md、07-Retrieval.md
 - 06 硅谷小智（医疗版）/：尚硅谷-Java+大模型应用-硅谷小智（医疗版）.md
 - 07 小谷充电宝/：01_项目概述&环境搭建.md ~ 15_整合AI实现数据报表.md，覆盖设备管理、柜机/站点/监控管理、权限与日志、微信登录、附近门店、MQTT、扫码、RabbitMQ、规则引擎、归还、订单支付、AI 报表
 - 08 SpringAI/：SpringAI课程.md
-- 09 Cursor/：Cursor快速上手和科学使用指南.md
+- 09 Cursor/：Cursor使用说明.md、Cursor快速上手和科学使用指南.md、实战经验.md
 - 10 企业级大规模部署与开发实战/：01-企业级大模型的部署.md、02-大模型实战项目：Agent&RAG.md
 - 11 Spring AI Alibaba/：Spring AI Alibaba速通实战.md
+- 12 Vibe Coding实战教程/：尚硅谷AI Coding教程.md
+- 13 LangGraph/：00-环境配置.md、01-LangGraph基础入门.md、02-LangGraph控制流与节点执行.md、03-LangGraph持久化与记忆管理.md、04-LangGraph中断与工具与部署.md、05-LangGraph高级特性.md
+- 14 Hermes Agent/：01-入门篇.md ~ 05-实战篇.md，以及课程内 README.md
+- 15 LangChain1.2/：01-LangChain概述.md ~ 10-RAG.md（模型、LangSmith、Message、Tools、结构化输出、智能体、中间件、记忆）
+- 16 LlamaIndex/：01、快速上手LlamaIndex.md、02、LlamaIndex基础组件介绍.md、03、整体评估RAG应用的准确性.md、04、优化RAG应用提升回答准确度.md
 
 #### 06 面试题
 
@@ -222,6 +239,7 @@ my-pkb/
 
 #### 传智项目文档
 
+- 01 AI题库/、02 bert 与 tf/、03 DOCTOR/、04 neo4j/
 - 05 NLP案例/、06 transformers项目问题答案/、07 传智大脑/（7 模块）
 - 08 多模态/（FasterRCNN、VilBert、Visual-Bert 等 6 模块）
 - 09 泛娱乐/（推荐系统）、10 基础算法面试题/
@@ -236,6 +254,8 @@ my-pkb/
 - 03 MySQL/：环境搭建、基础知识、优化方法、实战知识
 - 04 JavaWeb/：前端（JQuery）、JavaWeb（Echarts/Cookie/Ajax）、SSM（Spring/SpringMVC）、SpringBoot
 - 05 正则表达式/：常用字符、基础知识、入门教程
+- 06 Kubernetes/：云平台核心、基础概念、核心实战、DevOps、尚医通项目上云
+- 07 Docker/：简介、安装、命令、镜像、数据卷、Dockerfile、微服务、网络、Compose、Portainer、监控
 
 ### 大数据生态
 
@@ -270,6 +290,11 @@ my-pkb/
 - 05 Docker/：Docker 概述、安装、下载加速、常用命令、容器命令、镜像、私仓搭建（nexus/Registry）、安装 Mysql/Redis、Dockerfile、发布微服务、网络、Compose、Portainer、CIG 监控
 - 06 Gitlab+Jenkins+CCE云整套环境搭建/：Jenkins（前置配置、编译项目）、CCE 云上部署、Dockerfile 示例、GitLab 容器、ELK、Nacos 集群、nexus 私仓、云文档等
 
+### 面试
+
+- 01 自我介绍.md
+- AI-native.md
+
 ## 笔记规范
 
 - 笔记格式为 Markdown，在 Obsidian 中编辑与阅读
@@ -281,7 +306,7 @@ my-pkb/
 ## 使用方式
 
 - 使用 Obsidian 打开仓库根目录 my-pkb
-- 按一级目录选择学习方向：AI尚硅谷/、AI黑马/、Java生态/、大数据生态/、开发工具/
+- 按一级目录选择学习方向：AI尚硅谷/、AI黑马/、Java生态/、大数据生态/、开发工具/、面试/
 - 按课程、技术栈或章节编号浏览笔记
 - 配合 Git 管理知识库的持续迭代
 

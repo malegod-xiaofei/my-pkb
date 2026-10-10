@@ -1526,13 +1526,13 @@ hive> select locate(‘aa’,‘aabbedfaad’,2);
 
 8
 
-## 6.31 返回出现次数TOP K的的子序列：ngrams
+## 6.31 返回出现次数TOP K的子序列：ngrams
 
 语法： ngrams(array, int N, int K, int pf)
 
 返回值： array<struct<string,double>>
 
-说明：返回出现次数TOP K的的子序列,n表示子序列的长度，具体看StatisticsAndDataMining (这里的解释更易懂)
+说明：返回出现次数TOP K的子序列,n表示子序列的长度，具体看StatisticsAndDataMining (这里的解释更易懂)
 
 ## 6.32 printf风格格式输出字符串：printf
 

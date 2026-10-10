@@ -163,7 +163,7 @@ conda activate nlp
 
 安装命令如下：
 
-#### 2.2.0.1 安装pytorch
+### 2.2.1 安装pytorch
 
 使用nvidia-smi查看CUDA版本，并根据其版本选择PyTorch版本进行安装：
 
@@ -171,7 +171,7 @@ conda activate nlp
 pip3 install torch --index-url https://download.pytorch.org/whl/cu128
 ```
 
-#### 2.2.0.2 安装其余依赖
+### 2.2.2 安装其余依赖
 
 其余依赖安装最新版本即可
 
@@ -4719,13 +4719,13 @@ EPOCHS = 30  # 总训练轮数
 
 在上述 Seq2Seq 架构中，编码器会将整个源句压缩为一个固定长度的上下文向量，并将其作为解码器生成目标序列的唯一参考。这种“压缩再解压”的方式虽然结构简洁，但在实际任务中暴露出两个核心问题：
 
-#### 5.5.0.1 信息压缩困难，语义表达受限
+### 5.5.1 信息压缩困难，语义表达受限
 
 对于编码器而言，用一个定长向量去表达任意复杂的句子，是一项非常困难的任务。尤其在面对长句时，信息很容易在压缩过程中丢失，导致语义表达不完整。
 
 这种“信息瓶颈”限制了模型在处理长文本或复杂语义结构时的表现。
 
-#### 5.5.0.2 缺乏动态感知，解码难以精准生成
+### 5.5.2 缺乏动态感知，解码难以精准生成
 
 解码器始终只能基于同一个上下文向量进行生成。
 
@@ -7147,15 +7147,15 @@ EPOCHS = 30  # 总训练轮数
 
 因此，Transformer 成为预训练模型的主流基础架构。根据 Transformer 的使用方式不同，预训练模型大致可分为以下三类：
 
-#### 8.2.0.1 解码器（Decoder-only）模型
+### 8.2.1 解码器（Decoder-only）模型
 
 仅使用Transformer解码器，代表模型为GPT（Generative Pre-trained Transformer），其由 OpenAI于2018年6月提出，论文题为。
 
-#### 8.2.0.2 编码器（Encoder-only）模型
+### 8.2.2 编码器（Encoder-only）模型
 
 仅使用Transformer 编码器，代表模型为BERT（Bidirectional Encoder Representations from Transformers），由Google于2018年10月提出，论文题为。
 
-#### 8.2.0.3 编码器-解码器（Encoder-Decoder）模型
+### 8.2.3 编码器-解码器（Encoder-Decoder）模型
 
 同时使用Transformer编码器和解码器，代表模型为T5（Text-to-Text Transfer Transformer），由Google于2019年10月提出，论文题为《。
 
@@ -7876,6 +7876,6 @@ EPOCHS = 30  # 训练轮数
 
 # 9 附录
 
-#### 9.0.0.1 nltk：自然语言工具包，具体用法见
+## 9.1 nltk：自然语言工具包，具体用法见
 
-#### 9.0.0.2 Tensorboard：深度学习可视化工具，具体用法见文档
+## 9.2 Tensorboard：深度学习可视化工具，具体用法见文档

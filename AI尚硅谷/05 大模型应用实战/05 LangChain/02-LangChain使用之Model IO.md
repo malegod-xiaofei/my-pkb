@@ -377,8 +377,8 @@ completion = client.chat.completions.create(
 print(completion.choices[0].message)
 ```
 ```python
-ChatCompletionMessage(content=你好，我是⼀个智能AI助⼿，可以回答各种问题、提供信息
-和建议。⽆论是⽇常⽣活中的疑问，还是学习⼯', refusal=None, role=8assistant8, annotations=None, audio=None, function_call=None, tool_calls=None)
+ChatCompletionMessage(content=你好，我是一个智能AI助手，可以回答各种问题、提供信息
+和建议。无论是日常生活中的疑问，还是学习工', refusal=None, role=8assistant8, annotations=None, audio=None, function_call=None, tool_calls=None)
 ```
 **调用对话模型（写法2）：**
 ```python
@@ -606,10 +606,10 @@ print(response.content)  # 显示 AI 生成的诗
 ```
 
 ```python
-智能助⼿显神通，
+智能助手显神通，
 万物互联慧眼中。
 编码世界藏诗意，
-共融未来路⽆穷。
+共融未来路无穷。
 ```
 #### 2.4.5 硅基流动平台
 官网：[https://www.siliconflow.cn/](https://www.siliconflow.cn/)
@@ -1986,7 +1986,7 @@ load_dotenv()
 
 prompt = load_prompt("asset/prompt.json", encoding="utf-8")
 print(prompt.format(name="张三", what="搞笑的"))
-# 请张三讲一个搞笑的的故事。
+# 请张三讲一个搞笑的故事。
 ```
 
 ## 5. Model I/O 之 Output Parsers

@@ -203,7 +203,7 @@ kubectl rollout undo deployment/my-dep --to-revision=2
 
 
 # 5、Service
-<font style="color:rgb(34, 34, 34);">将一组 </font>[Pods](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/)<font style="color:rgb(34, 34, 34);"> 公开为网络服务的抽象方法。</font>
+将一组 [Pods](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) 公开为网络服务的抽象方法。
 
 ```bash
 #暴露Deploy
@@ -1441,15 +1441,15 @@ kubectl exec -it redis -- redis-cli
   
 
 
-_**<font style="color:#222222;">配置值未更改，因为需要重新启动 Pod 才能从关联的 ConfigMap 中获取更新的值。 </font>**_
+_**配置值未更改，因为需要重新启动 Pod 才能从关联的 ConfigMap 中获取更新的值。 **_
 
-_**<font style="color:#222222;">原因：我们的Pod部署的中间件自己本身没有热更新能力</font>**_
+_**原因：我们的Pod部署的中间件自己本身没有热更新能力**_
 
   
 
 
 ## 3、Secret
-<font style="color:rgb(34, 34, 34);">Secret</font><font style="color:rgb(34, 34, 34);"> 对象类型用来保存敏感信息，例如密码、OAuth 令牌和 SSH 密钥。 将这些信息放在 </font><font style="color:rgb(34, 34, 34);">secret</font><font style="color:rgb(34, 34, 34);"> 中比放在 </font>[Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/)<font style="color:rgb(34, 34, 34);"> 的定义或者 </font>[容器镜像](https://kubernetes.io/zh/docs/reference/glossary/?all=true#term-image)<font style="color:rgb(34, 34, 34);"> 中来说更加安全和灵活。</font>
+Secret 对象类型用来保存敏感信息，例如密码、OAuth 令牌和 SSH 密钥。 将这些信息放在 secret 中比放在 [Pod](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/) 的定义或者 [容器镜像](https://kubernetes.io/zh/docs/reference/glossary/?all=true#term-image) 中来说更加安全和灵活。
 
 ```bash
 kubectl create secret docker-registry leifengyang-docker \
@@ -1485,7 +1485,7 @@ spec:
 
 
 
-# <font style="color:rgb(38, 38, 38);">Kubernetes核心实战</font>
+# Kubernetes核心实战
   
  
 

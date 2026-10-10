@@ -36,7 +36,7 @@ CLI（command-line interface）、JDBC/ODBC(jdbc访问hive)、WEBUI（浏览器�
 
 HQL编译为MR任务流程介绍
 
-- 进入程序，利用Antlr框架定义HQL的语法规则，对HQL完成词法语法解析，将HQL转换为为AST（抽象语法树）；
+- 进入程序，利用Antlr框架定义HQL的语法规则，对HQL完成词法语法解析，将HQL转换为AST（抽象语法树）；
 - 遍历AST，抽象出查询的基本组成单元QueryBlock（查询块），可以理解为最小的查询执行单元；
 - 遍历QueryBlock，将其转换为OperatorTree（操作树，也就是逻辑执行计划），可以理解为不可拆分的一个逻辑执行单元；
 - 使用逻辑优化器对OperatorTree（操作树）进行逻辑优化。例如合并不必要的ReduceSinkOperator，减少Shuffle数据量；

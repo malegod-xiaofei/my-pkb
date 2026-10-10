@@ -12,7 +12,7 @@ Open WebUI 是一款可扩展、功能丰富且用户友好的自托管 AI 平�
 docker run -d -p 8080:8080 -e HF_HUB_OFFLINE=1 --add-host=host.docker.internal:host-gateway -v $PWD/open-webui:/app/backend/data --name open-webui ghcr.io/open-webui/open-webui:main
 ```
 `HF_HUB_OFFLINE=1` 设置离线环境，避免Open-WebUI启动时自动进行模型下载：
-浏览器中输⼊ http://localhost:8080 显⽰如下页⾯，输⼊邮箱后登录即可和⼤模型对话，并且能够⾃动扫描我们已安装的模型.
+浏览器中输入 http://localhost:8080 显示如下页面，输入邮箱后登录即可和大模型对话，并且能够自动扫描我们已安装的模型.
 然后首次使用前，需要创建管理员账号：
 ![图片](images/图片131.jpg)
 然后点击登录即可。需要注意的是，此时Open-WebUI会自动检测后台是否启动了ollama服务，并列举当前可用的模型。即可进入到对话页面：

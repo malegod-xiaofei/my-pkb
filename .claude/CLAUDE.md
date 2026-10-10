@@ -17,11 +17,14 @@
 
 核心方向包括：
 
-- AI 大模型（尚硅谷）：学习路线、通识课、核心技术、RAG 与智能体、应用实战（LangChain、MCP、Claude Code、Spring AI、Spring AI Alibaba、Cursor、企业级部署、共享充电宝项目）、面试题
+- AI 大模型（尚硅谷）：学习路线、通识课、核心技术、RAG 与智能体、应用实战（LangChain、LangChain 1.2、LangGraph、LlamaIndex、MCP、Claude Code、Hermes Agent、Vibe Coding、Spring AI、Spring AI Alibaba、Cursor、企业级部署、共享充电宝项目）、面试题
 - AI 大模型（黑马）：Python 高级、数据结构算法、Linux、机器学习基础（科学计算库）、机器学习算法（经典算法）、深度学习（TensorFlow）、计算机视觉（OpenCV）、NLP、文本摘要、传智项目文档、面试题
-- Java生态：Java 基础、集合、多线程、设计模式、MySQL、JavaWeb、SSM、SpringBoot
+- Java生态：Java 基础、集合、多线程、设计模式、MySQL、JavaWeb、SSM、SpringBoot、正则表达式、Kubernetes、Docker
 - 大数据生态：Hadoop、HDFS、MapReduce、Yarn、Zookeeper、Hive、Kafka、Spark、Flink、ClickHouse、Doris 等
 - 开发工具：Obsidian、IDEA、PyCharm、Git、Linux、Docker、Jenkins/GitLab/CCE
+- 面试：自我介绍、AI-native
+
+文件级目录以仓库根目录的 README.md 为准。下面只保留主干，避免和 README 各写一份后再次分叉。
 
 ## 目录结构
 
@@ -47,9 +50,14 @@ my-pkb/
 │   │   ├── 06 硅谷小智（医疗版）/       # Java + 大模型医疗项目笔记
 │   │   ├── 07 小谷充电宝/              # 共享充电宝项目：设备、柜机、规则、微信登录、MQTT、RabbitMQ、扫码、归还、支付、AI 报表
 │   │   ├── 08 SpringAI/                # Spring AI 课程笔记
-│   │   ├── 09 Cursor/                  # Cursor 快速上手和科学使用指南
+│   │   ├── 09 Cursor/                  # 快速上手、使用说明、实战经验
 │   │   ├── 10 企业级大规模部署与开发实战/ # 企业级大模型部署、Agent 与 RAG 实战项目
-│   │   └── 11 Spring AI Alibaba/       # Spring AI Alibaba 速通实战
+│   │   ├── 11 Spring AI Alibaba/       # Spring AI Alibaba 速通实战
+│   │   ├── 12 Vibe Coding实战教程/     # 尚硅谷 AI Coding 教程
+│   │   ├── 13 LangGraph/               # 环境、控制流、持久化、中断、高级特性
+│   │   ├── 14 Hermes Agent/            # 入门、能力、进化、协作、实战
+│   │   ├── 15 LangChain1.2/            # 模型、LangSmith、Tools、智能体、RAG
+│   │   └── 16 LlamaIndex/              # 快速上手、基础组件、RAG 评估与优化
 │   └── 06 面试题/                      # 机器学习、深度学习、NLP、大模型、RAG、Agent、Spring AI、部署等面试题
 ├── AI黑马/
 │   ├── 01 基础知识/
@@ -63,14 +71,16 @@ my-pkb/
 │   ├── 05 NLP文档/                      # PyTorch、NLP 入门、文本预处理、RNN、NLP 项目、Transformer、FastText、迁移学习
 │   ├── 06 文本摘要(HTML)/               # TextRank、seq2seq、PGN、评估方法、迭代优化、部署
 │   ├── 07 面试题/                       # Python、数据结构、机器学习、深度学习、OpenCV、NLP、文本摘要、项目实战、模型优化等面试题
-│   └── 传智项目文档/                   # NLP 案例、多模态、推荐系统、模型优化等
+│   └── 传智项目文档/                   # AI 题库、BERT、DOCTOR、Neo4j、NLP 案例、传智大脑、多模态、推荐、模型优化、智能文本分类
 ├── Java生态/
 │   ├── 00 数据结构/                    # 知识点、排序算法
 │   ├── 01 Java基础/                    # JavaSE、基础知识、集合、Java 8、多线程、时间处理
 │   ├── 02 设计模式/                    # 动态代理、单例、装饰者、建造者
 │   ├── 03 MySQL/                       # 环境搭建、基础知识、优化方法、实战知识
 │   ├── 04 JavaWeb/                     # 前端、JavaWeb、SSM、SpringBoot
-│   └── 05 正则表达式/                  # 常用字符、基础知识、入门教程
+│   ├── 05 正则表达式/                  # 常用字符、基础知识、入门教程
+│   ├── 06 Kubernetes/                  # 云平台、核心概念、实战、DevOps、尚医通上云
+│   └── 07 Docker/                      # 安装、镜像、数据卷、Dockerfile、网络、Compose、Portainer、监控
 ├── 大数据生态/
 │   ├── 01 Hadoop/  02 HDFS/  03 MapReduce/  04 Yarn/  05 Zookeeper/
 │   ├── 06 Hadoop_高可用/  07 Hive/  08 Flume/  09 Kafka/  10 Hbase/
@@ -84,6 +94,9 @@ my-pkb/
 │   ├── 04 Linux/                       # 环境、知识点、shell 命令、脚本编程
 │   ├── 05 Docker/                      # 安装、常用命令、镜像、网络、Compose
 │   └── 06 Gitlab+Jenkins+CCE云整套环境搭建/  # CI/CD 全链路环境搭建
+├── 面试/
+│   ├── 01 自我介绍.md
+│   └── AI-native.md
 ├── .claude/
 │   └── CLAUDE.md                       # Claude Code 项目说明
 └── README.md

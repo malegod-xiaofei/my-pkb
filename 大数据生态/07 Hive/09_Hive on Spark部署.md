@@ -8,7 +8,7 @@
 
 - 在Hive所在节点部署Spark纯净版
   - Spark官网下载jar包地址：
-  - 上传并解压解压spark-3.1.3-bin-without-hadoop.tgz
+  - 上传并解压spark-3.1.3-bin-without-hadoop.tgz
 [atguigu@hadoop102 software]$ tar -zxvf spark-3.1.3-bin-without-hadoop.tgz -C /opt/module/
 
 [atguigu@hadoop102 software]$ mv /opt/module/spark-3.1.3-bin-hadoop3 /opt/module/spark

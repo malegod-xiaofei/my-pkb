@@ -165,8 +165,8 @@ print(docs)
 ```
 
 ```text
-[Document(metadata={8source8: 8asset/load/01-langchain-utf-8.txt8},
-page_content=8LangChain 是一个用于构建基于大语言模型（LLM）应用的开发框架，旨在帮助开发者更高效地集成、管理和增强大语言模型的能力，构建端到端的应用程序。它提供了一套模块
+[Document(metadata={'source': 'asset/load/01-langchain-utf-8.txt8},
+page_content='LangChain 是一个用于构建基于大语言模型（LLM）应用的开发框架，旨在帮助开发者更高效地集成、管理和增强大语言模型的能力，构建端到端的应用程序。它提供了一套模块
 化工具和接口，支持从简单的文本生成到复杂的多步骤推理任务')]
 ```
 
@@ -209,11 +209,11 @@ print(type(docs[0]))
 ```
 
 ```text
-[Document(metadata={8producer8: 8Microsoft® Word 2019', 8creator8: 8Microsoft® Word
-2019', 8creationdate8: 82025-06-20T17:18:19+08:008, 8moddate8: 82025-06-20T17:18:19+08:008,
-8source8: 8asset/load/02-load.pdf8, 8total_pages8: 1, 8page8: 0, 8page_label8: '1'}, page_content=87他的车，他的命！ 他忽然想起来，一年，二年，至少有三四年；一滴汗，两滴汗，不\n知道多少万滴汗，才挣出那辆车。从风里雨里的咬牙，从饭里茶里的自苦，才赚出那辆
-车。\n那辆车是他的一切挣扎与困苦的总结果与报酬，像身经百战的武⼠的一颗徽章。……他⽼想\n着远远的一辆车，可以使他自由，独⽴，像自⼰的手脚的那么一辆车。" \n \n7他吃，他喝，他
-嫖，他赌，他懒，他狡猾， 因为他没了心，他的心被人家摘了去。他\n只剩下那个高大的⾁架子，等着溃烂，预备着到乱死岗子去。……体面的、要强的、好梦想\n的、利⼰的、个人的、健壮的、伟大的祥子，不知陪着人家送了多少回殡；不知道何时何地\n会埋起他自⼰来， 埋起这堕落的、 自私的、 不幸的、 社会病胎里的产⼉， 个人主义的末路⻤！\n78)] <class 8langchain_core.documents.base.Document8>
+[Document(metadata={'producer': 8Microsoft® Word 2019', 'creator': 8Microsoft® Word
+2019', 'creationdate': 82025-06-20T17:18:19+08:008, 'moddate': 82025-06-20T17:18:19+08:008,
+'source': 'asset/load/02-load.pdf8, 'total_pages': 1, 'page': 0, 'page_label': '1'}, page_content='7他的车，他的命！ 他忽然想起来，一年，二年，至少有三四年；一滴汗，两滴汗，不\n知道多少万滴汗，才挣出那辆车。从风里雨里的咬牙，从饭里茶里的自苦，才赚出那辆
+车。\n那辆车是他的一切挣扎与困苦的总结果与报酬，像身经百战的武士的一颗徽章。……他老想\n着远远的一辆车，可以使他自由，独立，像自己的手脚的那么一辆车。" \n \n7他吃，他喝，他
+嫖，他赌，他懒，他狡猾， 因为他没了心，他的心被人家摘了去。他\n只剩下那个高大的肉架子，等着溃烂，预备着到乱死岗子去。……体面的、要强的、好梦想\n的、利己的、个人的、健壮的、伟大的祥子，不知陪着人家送了多少回殡；不知道何时何地\n会埋起他自己来， 埋起这堕落的、 自私的、 不幸的、 社会病胎里的产儿， 个人主义的末路鬼！\n78)] <class 8langchain_core.documents.base.Document8>
 ```
 
 #### 同样的
@@ -240,7 +240,7 @@ for doc in docs:
 ```
 
 ```text
-page_content=8arXiv:2302.03803v1 [math.AG] 7 Feb
+page_content='arXiv:2302.03803v1 [math.AG] 7 Feb
 A WEAK (k, k )-LEFSCHETZ THEOREM FOR PROJECTIVE
 
 
@@ -311,14 +311,14 @@ print(data[0].page_content) # id: 1 title: Introduction to Python ...
 ```
 
 ```text
-[Document(metadata={8source8: 8asset/load/04-load.csv8, 8row8: 0}, page_content=8id: 1\ntitle: Introduction to Python\ncontent: Python is a popular programming
-language.\nauthor: John Doe8), Document(metadata={8source8: 8asset/load/04-load.csv8,
-8row8: 1}, page_content=8id: 2\ntitle: Data Science Basics\ncontent: Data science involves
-statistics and machine learning.\nauthor: Jane Smith8), Document(metadata={8source8:
-8asset/load/04-load.csv8, 8row8: 2}, page_content=8id: 3\ntitle: Web Development\ncontent: HTML, CSS and JavaScript are core web technologies.\nauthor: Mike Johnson8),
-Document(metadata={8source8: 8asset/load/04-load.csv8, 8row8: 3}, page_content=8id: 4\ntitle: Artificial Intelligence\ncontent: AI is transforming many industries.\nauthor:
+[Document(metadata={'source': 'asset/load/04-load.csv8, 'row': 0}, page_content='id: 1\ntitle: Introduction to Python\ncontent: Python is a popular programming
+language.\nauthor: John Doe8), Document(metadata={'source': 'asset/load/04-load.csv8,
+'row': 1}, page_content='id: 2\ntitle: Data Science Basics\ncontent: Data science involves
+statistics and machine learning.\nauthor: Jane Smith8), Document(metadata={'source':
+8asset/load/04-load.csv8, 'row': 2}, page_content='id: 3\ntitle: Web Development\ncontent: HTML, CSS and JavaScript are core web technologies.\nauthor: Mike Johnson8),
+Document(metadata={'source': 'asset/load/04-load.csv8, 'row': 3}, page_content='id: 4\ntitle: Artificial Intelligence\ncontent: AI is transforming many industries.\nauthor:
 Sarah Williams8)]
-<class 8list8>
+<class 'list'>
 <class 8langchain_core.documents.base.Document8>
 id: 1
 ```
@@ -349,11 +349,11 @@ print(data)
 ```
 
 ```text
-[Document(metadata={8source8: 8John Doe8, 8row8: 0}, page_content=8id: 1\ntitle: Introduction to Python\ncontent: Python is a popular programming language.\nauthor:
-John Doe8), Document(metadata={8source8: 8Jane Smith8, 8row8: 1}, page_content=8id: 2\ntitle: Data Science Basics\ncontent: Data science involves statistics and machine
-learning.\nauthor: Jane Smith8), Document(metadata={8source8: 8Mike Johnson8, 8row8: 2}, page_content=8id: 3\ntitle: Web Development\ncontent: HTML, CSS and JavaScript are
-core web technologies.\nauthor: Mike Johnson8), Document(metadata={8source8: 8Sarah
-Williams8, 8row8: 3}, page_content=8id: 4\ntitle: Artificial Intelligence\ncontent: AI is transforming many industries.\nauthor: Sarah Williams8)]
+[Document(metadata={'source': 8John Doe8, 'row': 0}, page_content='id: 1\ntitle: Introduction to Python\ncontent: Python is a popular programming language.\nauthor:
+John Doe8), Document(metadata={'source': 8Jane Smith8, 'row': 1}, page_content='id: 2\ntitle: Data Science Basics\ncontent: Data science involves statistics and machine
+learning.\nauthor: Jane Smith8), Document(metadata={'source': 8Mike Johnson8, 'row': 2}, page_content='id: 3\ntitle: Web Development\ncontent: HTML, CSS and JavaScript are
+core web technologies.\nauthor: Mike Johnson8), Document(metadata={'source': 8Sarah
+Williams8, 'row': 3}, page_content='id: 4\ntitle: Artificial Intelligence\ncontent: AI is transforming many industries.\nauthor: Sarah Williams8)]
 ```
 
 ### 2.4 加载JSON
@@ -395,14 +395,14 @@ print(docs)
 ```
 
 ```text
-[Document(metadata={8source8:
-8D:\develop\workspace\vscode\langchain\asset\load\load.json8, 8seq_num8: 1}, page_content=8Hello, how are you today?8),
-Document(metadata={8source8:
-8D:\develop\workspace\vscode\langchain\asset\load\load.json8, 8seq_num8: 2}, page_content=7I8m doing well, thanks for asking!7),
-Document(metadata={8source8:
-8D:\develop\workspace\vscode\langchain\asset\load\load.json8, 8seq_num8: 3}, page_content=8Would you like to meet for lunch?8),
-Document(metadata={8source8:
-8D:\develop\workspace\vscode\langchain\asset\load\load.json8, 8seq_num8: 4}, page_content=8Sure, that sounds great!8)]
+[Document(metadata={'source':
+8D:\develop\workspace\vscode\langchain\asset\load\load.json8, 'seq_num': 1}, page_content='Hello, how are you today?8),
+Document(metadata={'source':
+8D:\develop\workspace\vscode\langchain\asset\load\load.json8, 'seq_num': 2}, page_content=7I8m doing well, thanks for asking!7),
+Document(metadata={'source':
+8D:\develop\workspace\vscode\langchain\asset\load\load.json8, 'seq_num': 3}, page_content='Would you like to meet for lunch?8),
+Document(metadata={'source':
+8D:\develop\workspace\vscode\langchain\asset\load\load.json8, 'seq_num': 4}, page_content='Sure, that sounds great!8)]
 
 Hello, how
 ```
@@ -440,14 +440,14 @@ data = loader.load()
 
 ```text
 pprint(data[0].page_content)
-[Document(metadata={8source8:
+[Document(metadata={'source':
 8D:\code\workspace_pycharm_test\langchain_test\chapter_new7_RAG\asset\load\04-
-response.json8, 8seq_num8: 1}, page_content=8This article explains how to parse API responses...8),
-Document(metadata={8source8:
+response.json8, 'seq_num': 1}, page_content='This article explains how to parse API responses...8),
+Document(metadata={'source':
 8D:\code\workspace_pycharm_test\langchain_test\chapter_new7_RAG\asset\load\04-
-response.json8, 8seq_num8: 2}, page_content=8Learn to handle nested structures with...8), Document(metadata={8source8:
+response.json8, 'seq_num': 2}, page_content='Learn to handle nested structures with...8), Document(metadata={'source':
 8D:\code\workspace_pycharm_test\langchain_test\chapter_new7_RAG\asset\load\04-
-response.json8, 8seq_num8: 3}, page_content=8Best practices for preserving metadata...8)]
+response.json8, 'seq_num': 3}, page_content='Best practices for preserving metadata...8)]
 
 8This article explains how to parse API responses...8
 ```
@@ -474,6 +474,7 @@ file_path = 'asset/load/04-response.json'
 # content_key=".text", # 再从条目中提取 content 字段
 # is_content_key_jq_parsable=True # 用jq解析content_key
 # )
+```
 ```python
 loader = JSONLoader(
 file_path=file_path,
@@ -543,98 +544,98 @@ for doc in docs:
 ```
 
 ```text
-page_content=8⾸发于自然语言处理算法与实践' metadata={8source8: 8asset/load/05-
-load.html8, 8last_modified8: 82025-07-17T15:38:368, 8languages8: [8zho8], 8file_directory8:
-8asset/load8, 8filename8: 805-load.html8, 8filetype8: 8text/html8, 8category8: 8UncategorizedText8,
-8element_id8: 8b082a3e1f4714ffa5f25741f39d82c178}
-page_content=8RAG:将检索与生成⽅式相结合来做生成任务' metadata={8source8:
-8asset/load/05-load.html8, 8category_depth8: 0, 8last_modified8: 82025-07-17T15:38:368,
-8languages8: [8kor8], 8file_directory8: 8asset/load8, 8filename8: 805-load.html8, 8filetype8:
-8text/html8, 8category8: 8Title8, 8element_id8: 846103fd31eae47ed36481d13185af8a98} page_content=8烛之文' metadata={8source8: 8asset/load/05-load.html8, 8last_modified8: '2025-07-17T15:38:368, 8languages8: [8kor8], 8file_directory8: 8asset/load8, 8filename8: 805-load.html8,
-8filetype8: 8text/html8, 8parent_id8: 846103fd31eae47ed36481d13185af8a98, 8category8:
-8UncategorizedText8, 8element_id8: 8e02798c2e2bb964165a9e9356b82a3f68} page_content=81、前言' metadata={8source8: 8asset/load/05-load.html8, 8category_depth8: 1,
-8last_modified8: 82025-07-17T15:38:368, 8languages8: [8zho8], 8file_directory8: 8asset/load8,
-8filename8: 805-load.html8, 8filetype8: 8text/html8, 8parent_id8:
-846103fd31eae47ed36481d13185af8a98, 8category8: 8Title8, 8element_id8:
+page_content='首发于自然语言处理算法与实践' metadata={'source': 'asset/load/05-
+load.html8, 'last_modified': '2025-07-17T15:38:36', 'languages': ['zho'], 'file_directory':
+'asset/load', 'filename': '05-load.html', 'filetype': 'text/html', 'category': 'UncategorizedText',
+'element_id': 'b082a3e1f4714ffa5f25741f39d82c17'}
+page_content='RAG:将检索与生成方式相结合来做生成任务' metadata={'source':
+'asset/load/05-load.html', 'category_depth': 0, 'last_modified': '2025-07-17T15:38:36',
+'languages': ['kor'], 'file_directory': 'asset/load', 'filename': '05-load.html', 'filetype':
+'text/html', 'category': 'Title', 'element_id': 846103fd31eae47ed36481d13185af8a98} page_content='烛之文' metadata={'source': 'asset/load/05-load.html', 'last_modified': '2025-07-17T15:38:368, 'languages': ['kor'], 'file_directory': 'asset/load', 'filename': '05-load.html',
+'filetype': 'text/html', 'parent_id': 846103fd31eae47ed36481d13185af8a98, 'category':
+'UncategorizedText', 'element_id': 'e02798c2e2bb964165a9e9356b82a3f6'} page_content='1、前言' metadata={'source': 'asset/load/05-load.html', 'category_depth': 1,
+'last_modified': '2025-07-17T15:38:36', 'languages': ['zho'], 'file_directory': 'asset/load',
+'filename': '05-load.html', 'filetype': 'text/html', 'parent_id':
+846103fd31eae47ed36481d13185af8a98, 'category': 'Title', 'element_id':
 8683a24e897e3a9b862ead6c7979a58dc8}
-page_content=8在上一篇<kNN-NER：利用knn近邻算法来做命名实体识别>提及到文中提出
-kNN-NER框架是一种检索式增强的⽅法（retrieval augmented methods），就去查看有关
-retrieval augmented的paper，了解其核心思想，觉得检索式增强的⽅法很适合许多业务场景使
-用，因其以一种简捷的⽅式将外部知识融于模型中去。今天就分享一篇来自Facebook AI
-Research的paper，论文提出一种检索式增强生成⽅法，应用于知识密集型的NLP任务（如问答
-生成），该篇论文被2020年NeurIPS 会议接收。' metadata={8source8: 8asset/load/05-
-load.html8, 8last_modified8: 82025-07-17T15:38:368, 8languages8: [8nor8], 8file_directory8:
-8asset/load8, 8filename8: 805-load.html8, 8filetype8: 8text/html8, 8parent_id8:
-8683a24e897e3a9b862ead6c7979a58dc8, 8category8: 8NarrativeText8, 8element_id8:
-8d345b4a58c84984eb1acf1105fd9f2148}
-page_content=8文中说到，以BERT之类的大规模预训练模型将很多事实知识信息存入模型中，可
-以看着是pre-trained parametric类型，尽管以fine-tuned⽅式在下游任务取得显著的成效，但
-这类⽅法仍存在⽆法精准地获取和操作知识的缺陷。而在上述提及的问题上，传统知识检索的⽅法
-能很好的应对，这类⽅法可以看着是non-parametric memory类型。于是，论文提出检索式增强
-生成⽅法（retrieval-augmented generation，RAG），主要思想就是将pre-trained
+page_content='在上一篇<kNN-NER：利用knn近邻算法来做命名实体识别>提及到文中提出
+kNN-NER框架是一种检索式增强的方法（retrieval augmented methods），就去查看有关
+retrieval augmented的paper，了解其核心思想，觉得检索式增强的方法很适合许多业务场景使
+用，因其以一种简捷的方式将外部知识融于模型中去。今天就分享一篇来自Facebook AI
+Research的paper，论文提出一种检索式增强生成方法，应用于知识密集型的NLP任务（如问答
+生成），该篇论文被2020年NeurIPS 会议接收。' metadata={'source': 'asset/load/05-
+load.html8, 'last_modified': '2025-07-17T15:38:36', 'languages': ['nor'], 'file_directory':
+'asset/load', 'filename': '05-load.html', 'filetype': 'text/html', 'parent_id':
+8683a24e897e3a9b862ead6c7979a58dc8, 'category': 'NarrativeText', 'element_id':
+'d345b4a58c84984eb1acf1105fd9f214'}
+page_content='文中说到，以BERT之类的大规模预训练模型将很多事实知识信息存入模型中，可
+以看着是pre-trained parametric类型，尽管以fine-tuned方式在下游任务取得显著的成效，但
+这类方法仍存在无法精准地获取和操作知识的缺陷。而在上述提及的问题上，传统知识检索的方法
+能很好的应对，这类方法可以看着是non-parametric memory类型。于是，论文提出检索式增强
+生成方法（retrieval-augmented generation，RAG），主要思想就是将pre-trained
 parametric与non-parametric memory结合起来做语言生成任务，将两类模型集成起来提高任
-务处理效果。' metadata={8source8: 8asset/load/05-load.html8, 8last_modified8: '2025-07-17T15:38:368, 8languages8: [8nor8], 8file_directory8: 8asset/load8, 8filename8: 805-load.html8,
-8filetype8: 8text/html8, 8parent_id8: 8683a24e897e3a9b862ead6c7979a58dc8, 8category8:
-8UncategorizedText8, 8element_id8: 82fe8d146b5803ec72e5173bf155997108} page_content=82、RAG⽅法' metadata={8source8: 8asset/load/05-load.html8,
-8category_depth8: 1, 8last_modified8: 82025-07-17T15:38:368, 8languages8: [8zho8],
-8file_directory8: 8asset/load8, 8filename8: 805-load.html8, 8filetype8: 8text/html8, 8parent_id8:
-846103fd31eae47ed36481d13185af8a98, 8category8: 8Title8, 8element_id8:
+务处理效果。' metadata={'source': 'asset/load/05-load.html', 'last_modified': '2025-07-17T15:38:368, 'languages': ['nor'], 'file_directory': 'asset/load', 'filename': '05-load.html',
+'filetype': 'text/html', 'parent_id': 8683a24e897e3a9b862ead6c7979a58dc8, 'category':
+'UncategorizedText', 'element_id': 82fe8d146b5803ec72e5173bf155997108} page_content='2、RAG方法' metadata={'source': 'asset/load/05-load.html',
+'category_depth': 1, 'last_modified': '2025-07-17T15:38:36', 'languages': ['zho'],
+'file_directory': 'asset/load', 'filename': '05-load.html', 'filetype': 'text/html', 'parent_id':
+846103fd31eae47ed36481d13185af8a98, 'category': 'Title', 'element_id':
 822ca96c9bf71395b8fbbf0928bd7f2928}
 ```
 
 ```text
-page_content=8上图为论文提出RAG模型的整体⽰意图。主要包括两大模块：一个检索器
+page_content='上图为论文提出RAG模型的整体示意图。主要包括两大模块：一个检索器
 （Retriever， p\eta(z|x) ） + 一个生成器（Generator， p\theta(y_i|x,z,y_{1:i-1}) ）。前者包
 括query encoder和document index，分别负责query的编码和文档的索引；后者是一个
-seq2seq的生成模型。在检索中，使用的是最大内积搜索的⽅法（MIPS）来检索top-K相关文
-档。' metadata={8source8: 8asset/load/05-load.html8, 8last_modified8: 82025-07-17T15:38:368,
-8languages8: [8cat8, 8nor8], 8file_directory8: 8asset/load8, 8filename8: 805-load.html8, 8filetype8:
-8text/html8, 8parent_id8: 822ca96c9bf71395b8fbbf0928bd7f2928, 8category8: 8NarrativeText8,
-8element_id8: 86bbc63aaa7b3afb8d2685e9b3de78a4c8}
-page_content=83、实验' metadata={8source8: 8asset/load/05-load.html8, 8category_depth8: 1,
-8last_modified8: 82025-07-17T15:38:368, 8languages8: [8zho8], 8file_directory8: 8asset/load8,
-8filename8: 805-load.html8, 8filetype8: 8text/html8, 8parent_id8:
-846103fd31eae47ed36481d13185af8a98, 8category8: 8Title8, 8element_id8:
+seq2seq的生成模型。在检索中，使用的是最大内积搜索的方法（MIPS）来检索top-K相关文
+档。' metadata={'source': 'asset/load/05-load.html', 'last_modified': '2025-07-17T15:38:36',
+'languages': ['cat', 'nor'], 'file_directory': 'asset/load', 'filename': '05-load.html', 'filetype':
+'text/html', 'parent_id': 822ca96c9bf71395b8fbbf0928bd7f2928, 'category': 'NarrativeText',
+'element_id': 86bbc63aaa7b3afb8d2685e9b3de78a4c8}
+page_content='3、实验' metadata={'source': 'asset/load/05-load.html', 'category_depth': 1,
+'last_modified': '2025-07-17T15:38:36', 'languages': ['zho'], 'file_directory': 'asset/load',
+'filename': '05-load.html', 'filetype': 'text/html', 'parent_id':
+846103fd31eae47ed36481d13185af8a98, 'category': 'Title', 'element_id':
 84df308cd6991fb9e3f0592371bae26be8}
-page_content=8论文在四类Knowledge-Intensive 任务上进⾏实验，具体包括开放问答（Open-
+page_content='论文在四类Knowledge-Intensive 任务上进行实验，具体包括开放问答（Open-
 domain Question Answering ）、摘要式问答（Abstractive Question Answering） 、开放问题生成（Jeopardy Question Generation）、事实判断（Fact Verification ），并使用维基百科
-（包含2100万个文档）作为检索库。' metadata={8source8: 8asset/load/05-load.html8,
-8last_modified8: 82025-07-17T15:38:368, 8languages8: [8eng8], 8file_directory8: 8asset/load8,
-8filename8: 805-load.html8, 8filetype8: 8text/html8, 8parent_id8:
-84df308cd6991fb9e3f0592371bae26be8, 8category8: 8UncategorizedText8, 8element_id8:
-8ed6e043c7fd99ec0824b91725c66e0ba8}
-page_content=84、结语' metadata={8source8: 8asset/load/05-load.html8, 8category_depth8: 1,
-8last_modified8: 82025-07-17T15:38:368, 8languages8: [8zho8], 8file_directory8: 8asset/load8,
-8filename8: 805-load.html8, 8filetype8: 8text/html8, 8parent_id8:
-846103fd31eae47ed36481d13185af8a98, 8category8: 8Title8, 8element_id8:
+（包含2100万个文档）作为检索库。' metadata={'source': 'asset/load/05-load.html',
+'last_modified': '2025-07-17T15:38:36', 'languages': ['eng'], 'file_directory': 'asset/load',
+'filename': '05-load.html', 'filetype': 'text/html', 'parent_id':
+84df308cd6991fb9e3f0592371bae26be8, 'category': 'UncategorizedText', 'element_id':
+'ed6e043c7fd99ec0824b91725c66e0ba'}
+page_content='4、结语' metadata={'source': 'asset/load/05-load.html', 'category_depth': 1,
+'last_modified': '2025-07-17T15:38:36', 'languages': ['zho'], 'file_directory': 'asset/load',
+'filename': '05-load.html', 'filetype': 'text/html', 'parent_id':
+846103fd31eae47ed36481d13185af8a98, 'category': 'Title', 'element_id':
 895bc5bffaa5cfd41f5242f9f8b3307618}
-page_content=8本次分享基于检索增强⽅式将外部知识融于生成任务中一个新的框架――RAG。
-对⽐T5 和 BART这类擅长处理生成任务的模型来说，RAG更新外部知识是不需要重新预训练，成
-本低；而对⽐pipeline⽅法，RAG利用外部知识并不需要构造负责的特征工程。总的来说，RAG
-⽅法可作为外部知识融合框架的一种有效实例。' metadata={8source8: 8asset/load/05-load.html8,
-8last_modified8: 82025-07-17T15:38:368, 8languages8: [8zho8, 8kor8], 8file_directory8: 8asset/load8,
-8filename8: 805-load.html8, 8filetype8: 8text/html8, 8parent_id8:
-895bc5bffaa5cfd41f5242f9f8b3307618, 8category8: 8UncategorizedText8, 8element_id8:
+page_content='本次分享基于检索增强方式将外部知识融于生成任务中一个新的框架――RAG。
+对比T5 和 BART这类擅长处理生成任务的模型来说，RAG更新外部知识是不需要重新预训练，成
+本低；而对比pipeline方法，RAG利用外部知识并不需要构造负责的特征工程。总的来说，RAG
+方法可作为外部知识融合框架的一种有效实例。' metadata={'source': 'asset/load/05-load.html',
+'last_modified': '2025-07-17T15:38:36', 'languages': ['zho', 'kor'], 'file_directory': 'asset/load',
+'filename': '05-load.html', 'filetype': 'text/html', 'parent_id':
+895bc5bffaa5cfd41f5242f9f8b3307618, 'category': 'UncategorizedText', 'element_id':
 8232dc4ae399e0a8847bfcdeb2e64e2158}
-page_content=8有兴趣可关注笔者公众号：自然语言处理算法与实践' metadata={8source8:
-8asset/load/05-load.html8, 8last_modified8: 82025-07-17T15:38:368, 8languages8: [8zho8, 8kor8],
-8file_directory8: 8asset/load8, 8filename8: 805-load.html8, 8filetype8: 8text/html8, 8parent_id8:
-895bc5bffaa5cfd41f5242f9f8b3307618, 8category8: 8UncategorizedText8, 8element_id8:
+page_content='有兴趣可关注笔者公众号：自然语言处理算法与实践' metadata={'source':
+'asset/load/05-load.html', 'last_modified': '2025-07-17T15:38:36', 'languages': ['zho', 'kor'],
+'file_directory': 'asset/load', 'filename': '05-load.html', 'filetype': 'text/html', 'parent_id':
+895bc5bffaa5cfd41f5242f9f8b3307618, 'category': 'UncategorizedText', 'element_id':
 841f28a1034fdc4291daf652054c20bd28}
-page_content=8编辑于 2022-04-06 10:47' metadata={8source8: 8asset/load/05-load.html8,
-8last_modified8: 82025-07-17T15:38:368, 8languages8: [8zho8], 8file_directory8: 8asset/load8,
-8filename8: 805-load.html8, 8filetype8: 8text/html8, 8parent_id8:
-895bc5bffaa5cfd41f5242f9f8b3307618, 8category8: 8UncategorizedText8, 8element_id8:
-8f70255f8bf13d39885508fd845c223828}
-page_content=8深度学习（Deep Learning）' metadata={8source8: 8asset/load/05-load.html8,
-8last_modified8: 82025-07-17T15:38:368, 8languages8: [8nld8, 8eng8], 8file_directory8: 8asset/load8,
-8filename8: 805-load.html8, 8filetype8: 8text/html8, 8parent_id8:
-895bc5bffaa5cfd41f5242f9f8b3307618, 8category8: 8UncategorizedText8, 8element_id8:
+page_content='编辑于 2022-04-06 10:47' metadata={'source': 'asset/load/05-load.html',
+'last_modified': '2025-07-17T15:38:36', 'languages': ['zho'], 'file_directory': 'asset/load',
+'filename': '05-load.html', 'filetype': 'text/html', 'parent_id':
+895bc5bffaa5cfd41f5242f9f8b3307618, 'category': 'UncategorizedText', 'element_id':
+'f70255f8bf13d39885508fd845c22382'}
+page_content='深度学习（Deep Learning）' metadata={'source': 'asset/load/05-load.html',
+'last_modified': '2025-07-17T15:38:36', 'languages': ['nld', 'eng'], 'file_directory': 'asset/load',
+'filename': '05-load.html', 'filetype': 'text/html', 'parent_id':
+895bc5bffaa5cfd41f5242f9f8b3307618, 'category': 'UncategorizedText', 'element_id':
 81818d3e8e3a4ce395732bba3428a111d8}
-page_content=8自然语言处理算法与实践' metadata={8source8: 8asset/load/05-load.html8,
-8category_depth8: 2, 8last_modified8: 82025-07-17T15:38:368, 8languages8: [8kor8, 8zho8],
-8file_directory8: 8asset/load8, 8filename8: 805-load.html8, 8filetype8: 8text/html8, 8parent_id8:
-895bc5bffaa5cfd41f5242f9f8b3307618, 8category8: 8Title8, 8element_id8:
+page_content='自然语言处理算法与实践' metadata={'source': 'asset/load/05-load.html',
+'category_depth': 2, 'last_modified': '2025-07-17T15:38:36', 'languages': ['kor', 'zho'],
+'file_directory': 'asset/load', 'filename': '05-load.html', 'filetype': 'text/html', 'parent_id':
+895bc5bffaa5cfd41f5242f9f8b3307618, 'category': 'Title', 'element_id':
 895058f2148219d97462c5c4bfe1755028}
 ```
 
@@ -664,7 +665,7 @@ for doc in docs:
     pprint(doc)
 ```
 
-Document(metadata={8source8: 8asset/load/06-load.md8}, page_content=8自然语言处理技术文
+Document(metadata={'source': 'asset/load/06-load.md8}, page_content='自然语言处理技术文
 
 档\n\n本文档用于测试UnstructuredMarkdownLoader的中文处理能力。\n\n第一章：简介\n\n
 
@@ -672,7 +673,7 @@ Document(metadata={8source8: 8asset/load/06-load.md8}, page_content=8自然语�
 
 机器翻译\n\n情感分析\n\n问答系统\n\n第二章：关键技术\n\n2.1 预训练模型\n\nBERT：双向
 
-Transformer编码器\n\nGPT：自回归语言模型\n\nT5：文本到文本转换框架\n\n2.2 代码⽰例
+Transformer编码器\n\nGPT：自回归语言模型\n\nT5：文本到文本转换框架\n\n2.2 代码示例
 
 \n\n```python from transformers import pipeline\n\n创建文本分类管道\n\nclassifier =
 
@@ -718,7 +719,7 @@ for doc in docs:
 'BERT：双向Transformer编码器'
 'GPT：自回归语言模型'
 'T5：文本到文本转换框架'
-'2.2 代码⽰例'
+'2.2 代码示例'
 '```python from transformers import pipeline'
 '创建文本分类管道'
 'classifier = pipeline("text-classification", model="bert-base-chinese")'
@@ -897,15 +898,15 @@ metadata会根据loader实现的不同写入不同的数据，同样是一个必
 
 方法5：根据语义内容切分：这种高级策略依据文本的语义内容来划分块，旨在保持相关信息的集中和完整，适用于需要高度语义保持的应用场景。
 
-第2种⽅法（按照字符数切分）和第3种⽅法（按固定字符数切分结合重叠窗口）主要基于字符进⾏
+第2种方法（按照字符数切分）和第3种方法（按固定字符数切分结合重叠窗口）主要基于字符进行
 
-文本的切分，而不考虑文章的实际内容和语义。这种⽅式虽简单，但可能会导致主题或语义上的断裂。
+文本的切分，而不考虑文章的实际内容和语义。这种方式虽简单，但可能会导致主题或语义上的断裂。
 
-相对而言，第4种递归⽅法更加灵活和高效，它结合了固定长度切分和语义分析。通常是首选策略，因为它能够更好地确保每个段落包含一个完整的主题。
+相对而言，第4种递归方法更加灵活和高效，它结合了固定长度切分和语义分析。通常是首选策略，因为它能够更好地确保每个段落包含一个完整的主题。
 
-而第5种⽅法，基于语义的分割虽然能精确地切分出完整的主题段落，但这种⽅法效率较低。它需
+而第5种方法，基于语义的分割虽然能精确地切分出完整的主题段落，但这种方法效率较低。它需
 
-要运⾏复杂的分段算法（segmentation algorithm），处理速度较慢，并且段落长度可能极不均匀（有的主题段落可能很长，而有的则较短）。因此，尽管它在某些需要高精度语义保持的场景下有其应用价值，但并不适合所有情况。
+要运行复杂的分段算法（segmentation algorithm），处理速度较慢，并且段落长度可能极不均匀（有的主题段落可能很长，而有的则较短）。因此，尽管它在某些需要高精度语义保持的场景下有其应用价值，但并不适合所有情况。
 
 这些方法各有优势和局限，选择适当的分块策略取决于具体的应用需求和预期的检索效果。接下来我们依次尝试用常规手段应该如何实现上述几种方法的文本切分。
 
@@ -1838,13 +1839,13 @@ html_header_splits
 ```
 
 ```text
-[Document(metadata={8标题1': '欢迎来到尚硅⾕！'}, page_content=8欢迎来到尚硅⾕！'),
-Document(metadata={8标题1': '欢迎来到尚硅⾕！'}, page_content=8尚硅⾕是专门培训IT技术⽅向'),
-Document(metadata={8标题1': '欢迎来到尚硅⾕！', '标题2': '尚硅⾕⽼师简介'},
-page_content=8尚硅⾕⽼师简介'), Document(metadata={8标题1': '欢迎来到尚硅⾕！', '标题2': '尚硅⾕⽼师简介'},
-page_content=8尚硅⾕⽼师拥有多年教学经验，都是从一线互联⽹下来'), Document(metadata={8标题1': '欢迎来到尚硅⾕！', '标题2': '尚硅⾕⽼师简介', '标题3': '尚硅⾕北
-京校区'}, page_content=8尚硅⾕北京校区'),
-Document(metadata={8标题1': '欢迎来到尚硅⾕！', '标题2': '尚硅⾕⽼师简介', '标题3': '尚硅⾕北京校区'}, page_content=8北京校区位于宏福科技园区')]
+[Document(metadata={8标题1': '欢迎来到尚硅谷！'}, page_content='欢迎来到尚硅谷！'),
+Document(metadata={8标题1': '欢迎来到尚硅谷！'}, page_content='尚硅谷是专门培训IT技术方向'),
+Document(metadata={8标题1': '欢迎来到尚硅谷！', '标题2': '尚硅谷老师简介'},
+page_content='尚硅谷老师简介'), Document(metadata={8标题1': '欢迎来到尚硅谷！', '标题2': '尚硅谷老师简介'},
+page_content='尚硅谷老师拥有多年教学经验，都是从一线互联网下来'), Document(metadata={8标题1': '欢迎来到尚硅谷！', '标题2': '尚硅谷老师简介', '标题3': '尚硅谷北
+京校区'}, page_content='尚硅谷北京校区'),
+Document(metadata={8标题1': '欢迎来到尚硅谷！', '标题2': '尚硅谷老师简介', '标题3': '尚硅谷北京校区'}, page_content='北京校区位于宏福科技园区')]
 ```
 
 说明
@@ -2170,19 +2171,19 @@ print(docs[0].page_content)
 
 3. 人工智能的核心技术
 
-### 3.1 机器学习 机器学习是人工智能的核心技术之一，通过算法使计算机从数据中学习并做出决策。常⻅的机器学习算法包括监督学习、⽆监督学习和强化学习。监督学习通过标记数据进⾏训练，⽆监督学习则从未标记数据中寻找模式，强化学习则通过与环境交互来优化决策。
+### 3.1 机器学习 机器学习是人工智能的核心技术之一，通过算法使计算机从数据中学习并做出决策。常见的机器学习算法包括监督学习、无监督学习和强化学习。监督学习通过标记数据进行训练，无监督学习则从未标记数据中寻找模式，强化学习则通过与环境交互来优化决策。
 
-### 3.2 深度学习 深度学习是机器学习的一个子领域，通过多层神经⽹络进⾏特征提取和模式识别。深度学习在图像识别、自然语言处理、语⾳识别等领域取得了显著成果。常⻅的深度学习模型包括卷积神经⽹络（CNN）、循环神经⽹络（RNN）和长短期记忆⽹络（LSTM）。
+### 3.2 深度学习 深度学习是机器学习的一个子领域，通过多层神经网络进行特征提取和模式识别。深度学习在图像识别、自然语言处理、语音识别等领域取得了显著成果。常见的深度学习模型包括卷积神经网络（CNN）、循环神经网络（RNN）和长短期记忆网络（LSTM）。
 
-### 3.3 自然语言处理 自然语言处理（NLP）是人工智能的一个重要分支，致力于使计算机能够理解和生成人类语言。NLP技术⼴泛应用于机器翻译、情感分析、文本分类等领域。近年来，基于深度学习的NLP模型（如BERT、GPT）在语言理解任务中取得了突破性进展。
+### 3.3 自然语言处理 自然语言处理（NLP）是人工智能的一个重要分支，致力于使计算机能够理解和生成人类语言。NLP技术广泛应用于机器翻译、情感分析、文本分类等领域。近年来，基于深度学习的NLP模型（如BERT、GPT）在语言理解任务中取得了突破性进展。
 
-### 3.4 计算机视觉 计算机视觉是人工智能的另一个重要分支，致力于使计算机能够理解和处理图像和视频。计算机视觉技术⼴泛应用于图像识别、⽬标检测、人脸识别等领域。深度学习模型（如CNN）在计算机视觉任务中取得了显著成果。
+### 3.4 计算机视觉 计算机视觉是人工智能的另一个重要分支，致力于使计算机能够理解和处理图像和视频。计算机视觉技术广泛应用于图像识别、目标检测、人脸识别等领域。深度学习模型（如CNN）在计算机视觉任务中取得了显著成果。
 
 4. 人工智能的应用领域
 
 ### 4.1 医疗健康 人工智能在医疗健康领域的应用包括疾病诊断、药物研发、个性化医疗等。通过分析医学影像和患者数据，人工智能可以帮助医生更准确地诊断疾病，提高治疗效果。
 
-### 4.2 ⾦融 人工智能在⾦融领域的应用包括风险评估、欺诈检测、算法交易等。通过分析市场数据和交易记录，人工智能可以帮助⾦融机构做出更明智的决策，提高运营效率。
+### 4.2 金融 人工智能在金融领域的应用包括风险评估、欺诈检测、算法交易等。通过分析市场数据和交易记录，人工智能可以帮助金融机构做出更明智的决策，提高运营效率。
 
 ### 4.3 教育 人工智能在教育领域的应用包括个性化学习、智能辅导、自动评分等。通过分析学生的学习数据，人工智能可以为学生提供个性化的学习建议，提高学习效果。
 
@@ -2343,27 +2344,27 @@ print(f"元数据: {doc.metadata}")
 
 结果 1
 
-内容: 猫是小型⾁⻝性哺乳动物，性格独⽴但也能与人类建⽴亲密关系。它们夜视能力极强，擅长
+内容: 猫是小型肉食性哺乳动物，性格独立但也能与人类建立亲密关系。它们夜视能力极强，擅长
 
-捕猎⽼⿏。家猫的品种包括波斯猫、暹罗猫等，毛⾊和花纹多样。
+捕猎老鼠。家猫的品种包括波斯猫、暹罗猫等，毛色和花纹多样。
 
-元数据: {8source8: '动物', 8type8: '哺乳动物'}
+元数据: {'source': '动物', 'type': '哺乳动物'}
 
 结果 2
 
-内容: 狗是人类最早驯化的动物之一，属于⽝科。它们具有高度社会性，能理解人类情绪，常被用
+内容: 狗是人类最早驯化的动物之一，属于犬科。它们具有高度社会性，能理解人类情绪，常被用
 
-作宠物、导盲⽝或警⽝。不同品种的狗在体型、毛⾊和性格上有很大差异。
+作宠物、导盲犬或警犬。不同品种的狗在体型、毛色和性格上有很大差异。
 
-元数据: {8source8: '动物', 8type8: '哺乳动物'}
+元数据: {'source': '动物', 'type': '哺乳动物'}
 
 结果 3
 
-内容: 人类是地球上最具智慧的生物，属于灵长⽬人科。现代人类（智人）拥有高度发达的大脑，
+内容: 人类是地球上最具智慧的生物，属于灵长目人科。现代人类（智人）拥有高度发达的大脑，
 
 创造了语言、工具和文明。人类的平均寿命约70-80年，分布在全球各地。
 
-元数据: {8source8: '生物', 8type8: '灵长类'}
+元数据: {'source': '生物', 'type': '灵长类'}
 
 ② 支持直接对问题向量查询（similarity_search_by_vector）
 
@@ -2383,27 +2384,27 @@ print(f"元数据: {doc.metadata}")
 
 结果 1
 
-内容: 猫是小型⾁⻝性哺乳动物，性格独⽴但也能与人类建⽴亲密关系。它们夜视能力极强，擅长
+内容: 猫是小型肉食性哺乳动物，性格独立但也能与人类建立亲密关系。它们夜视能力极强，擅长
 
-捕猎⽼⿏。家猫的品种包括波斯猫、暹罗猫等，毛⾊和花纹多样。
+捕猎老鼠。家猫的品种包括波斯猫、暹罗猫等，毛色和花纹多样。
 
-元数据: {8source8: '动物', 8type8: '哺乳动物'}
+元数据: {'source': '动物', 'type': '哺乳动物'}
 
 结果 2
 
-内容: 狗是人类最早驯化的动物之一，属于⽝科。它们具有高度社会性，能理解人类情绪，常被用
+内容: 狗是人类最早驯化的动物之一，属于犬科。它们具有高度社会性，能理解人类情绪，常被用
 
-作宠物、导盲⽝或警⽝。不同品种的狗在体型、毛⾊和性格上有很大差异。
+作宠物、导盲犬或警犬。不同品种的狗在体型、毛色和性格上有很大差异。
 
-元数据: {8source8: '动物', 8type8: '哺乳动物'}
+元数据: {'source': '动物', 'type': '哺乳动物'}
 
 结果 3
 
-内容: 人类是地球上最具智慧的生物，属于灵长⽬人科。现代人类（智人）拥有高度发达的大脑，
+内容: 人类是地球上最具智慧的生物，属于灵长目人科。现代人类（智人）拥有高度发达的大脑，
 
 创造了语言、工具和文明。人类的平均寿命约70-80年，分布在全球各地。
 
-元数据: {8source8: '生物', 8type8: '灵长类'}
+元数据: {'source': '生物', 'type': '灵长类'}
 
 ③ 相似性检索，支持过滤元数据（filter）
 
@@ -2420,19 +2421,19 @@ print(f"元数据: {doc.metadata}")
 结果 1
 ```
 
-内容: 猫是小型⾁⻝性哺乳动物，性格独⽴但也能与人类建⽴亲密关系。它们夜视能力极强，擅长
+内容: 猫是小型肉食性哺乳动物，性格独立但也能与人类建立亲密关系。它们夜视能力极强，擅长
 
-捕猎⽼⿏。家猫的品种包括波斯猫、暹罗猫等，毛⾊和花纹多样。
+捕猎老鼠。家猫的品种包括波斯猫、暹罗猫等，毛色和花纹多样。
 
-元数据: {8source8: '动物', 8type8: '哺乳动物'}
+元数据: {'source': '动物', 'type': '哺乳动物'}
 
 结果 2
 
-内容: 狗是人类最早驯化的动物之一，属于⽝科。它们具有高度社会性，能理解人类情绪，常被用
+内容: 狗是人类最早驯化的动物之一，属于犬科。它们具有高度社会性，能理解人类情绪，常被用
 
-作宠物、导盲⽝或警⽝。不同品种的狗在体型、毛⾊和性格上有很大差异。
+作宠物、导盲犬或警犬。不同品种的狗在体型、毛色和性格上有很大差异。
 
-元数据: {8type8: '哺乳动物', 8source8: '动物'}
+元数据: {'type': '哺乳动物', 'source': '动物'}
 
 ④ 通过L2距离分数进行搜索（similarity_search_with_score）
 
@@ -2454,18 +2455,18 @@ print(f" [L2距离得分={score:.3f}] {doc.page_content} [{doc.metadata}]")
 ```
 
 ```text
-[{8type8: '科学', 8source8: '物理'}] [L2距离得分=0.447] 太阳是太阳系的中心恒星，直径约139万公里，主要由氢和氦组成。它通过核
-聚变反应产生能量，为地球提供光和热。太阳活动周期约为11年，会影响地球⽓候。 [{8source8: '天文', 8type8: '恒星'}] [L2距离得分=0.463] 人类是地球上最具智慧的生物，属于灵长⽬人科。现代人类（智人）拥有高
+[{'type': '科学', 'source': '物理'}] [L2距离得分=0.447] 太阳是太阳系的中心恒星，直径约139万公里，主要由氢和氦组成。它通过核
+聚变反应产生能量，为地球提供光和热。太阳活动周期约为11年，会影响地球气候。 [{'source': '天文', 'type': '恒星'}] [L2距离得分=0.463] 人类是地球上最具智慧的生物，属于灵长目人科。现代人类（智人）拥有高
 ```
 
 度发达的大脑，创造了语言、工具和文明。人类的平均寿命约70-80年，分布在全球各地。
 
 ```text
-[{8type8: '灵长类', 8source8: '生物'}] [L2距离得分=0.488] 新冠病毒（SARS-CoV-2）是一种可引起呼吸道疾病的冠状病毒。它通过⻜沫
-传播，主要症状包括发热、咳嗽、乏力。疫苗和戴口罩是有效的预防措施。 [{8source8: '医学',
+[{'type': '灵长类', 'source': '生物'}] [L2距离得分=0.488] 新冠病毒（SARS-CoV-2）是一种可引起呼吸道疾病的冠状病毒。它通过飞沫
+传播，主要症状包括发热、咳嗽、乏力。疫苗和戴口罩是有效的预防措施。 [{'source': '医学',
 ```
 
-8type8: '病毒'}]
+'type': '病毒'}]
 
 ⑤ 通过余弦相似度分数进行搜索（_similarity_search_with_relevance_scores）
 
@@ -2574,56 +2575,56 @@ print(len(docs))
 # 10.得到结果
 for doc in docs
 print(f"⭐{doc}")
-⭐page_content=8人工智能综述：发展、应用与未来展望
+⭐page_content='人工智能综述：发展、应用与未来展望
 ```
 
-摘要 人工智能（Artificial Intelligence，AI）作为计算机科学的一个重要分支，近年来取得了突⻜猛进的发展。本文综述了人工智能的发展历程、核心技术、应用领域以及未来发展趋势。通过对人工智能的定义、历史背景、主要技术（如机器学习、深度学习、自然语言处理等）的详细介绍，探讨了人工智能在医疗、⾦融、教育、交通等领域的应用，并分析了人工智能发展过程中面临的挑战与机遇。最后，本文对人工智能的未来发展进⾏了展望，提出了可能的突破⽅向。
+摘要 人工智能（Artificial Intelligence，AI）作为计算机科学的一个重要分支，近年来取得了突飞猛进的发展。本文综述了人工智能的发展历程、核心技术、应用领域以及未来发展趋势。通过对人工智能的定义、历史背景、主要技术（如机器学习、深度学习、自然语言处理等）的详细介绍，探讨了人工智能在医疗、金融、教育、交通等领域的应用，并分析了人工智能发展过程中面临的挑战与机遇。最后，本文对人工智能的未来发展进行了展望，提出了可能的突破方向。
 
-1. 引言 人工智能是指通过计算机程序模拟人类智能的一门科学。自20世纪50年代诞生以来，人工智能经历了多次起伏，近年来随着计算能力的提升和大数据的普及，人工智能技术取得了显著的进展。人工智能的应用已经渗透到⽇常生活的⽅⽅面面，从智能手机的语⾳助手到自动驾驶汽车，从医疗诊断到⾦融分析，人工智能正在改变着人类社会的运⾏⽅式。
+1. 引言 人工智能是指通过计算机程序模拟人类智能的一门科学。自20世纪50年代诞生以来，人工智能经历了多次起伏，近年来随着计算能力的提升和大数据的普及，人工智能技术取得了显著的进展。人工智能的应用已经渗透到日常生活的方方面面，从智能手机的语音助手到自动驾驶汽车，从医疗诊断到金融分析，人工智能正在改变着人类社会的运行方式。
 
 2. 人工智能的发展历程
 
-### 2.1 早期发展 人工智能的概念最早可以追溯到20世纪50年代。1956年，达特茅斯会议（Dartmouth Conference）被认为是人工智能研究的正式开端。在随后的⼏⼗年里，人工智能研究经历了多次高潮与低⾕。早期的研究主要集中在符号逻辑和专家系统上，但由于计算能力的限制和算法的不⾜，进展缓慢。
+### 2.1 早期发展 人工智能的概念最早可以追溯到20世纪50年代。1956年，达特茅斯会议（Dartmouth Conference）被认为是人工智能研究的正式开端。在随后的几十年里，人工智能研究经历了多次高潮与低谷。早期的研究主要集中在符号逻辑和专家系统上，但由于计算能力的限制和算法的不足，进展缓慢。
 
-### 2.2 机器学习的兴起 20世纪90年代，随着统计学习⽅法的引入，机器学习逐渐成为人工智能研究的主流。支持向量机（SVM）、决策树、随机森林等算法在分类和回归任务中取得了良好的效果。这一时期，机器学习开始应用于数据挖掘、模式识别等领域。
+### 2.2 机器学习的兴起 20世纪90年代，随着统计学习方法的引入，机器学习逐渐成为人工智能研究的主流。支持向量机（SVM）、决策树、随机森林等算法在分类和回归任务中取得了良好的效果。这一时期，机器学习开始应用于数据挖掘、模式识别等领域。
 
-### 2.3 深度学习的突破 2012年，深度学习在图像识别领域取得了突破性进展，标志着人工智能进入了一个新的阶段。深度学习通过多层神经⽹络模拟人脑的工作⽅式，能够自动提取特征并进⾏复杂的模式识别。卷积神经⽹络（CNN）、循环神经⽹络（RNN）和长短期记忆⽹络（LSTM）等深度学习模型在图像处理、自然语言处理、语⾳识别等领域取得了显著成果。' metadata= {8source8: 8./asset/load/09-ai1.txt8}
+### 2.3 深度学习的突破 2012年，深度学习在图像识别领域取得了突破性进展，标志着人工智能进入了一个新的阶段。深度学习通过多层神经网络模拟人脑的工作方式，能够自动提取特征并进行复杂的模式识别。卷积神经网络（CNN）、循环神经网络（RNN）和长短期记忆网络（LSTM）等深度学习模型在图像处理、自然语言处理、语音识别等领域取得了显著成果。' metadata= {'source': 8./asset/load/09-ai1.txt8}
 
-⭐page_content=83. 人工智能的核心技术
+⭐page_content='3. 人工智能的核心技术
 
-### 3.1 机器学习 机器学习是人工智能的核心技术之一，通过算法使计算机从数据中学习并做出决策。常⻅的机器学习算法包括监督学习、⽆监督学习和强化学习。监督学习通过标记数据进⾏训练，⽆监督学习则从未标记数据中寻找模式，强化学习则通过与环境交互来优化决策。
+### 3.1 机器学习 机器学习是人工智能的核心技术之一，通过算法使计算机从数据中学习并做出决策。常见的机器学习算法包括监督学习、无监督学习和强化学习。监督学习通过标记数据进行训练，无监督学习则从未标记数据中寻找模式，强化学习则通过与环境交互来优化决策。
 
-### 3.2 深度学习 深度学习是机器学习的一个子领域，通过多层神经⽹络进⾏特征提取和模式识别。深度学习在图像识别、自然语言处理、语⾳识别等领域取得了显著成果。常⻅的深度学习模型包括卷积神经⽹络（CNN）、循环神经⽹络（RNN）和长短期记忆⽹络（LSTM）。
+### 3.2 深度学习 深度学习是机器学习的一个子领域，通过多层神经网络进行特征提取和模式识别。深度学习在图像识别、自然语言处理、语音识别等领域取得了显著成果。常见的深度学习模型包括卷积神经网络（CNN）、循环神经网络（RNN）和长短期记忆网络（LSTM）。
 
-### 3.3 自然语言处理 自然语言处理（NLP）是人工智能的一个重要分支，致力于使计算机能够理解和生成人类语言。NLP技术⼴泛应用于机器翻译、情感分析、文本分类等领域。近年来，基于深度学习的NLP模型（如BERT、GPT）在语言理解任务中取得了突破性进展。
+### 3.3 自然语言处理 自然语言处理（NLP）是人工智能的一个重要分支，致力于使计算机能够理解和生成人类语言。NLP技术广泛应用于机器翻译、情感分析、文本分类等领域。近年来，基于深度学习的NLP模型（如BERT、GPT）在语言理解任务中取得了突破性进展。
 
-### 3.4 计算机视觉 计算机视觉是人工智能的另一个重要分支，致力于使计算机能够理解和处理图像和视频。计算机视觉技术⼴泛应用于图像识别、⽬标检测、人脸识别等领域。深度学习模型（如CNN）在计算机视觉任务中取得了显著成果。
+### 3.4 计算机视觉 计算机视觉是人工智能的另一个重要分支，致力于使计算机能够理解和处理图像和视频。计算机视觉技术广泛应用于图像识别、目标检测、人脸识别等领域。深度学习模型（如CNN）在计算机视觉任务中取得了显著成果。
 
 3. 人工智能的应用领域
 
 ### 4.1 医疗健康 人工智能在医疗健康领域的应用包括疾病诊断、药物研发、个性化医疗等。通过分析医学影像和患者数据，人工智能可以帮助医生更准确地诊断疾病，提高治疗效果。
 
-### 4.2 ⾦融 人工智能在⾦融领域的应用包括风险评估、欺诈检测、算法交易等。通过分析市场数据和交易记录，人工智能可以帮助⾦融机构做出更明智的决策，提高运营效率。
+### 4.2 金融 人工智能在金融领域的应用包括风险评估、欺诈检测、算法交易等。通过分析市场数据和交易记录，人工智能可以帮助金融机构做出更明智的决策，提高运营效率。
 
 ### 4.3 教育 人工智能在教育领域的应用包括个性化学习、智能辅导、自动评分等。通过分析学生的学习数据，人工智能可以为学生提供个性化的学习建议，提高学习效果。
 
-### 4.4 交通 人工智能在交通领域的应用包括自动驾驶、交通管理、智能导航等。通过分析交通数据和路况信息，人工智能可以帮助优化交通流量，提高交通安全。' metadata={8source8:
+### 4.4 交通 人工智能在交通领域的应用包括自动驾驶、交通管理、智能导航等。通过分析交通数据和路况信息，人工智能可以帮助优化交通流量，提高交通安全。' metadata={'source':
 
 8./asset/load/09-ai1.txt8}
 
-⭐page_content=85. 人工智能的挑战与机遇
+⭐page_content='5. 人工智能的挑战与机遇
 
-### 5.1 挑战 人工智能发展过程中面临的主要挑战包括数据隐私、算法偏⻅、安全性问题等。数据隐私问题涉及到个人数据的收集和使用，算法偏⻅问题则涉及到算法的公平性和透明度，安全性问题则涉及到人工智能系统的可靠性和稳定性。
+### 5.1 挑战 人工智能发展过程中面临的主要挑战包括数据隐私、算法偏见、安全性问题等。数据隐私问题涉及到个人数据的收集和使用，算法偏见问题则涉及到算法的公平性和透明度，安全性问题则涉及到人工智能系统的可靠性和稳定性。
 
-### 5.2 机遇 尽管面临挑战，人工智能的发展也带来了巨大的机遇。人工智能技术的进步将推动各⾏各业的创新，提高生产效率，改善生活质量。未来，人工智能有望在更多领域取得突破，为人类社会带来更多的便利和福祉。
+### 5.2 机遇 尽管面临挑战，人工智能的发展也带来了巨大的机遇。人工智能技术的进步将推动各行各业的创新，提高生产效率，改善生活质量。未来，人工智能有望在更多领域取得突破，为人类社会带来更多的便利和福祉。
 
 4. 未来展望
 
-### 6.1 技术突破 未来，人工智能技术有望在以下⼏个⽅面取得突破：一是算法的优化和创新，提高模型的效率和准确性；二是计算能力的提升，支持更复杂的模型和更大规模的数据处理；三是跨学科研究的深入，推动人工智能与其他领域的融合。
+### 6.1 技术突破 未来，人工智能技术有望在以下几个方面取得突破：一是算法的优化和创新，提高模型的效率和准确性；二是计算能力的提升，支持更复杂的模型和更大规模的数据处理；三是跨学科研究的深入，推动人工智能与其他领域的融合。
 
 ### 6.2 应用拓展 随着技术的进步，人工智能的应用领域将进一步拓展。未来，人工智能有望在更多领域发挥重要作用，如环境保护、能源管理、智能制造等。人工智能将成为推动社会进步的重要力量。
 
-5. 结论 人工智能作为一门快速发展的科学，正在改变着人类社会的运⾏⽅式。通过不断的技术创新和应用拓展，人工智能将为人类社会带来更多的便利和福祉。然而，人工智能的发展也面临着诸多挑战，需要社会各界共同努力，推动人工智能的健康发展。' metadata={8source8:
+5. 结论 人工智能作为一门快速发展的科学，正在改变着人类社会的运行方式。通过不断的技术创新和应用拓展，人工智能将为人类社会带来更多的便利和福祉。然而，人工智能的发展也面临着诸多挑战，需要社会各界共同努力，推动人工智能的健康发展。' metadata={'source':
 
 8./asset/load/09-ai1.txt8}
 
@@ -2729,7 +2730,7 @@ print(f"\n结果 {i+1}:\n{doc.page_content}\n")
 
 结果 4
 
-基础设施：政府将投资1万亿美元用于修复道路、桥梁和宽带⽹络。
+基础设施：政府将投资1万亿美元用于修复道路、桥梁和宽带网络。
 
 ② 分数阈值查询
 
@@ -2903,17 +2904,17 @@ print("\n回答:", result.content)
 
 1. 故宫 - 明清两代的皇家宫殿，世界上现存规模最大、保存最完整的木质结构古建筑群 之一。
 
-2. 天安门 - 北京的标志性建筑之一，天安门⼴场是世界上最大的城市⼴场。3. 颐和园 - 清朝时期的皇家园林，融合了江南园林的设计风格。
+2. 天安门 - 北京的标志性建筑之一，天安门广场是世界上最大的城市广场。3. 颐和园 - 清朝时期的皇家园林，融合了江南园林的设计风格。
 
-4. 天坛 - 明清两代皇帝祭天、祈⾕的场所，具有深厚的文化内涵。
+4. 天坛 - 明清两代皇帝祭天、祈谷的场所，具有深厚的文化内涵。
 
-5. 长城（⼋达岭段） - 最著名的北京段，被誉为"世界第⼋大奇迹"。
+5. 长城（八达岭段） - 最著名的北京段，被誉为"世界第八大奇迹"。
 
-6. 国家体育场（⻦巢） - 2008年奥运会主体育场，以独特的钢结构设计著称。
+6. 国家体育场（鸟巢） - 2008年奥运会主体育场，以独特的钢结构设计著称。
 
 7. 中央电视台总部大楼 - 现代北京最具争议和识别度的建筑之一。
 
-8. 国家大剧院 - 因其蛋壳造型被称为"巨蛋"，是世界最大的穹顶建筑之一。 9. 北京大兴国际机场 - 超大型国际航空枢纽，被誉为"新世界七大奇迹"之一。10. ⿎楼和钟楼 - 古代中国的计时中心，展现了古代的计时智慧。
+8. 国家大剧院 - 因其蛋壳造型被称为"巨蛋"，是世界最大的穹顶建筑之一。 9. 北京大兴国际机场 - 超大型国际航空枢纽，被誉为"新世界七大奇迹"之一。10. 鼓楼和钟楼 - 古代中国的计时中心，展现了古代的计时智慧。
 
 举例2：使用Chroma数据库 （与举例1类似）
 
@@ -3113,9 +3114,9 @@ print(f"ToolCalls: {response.tool_calls}")
 ContentString
 ```
 
-ToolCalls: [{8name8: 8tavily_search_results_json8, 8args8: {8query8: '今天上海天⽓'}, 8id8:
+ToolCalls: [{'name': 'tavily_search_results_json', 'args': {'query': '今天上海天气'}, 'id':
 
-8call_EOxYscVIVjttlbztWoR1CvTm8, 8type8: 8tool_call8}]
+'call_EOxYscVIVjttlbztWoR1CvTm', 'type': 'tool_call'}]
 
 我们可以看到现在没有内容，但有一个工具调用！它要求我们调用Tavily Search工具。
 
@@ -3133,12 +3134,12 @@ print(prompt.messages)
 template=8You are a helpful assistant8)),
 ```
 
-MessagesPlaceholder(variable_name=8chat_history8, optional=True),
+MessagesPlaceholder(variable_name='chat_history', optional=True),
 
-HumanMessagePromptTemplate(prompt=PromptTemplate(input_variables=[8input8],
+HumanMessagePromptTemplate(prompt=PromptTemplate(input_variables=['input'],
 
 ```text
-template=8{input}8)), MessagesPlaceholder(variable_name=8agent_scratchpad8)]
+template=8{input}8)), MessagesPlaceholder(variable_name='agent_scratchpad')]
 现在，我们可以使用LLM、提示和工具初始化Agent。Agent 负责接收输入并决定采取什么行动。关键的是，Agent 不执行这些操作 - 这是由AgentExecutor（下一步）完成的。
 ```
 
@@ -3159,27 +3160,27 @@ agent_executor = AgentExecutor(agent=agent, tools=tools,verbose=True)
 
 ```text
 print(agent_executor.invoke({"input": "猫的特征"}))
-{8input8: '猫的特征', 8output8: '猫是一种灵活且适应性强的哺乳动物，具有一系列独特的生理特征和感官能力。以下是猫的主要特征：\n\n### 感官\n1. 听觉：猫的耳朵内有32条独⽴肌⾁，能够高度
-灵活地朝向不同⾳源，捕捉声⾳时⾮常敏锐。\n2. 视力：猫的夜视能力远超人类，是人类的六倍，
+{'input': '猫的特征', 'output': '猫是一种灵活且适应性强的哺乳动物，具有一系列独特的生理特征和感官能力。以下是猫的主要特征：\n\n### 感官\n1. 听觉：猫的耳朵内有32条独立肌肉，能够高度
+灵活地朝向不同音源，捕捉声音时非常敏锐。\n2. 视力：猫的夜视能力远超人类，是人类的六倍，
 ```
 
-猫眼具有特殊的反射膜，可以在微光下观察物体。猫的视觉范围⼴，但在光线强烈时视野会缩小。
+猫眼具有特殊的反射膜，可以在微光下观察物体。猫的视觉范围广，但在光线强烈时视野会缩小。
 
-\n3. 嗅觉：猫的嗅觉是人类的14倍，⿐腔内有2亿个嗅觉受器，有助于捕猎。\n4. 味觉：由于基因
+\n3. 嗅觉：猫的嗅觉是人类的14倍，鼻腔内有2亿个嗅觉受器，有助于捕猎。\n4. 味觉：由于基因
 
-突变，猫失去了甜味的感知，但能够分辨酸、苦和咸等味道。\n5. 触觉：猫身上的触须能感知空⽓
+突变，猫失去了甜味的感知，但能够分辨酸、苦和咸等味道。\n5. 触觉：猫身上的触须能感知空气
 
-的微小变化，帮助它们在⿊暗中导航。\n\n### 体型特征\n- ⽖子：猫的⽖子尖锐，可以伸缩，脚
+的微小变化，帮助它们在黑暗中导航。\n\n### 体型特征\n- 爪子：猫的爪子尖锐，可以伸缩，脚
 
-掌底部有脂肪垫，可以悄⽆声息地⾏走。\n- 灵活性：猫的舞动⾮常优雅，能够迅速反应，适应多
+掌底部有脂肪垫，可以悄无声息地行走。\n- 灵活性：猫的舞动非常优雅，能够迅速反应，适应多
 
-种环境。\n\n### 习性\n- 领地意识：猫喜欢通过磨蹭和⽓味标记来控制领地。\n- 社交性：虽然猫
+种环境。\n\n### 习性\n- 领地意识：猫喜欢通过磨蹭和气味标记来控制领地。\n- 社交性：虽然猫
 
-通常被认为是独⽴动物，但它们也能够与人类和其他动物建⽴深厚的关系。\n\n### 品种\n- 公认
+通常被认为是独立动物，但它们也能够与人类和其他动物建立深厚的关系。\n\n### 品种\n- 公认
 
 的猫品种多样，国际猫协会、爱猫协会和国际猫联合会等组织识别了多种标准化品种。\n\n猫作为
 
-一种家庭宠物，能够与人类建⽴紧密的联系，同时保持其独⽴性和捕猎本能。它们的特征使它们在
+一种家庭宠物，能够与人类建立紧密的联系，同时保持其独立性和捕猎本能。它们的特征使它们在
 
 各种环境中都能生存和繁衍。'}
 
@@ -3187,11 +3188,11 @@ print(agent_executor.invoke({"input": "猫的特征"}))
 
 ```text
 print(agent_executor.invoke({"input": "今天上海天气怎么样"}))
-{8input8: '今天上海天⽓怎么样', 8output8: '今天上海的天⽓情况如下：\n\n- 当前温度：22.9℃ \n- 相对湿度：65%\n- 体感温度：25.4℃\n- 降⽔量：0mm\n- 空⽓质量：优\n- 舒适度：温暖，较舒
-适\n- 风速：约7.9m/s，主要风向为东南风\n\n预计在今天⽓温将最高达到31.5℃。\n\n如果你想
+{'input': '今天上海天气怎么样', 'output': '今天上海的天气情况如下：\n\n- 当前温度：22.9℃ \n- 相对湿度：65%\n- 体感温度：25.4℃\n- 降水量：0mm\n- 空气质量：优\n- 舒适度：温暖，较舒
+适\n- 风速：约7.9m/s，主要风向为东南风\n\n预计在今天气温将最高达到31.5℃。\n\n如果你想
 ```
 
-获取更详细的天⽓信息，可以查看中国⽓象局-天⽓预报 或者中央⽓象台。'}
+获取更详细的天气信息，可以查看中国气象局-天气预报 或者中央气象台。'}
 
 #### 7.2.7 添加记忆
 
@@ -3225,7 +3226,7 @@ config={"configurable": {"session_id": "123"}},
 
 ```text
 print(response)
-{8input8: 8Hi，我的名字是Cyber8, 8chat_history8: [], 8output8: '你好，Cyber！有什么我可以帮助你的吗？'}
+{'input': 8Hi，我的名字是Cyber8, 'chat_history': [], 'output': '你好，Cyber！有什么我可以帮助你的吗？'}
 继续提问
 ```
 
@@ -3238,16 +3239,16 @@ config={"configurable": {"session_id": "123"}},
 
 ```text
 print(response)
-{8input8: '我叫什么名字?', 8chat_history8: [HumanMessage(content=8Hi，我的名字是Cyber8, additional_kwargs={}, response_metadata={}), AIMessage(content=8你好，Cyber！有什么我
+{'input': '我叫什么名字?', 'chat_history': [HumanMessage(content='Hi，我的名字是Cyber8, additional_kwargs={}, response_metadata={}), AIMessage(content='你好，Cyber！有什么我
 可以帮助你的吗？', additional_kwargs={}, response_metadata={}),
 ```
 
-HumanMessage(content=8我叫什么名字?', additional_kwargs={}, response_metadata={}),
+HumanMessage(content='我叫什么名字?', additional_kwargs={}, response_metadata={}),
 
-AIMessage(content=8你的名字是 Cyber。请问还有其他问题吗？', additional_kwargs={},
+AIMessage(content='你的名字是 Cyber。请问还有其他问题吗？', additional_kwargs={},
 
 ```text
-response_metadata={})], 8output8: '你的名字是 Cyber。请问你还有其他问题吗？'}
+response_metadata={})], 'output': '你的名字是 Cyber。请问你还有其他问题吗？'}
 继续
 ```
 
@@ -3260,7 +3261,7 @@ config={"configurable": {"session_id": "4566"}},
 
 ```text
 print(response)
-{8input8: '我叫什么名字?', 8chat_history8: [], 8output8: '我⽆法知道你的名字，因为你并没有告诉我。 如果你愿意，可以告诉我你的名字，我很乐意记住它并与之交流！'}
+{'input': '我叫什么名字?', 'chat_history': [], 'output': '我无法知道你的名字，因为你并没有告诉我。 如果你愿意，可以告诉我你的名字，我很乐意记住它并与之交流！'}
 ```
 
 ## 8、项目：知识库问答助手(了解)
@@ -3390,13 +3391,13 @@ print(response.content)
 
 ```text
 
-AIMessage(content=8尚硅⾕教育科技有限公司的总部地址是：北京市海淀区中关村软件园创新大厦B座5层。', additional_kwargs={8refusal8: None}, response_metadata={8token_usage8: {8completion_tokens8: 31, 8prompt_tokens8: 1348, 8total_tokens8: 1379,
+AIMessage(content='尚硅谷教育科技有限公司的总部地址是：北京市海淀区中关村软件园创新大厦B座5层。', additional_kwargs={'refusal': None}, response_metadata={'token_usage': {'completion_tokens': 31, 'prompt_tokens': 1348, 'total_tokens': 1379,
 
-8completion_tokens_details8: {8accepted_prediction_tokens8: 0, 8audio_tokens8: 0,
+'completion_tokens_details': {'accepted_prediction_tokens': 0, 'audio_tokens': 0,
 
-8reasoning_tokens8: 0, 8rejected_prediction_tokens8: 0}, 8prompt_tokens_details8: {8audio_tokens8: 0, 8cached_tokens8: 0}}, 8model_name8: 8gpt-4o-2024-11-208,
+'reasoning_tokens': 0, 'rejected_prediction_tokens': 0}, 'prompt_tokens_details': {'audio_tokens': 0, 'cached_tokens': 0}}, 'model_name': 8gpt-4o-2024-11-208,
 
-8system_fingerprint8: 8fp_ee1d74bde08, 8id8: 8chatcmpl- BwsYEyERSjGxMNuHeniFJ6AykVs8e8, 8service_tier8: None, 8finish_reason8: 8stop8,
+'system_fingerprint': 'fp_ee1d74bde0', 'id': 8chatcmpl- BwsYEyERSjGxMNuHeniFJ6AykVs8e8, 'service_tier': None, 'finish_reason': 'stop',
 
-8logprobs8: None}, id=8run--fef4581a-268f-440d-84a4-4cdbbafdfd30-08, usage_metadata= {8input_tokens8: 1348, 8output_tokens8: 31, 8total_tokens8: 1379, 8input_token_details8: {8audio8: 0, 8cache_read8: 0}, 8output_token_details8: {8audio8: 0, 8reasoning8: 0}})
+'logprobs': None}, id=8run--fef4581a-268f-440d-84a4-4cdbbafdfd30-08, usage_metadata= {'input_tokens': 1348, 'output_tokens': 31, 'total_tokens': 1379, 'input_token_details': {'audio': 0, 'cache_read': 0}, 'output_token_details': {'audio': 0, 'reasoning': 0}})
 ```
